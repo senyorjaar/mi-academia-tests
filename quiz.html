@@ -227,7 +227,7 @@
 
         async function inicializarEcosistema() {
             try {
-                const res = await fetch('http://127.0.0.1:8000/tests');
+                const res = await fetch('https://mi-academia-tests.onrender.com/tests');
                 todasLasPreguntasBD = await res.json();
                 
                 const selectTema = document.getElementById('select-tema');
