@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Oposiciones - Academia</title>
+    <style>
+        /* =================================================================
+           ESTILOS GENERALES Y MAQUETACIÓN
+           ================================================================= */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px;
+            background-color: #f1f5f9; /* Gris claro de fondo uniforme */
+            color: #1e293b;
+        }
+        .contenedor {
+            max-width: 1000px; /* Un poco más ancho para la tabla de datos */
+            margin: auto;
+        }
+        h1 {
+            color: #0f172a;
+            border-bottom: 3px solid #3b82f6; /* Línea decorativa azul */
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        .subtitulo {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        /* =================================================================
+           BOTONES DE FILTRADO (Panel superior)
+           ================================================================= */
+        .bloque-filtros {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .btn-filtro {
+            background-color: white;
+            color: #475569;
+            border: 2px solid #cbd5e1;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        .btn-filtro:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        /* Clase activa que resalta el filtro seleccionado actualmente */
+        .btn-filtro.activo {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        /* =================================================================
+           ESTILOS DE LA TABLA DE PROCESOS
+           ================================================================= */
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Une los bordes de las celdas */
+            background: white;
+            border-radius: 12px;
+            overflow: hidden; /* Asegura que los bordes redondeados funcionen */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            margin-bottom: 30px;
+        }
+        th, td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f8fafc;
+            color: #475569;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase; /* Encabezados en mayúsculas */
+        }
+        tr:last-child td {
+            border-bottom: none; /* Quita la línea al último registro */
+        }
+        tr:hover td {
+            background-color: #f8fafc; /* Efecto iluminación al pasar el ratón */
+        }
+
+        /* Etiquetas visuales de colores (Badges) según el tipo de administración */
+        .badge {
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+        .badge-municipal { background-color: #ffe4e6; color: #9f1239; } /* Rosa / Rojo */
+        .badge-insular { background-color: #fef3c7; color: #92400e; }   /* Amarillo / Marrón */
+        .badge-autonomica { background-color: #dbeafe; color: #1e40af; } # Azul / Oscuro
+
+        /* Estilo para los enlaces de descarga directa */
+        .enlace-boib {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .enlace-boib:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mensaje de alerta en caso de que la tabla esté vacía */
+        .sin-resultados {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>📋 Buscador de Ofertas de Empleo Público</h1>
+        <div class="subtitulo">Monitoreo automatizado de plazas y edictos oficiales publicados en el BOIB en los últimos 30 días.</div>
+
+        <div class="bloque-filtros">
+            <button class="btn-filtro activo" onclick="filtrarProcesos('todos', this)">🌍 Ver Todo</button>
+            <button class="btn-filtro" onclick="filtrarProcesos('municipal', this)">🏙️ Municipales (Ayuntamientos)</button>
+            <button class="btn-filtro" onclick="filtrarProcesos('insular', this)">🚗 Insulares (Consells)</button>
+            <button class="btn-filtro" onclick="filtrarProcesos('autonomica', this)">🏛️ Autonómicos (Govern / CAIB)</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 45%;">Puesto / Categoría</th>
+                    <th style="width: 25%;">Organismo / Ente</th>
+                    <th style="width: 15%;">Ámbito</th>
+                    <th style="width: 15%;">Enlace</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-cuerpo">
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        // -----------------------------------------------------------------
+        # FUNCIÓN PRINCIPAL: cargarOposiciones
+        # OBJETIVO: Hacer una petición al servidor backend para descargar 
+        #           los edictos aplicando opcionalmente el filtro seleccionado.
+        // -----------------------------------------------------------------
+        async function cargarOposiciones(tipoFiltro = 'todos') {
+            const cuerpoTabla = document.getElementById('tabla-cuerpo');
+            
+            try {
+                // 1. Construimos la URL agregando el parámetro de filtrado si es necesario
+                let url = 'http://127.0.0.1:8000/procesos';
+                if (tipoFiltro !== 'todos') {
+                    url += `?tipo=${tipoFiltro}`;
+                }
+
+                // 2. Realizamos la llamada HTTP al servidor backend (`server.py`)
+                const respuesta = await fetch(url);
+                const datos = await respuesta.json();
+
+                // Caso de control: Si el servidor no devuelve registros en los últimos 30 días
+                if (datos.length === 0) {
+                    cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados">ℹ️ No se han registrado convocatorias de este ámbito en los últimos 30 días.</td></tr>`;
+                    return;
+                }
+
+                // 3. RENDERIZADO: Construimos las filas de la tabla de forma dinámica
+                let htmlFilas = "";
+                datos.forEach(proceso => {
+                    // Mapeamos el tipo de institución interna con su respectivo estilo visual de badge
+                    let claseBadge = "badge-municipal";
+                    let nombreVisualBadge = "Municipal";
+
+                    if (proceso.type === "insular") {
+                        claseBadge = "badge-insular";
+                        nombreVisualBadge = "Insular";
+                    } else if (proceso.type === "autonomica") {
+                        claseBadge = "badge-autonomica";
+                        nombreVisualBadge = "Autonómica";
+                    }
+
+                    // Ensamblamos la estructura HTML de la fila
+                    htmlFilas += `
+                        <tr>
+                            <td><strong>${proceso.puesto}</strong></td>
+                            <td>${proceso.ente}</td>
+                            <td><span class="badge ${claseBadge}">${nombreVisualBadge}</span></td>
+                            <td><a href="${proceso.url}" target="_blank" class="enlace-boib">🔗 Ver BOIB</a></td>
+                        </tr>
+                    `;
+                });
+
+                // Inyectamos todas las filas construidas de golpe en el DOM de la tabla
+                cuerpoTabla.innerHTML = htmlFilas;
+
+            } catch (error) {
+                console.error("Error al conectar con el módulo de procesos:", error);
+                cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados" style="color:red;">⚠️ Error al conectar con el servidor backend. Asegúrate de ejecutar 'server.py'.</td></tr>`;
+            }
+        }
+
+        // -----------------------------------------------------------------
+        # FUNCIÓN DE CONTROL: filtrarProcesos
+        # OBJETIVO: Cambiar el diseño del botón activo y refrescar la tabla 
+        #           al cambiar de categoría.
+        // -----------------------------------------------------------------
+        function filtrarProcesos(tipo, botonPulsado) {
+            // Quitamos la clase 'activo' de todos los botones
+            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
+            
+            // Le añadimos la clase 'activo' únicamente al botón que el usuario acaba de pulsar
+            botonPulsado.classList.add('activo');
+            
+            // Recargamos la tabla con el nuevo filtro aplicado
+            cargarOposiciones(tipo);
+        }
+
+        // Lanzamiento automático de la primera consulta global al abrir la pestaña en el navegador
+        cargarOposiciones();
+    </script>
+</body>
+</html>

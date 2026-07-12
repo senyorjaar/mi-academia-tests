@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso - Academia Oposiciones</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .caja-autenticacion {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            margin-top: 0;
+            color: #0f172a;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 8px;
+        }
+        .grupo-input {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+        label {
+            font-size: 13px;
+            font-weight: bold;
+            color: #475569;
+        }
+        input {
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            outline: none;
+            font-size: 14px;
+        }
+        input:focus {
+            border-color: #3b82f6;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2563eb;
+        }
+        .enlace-cambio {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #64748b;
+        }
+        .enlace-cambio span {
+            color: #3b82f6;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .enlace-cambio span:hover {
+            text-decoration: underline;
+        }
+        .mensaje-alerta {
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            display: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="caja-autenticacion">
+        <div id="caja-alerta" class="mensaje-alerta"></div>
+
+        <div id="vista-login">
+            <h2>🔑 Iniciar Sesión</h2>
+            <form onsubmit="procesarAutenticacion(event, 'login')">
+                <div class="grupo-input">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="login-email" required placeholder="tu@correo.com">
+                </div>
+                <div class="grupo-input">
+                    <label>Contraseña</label>
+                    <input type="password" id="login-password" required placeholder="••••••••">
+                </div>
+                <button type="submit">Entrar a la Plataforma</button>
+            </form>
+            <div class="enlace-cambio">¿No tienes cuenta? <span onclick="conmutarVista(true)">Regístrate aquí</span></div>
+        </div>
+
+        <div id="vista-registro" style="display: none;">
+            <h2>📝 Registrarse</h2>
+            <form onsubmit="procesarAutenticacion(event, 'registro')">
+                <div class="grupo-input">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="reg-nombre" required placeholder="Juan Pérez">
+                </div>
+                <div class="grupo-input">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="reg-email" required placeholder="tu@correo.com">
+                </div>
+                <div class="grupo-input">
+                    <label>Contraseña de Acceso</label>
+                    <input type="password" id="reg-password" required placeholder="Mínimo 6 caracteres">
+                </div>
+                <button type="submit" style="background-color: #10b981;">Crear mi Cuenta</button>
+            </form>
+            <div class="enlace-cambio">¿Ya eres alumno? <span onclick="conmutarVista(false)">Inicia sesión</span></div>
+        </div>
+    </div>
+
+    <script>
+        // Función estética para saltar de una pestaña a otra sin recargar
+        function conmutarVista(mostrarRegistro) {
+            document.getElementById('caja-alerta').style.display = 'none';
+            document.getElementById('vista-login').style.display = mostrarRegistro ? 'none' : 'block';
+            document.getElementById('vista-registro').style.display = mostrarRegistro ? 'block' : 'none';
+        }
+
+        // Lógica de comunicación con el backend de Python
+        async function procesarAutenticacion(event, modo) {
+            event.preventDefault();
+            const alerta = document.getElementById('caja-alerta');
+            alerta.style.display = 'none';
+
+            let url = 'http://127.0.0.1:8000/' + modo;
+            let cuerpoCarga = {};
+
+            if (modo === 'registro') {
+                cuerpoCarga = {
+                    nombre: document.getElementById('reg-nombre').value,
+                    email: document.getElementById('reg-email').value,
+                    password: document.getElementById('reg-password').value
+                };
+            } else {
+                cuerpoCarga = {
+                    email: document.getElementById('login-email').value,
+                    password: document.getElementById('login-password').value
+                };
+            }
+
+            try {
+                const respuesta = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(cuerpoCarga)
+                });
+
+                const resultado = await respuesta.json();
+
+                if (!respuesta.ok) {
+                    // Si el servidor responde con un error (400, 401, etc.)
+                    alerta.style.backgroundColor = '#fee2e2';
+                    alerta.style.color = '#991b1b';
+                    alerta.innerHTML = '❌ ' + (resultado.error || 'Ocurrió un problema.');
+                    alerta.style.display = 'block';
+                } else {
+                    // Si todo va bien
+                    alerta.style.backgroundColor = '#dcfce7';
+                    alerta.style.color = '#166534';
+                    alerta.innerHTML = '✅ ' + resultado.mensaje;
+                    alerta.style.display = 'block';
+
+                    if (modo === 'login') {
+                        // Guardamos temporalmente en el navegador quién inició sesión
+                        localStorage.setItem('usuario_logeado', JSON.stringify(resultado.usuario));
+                        alerta.innerHTML += '... Redireccionando al simulador.';
+                        setTimeout(() => {
+                            window.location.href = 'quiz.html'; // Salta automáticamente a los tests
+                        }, 1500);
+                    } else {
+                        // Si se registró con éxito, lo mandamos al login para que entre
+                        setTimeout(() => conmutarVista(false), 1500);
+                    }
+                }
+            } catch (error) {
+                alerta.style.backgroundColor = '#fee2e2';
+                alerta.style.color = '#991b1b';
+                alerta.innerHTML = '❌ Imposible conectar con server.py';
+                alerta.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
