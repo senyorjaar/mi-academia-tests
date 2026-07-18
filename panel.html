@@ -10,7 +10,7 @@
            ================================================================= */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 40px;
+            margin: 20px;
             background-color: #f1f5f9; /* Gris claro de fondo uniforme */
             color: #1e293b;
         }
@@ -23,10 +23,12 @@
             border-bottom: 3px solid #3b82f6; /* Línea decorativa azul */
             padding-bottom: 10px;
             margin-bottom: 5px;
+            font-size: 24px;
         }
         .subtitulo {
             color: #64748b;
             margin-bottom: 25px;
+            font-size: 14px;
         }
 
         /* =================================================================
@@ -35,7 +37,7 @@
         .bloque-filtros {
             display: flex;
             gap: 10px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
         .btn-filtro {
@@ -57,6 +59,39 @@
             background-color: #3b82f6;
             color: white;
             border-color: #2563eb;
+        }
+
+        /* =================================================================
+           MANTENIMIENTO: NUEVA CAJA DE BÚSQUEDA POR TEXTO DIRECTO
+           ================================================================= */
+        .bloque-busqueda {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .input-texto {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+        .input-texto:focus {
+            border-color: #3b82f6;
+        }
+        .btn-buscar {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-buscar:active {
+            background-color: #218838;
         }
 
         /* =================================================================
@@ -101,7 +136,7 @@
         }
         .badge-municipal { background-color: #ffe4e6; color: #9f1239; } /* Rosa / Rojo */
         .badge-insular { background-color: #fef3c7; color: #92400e; }   /* Amarillo / Marrón */
-        .badge-autonomica { background-color: #dbeafe; color: #1e40af; } # Azul / Oscuro
+        .badge-autonomica { background-color: #dbeafe; color: #1e40af; } /* Azul / Oscuro */
 
         /* Estilo para los enlaces de descarga directa */
         .enlace-boib {
@@ -126,8 +161,15 @@
 
     <div class="contenedor">
         <h1>📋 Buscador de Ofertas de Empleo Público</h1>
-        <div class="subtitulo">Monitoreo automatizado de plazas y edictos oficiales publicados en el BOIB en los últimos 30 días.</div>
+        <div class="subtitulo">Monitoreo automatizado de plazas y edictos oficiales publicados en el BOIB.</div>
 
+        <!-- MANTENIMIENTO: Barra para buscar por palabras clave específicas en movilidad -->
+        <div class="bloque-busqueda">
+            <input type="text" id="input-keyword" class="input-texto" placeholder="Escribe un término (Ej: Peón, Marratxí, Alaró...)">
+            <button onclick="buscarPorPalabraClave()" class="btn-buscar">Buscar</button>
+        </div>
+
+        <!-- Panel de filtrado por ámbitos de la administración original -->
         <div class="bloque-filtros">
             <button class="btn-filtro activo" onclick="filtrarProcesos('todos', this)">🌍 Ver Todo</button>
             <button class="btn-filtro" onclick="filtrarProcesos('municipal', this)">🏙️ Municipales (Ayuntamientos)</button>
@@ -145,88 +187,108 @@
                 </tr>
             </thead>
             <tbody id="tabla-cuerpo">
-                </tbody>
+                <!-- Las celdas se inyectan dinámicamente aquí -->
+            </tbody>
         </table>
     </div>
 
     <script>
         // -----------------------------------------------------------------
-        # FUNCIÓN PRINCIPAL: cargarOposiciones
-        # OBJETIVO: Hacer una petición al servidor backend para descargar 
-        #           los edictos aplicando opcionalmente el filtro seleccionado.
+        // MANTENIMIENTO: CARGAR OPOSICIONES DESDE EL SERVIDOR DE RENDER
         // -----------------------------------------------------------------
-        async function cargarOposiciones(tipoFiltro = 'todos') {
+        async function cargarOposiciones(tipoFiltro = 'todos', terminoKeyword = '') {
             const cuerpoTabla = document.getElementById('tabla-cuerpo');
+            cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados">Consultando base de datos en tiempo real...</td></tr>`;
             
             try {
-                // 1. Construimos la URL agregando el parámetro de filtrado si es necesario
-                let url = 'http://127.0.0.1:8000/procesos';
+                // Cambiado el endpoint local por tu URL global de Render definitiva
+                let url = 'https://mi-academia-tests.onrender.com/buscar-convocatorias';
+                
+                // Añadimos los parámetros estructurados si el usuario filtra o busca texto
+                let parametros = [];
+                if (terminoKeyword !== '') {
+                    parametros.push(`termino=${encodeURIComponent(terminoKeyword)}`);
+                }
                 if (tipoFiltro !== 'todos') {
-                    url += `?tipo=${tipoFiltro}`;
+                    parametros.push(`tipo=${encodeURIComponent(tipoFiltro)}`);
+                }
+                
+                if (parametros.length > 0) {
+                    url += '?' + parametros.join('&');
                 }
 
-                // 2. Realizamos la llamada HTTP al servidor backend (`server.py`)
                 const respuesta = await fetch(url);
-                const datos = await respuesta.json();
+                const resultado = await respuesta.json();
 
-                // Caso de control: Si el servidor no devuelve registros en los últimos 30 días
-                if (datos.length === 0) {
-                    cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados">ℹ️ No se han registrado convocatorias de este ámbito en los últimos 30 días.</td></tr>`;
+                // Control: Verificar si la respuesta fue exitosa y trae datos
+                if (resultado.estado !== "ok" || !resultado.datos || resultado.datos.length === 0) {
+                    cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados">ℹ️ No se han registrado convocatorias con los criterios seleccionados.</td></tr>`;
                     return;
                 }
 
-                // 3. RENDERIZADO: Construimos las filas de la tabla de forma dinámica
                 let htmlFilas = "";
-                datos.forEach(proceso => {
-                    // Mapeamos el tipo de institución interna con su respectivo estilo visual de badge
+                resultado.datos.forEach(proceso => {
+                    // Mapeamos dinámicamente las etiquetas de los ámbitos institucionales originales
                     let claseBadge = "badge-municipal";
                     let nombreVisualBadge = "Municipal";
 
-                    if (proceso.type === "insular") {
+                    if (proceso.type === "insular" || proceso.ambito === "insular") {
                         claseBadge = "badge-insular";
                         nombreVisualBadge = "Insular";
-                    } else if (proceso.type === "autonomica") {
+                    } else if (proceso.type === "autonomica" || proceso.ambito === "autonomica") {
                         claseBadge = "badge-autonomica";
                         nombreVisualBadge = "Autonómica";
                     }
 
-                    // Ensamblamos la estructura HTML de la fila
+                    // Ensamblamos manteniendo las variables originales: puesto, ente, url
+                    // Mantenimiento: Usamos campos alternativos por si varían entre tus bases de datos
+                    const tituloPuesto = proceso.titulo || proceso.puesto || "Categoría sin especificar";
+                    const organismoEnte = proceso.ente || proceso.organismo || "Ayuntamiento / Ente";
+                    const enlaceDocumento = proceso.enlace || proceso.url || "#";
+
                     htmlFilas += `
                         <tr>
-                            <td><strong>${proceso.puesto}</strong></td>
-                            <td>${proceso.ente}</td>
+                            <td><strong>${tituloPuesto}</strong></td>
+                            <td>${organismoEnte}</td>
                             <td><span class="badge ${claseBadge}">${nombreVisualBadge}</span></td>
-                            <td><a href="${proceso.url}" target="_blank" class="enlace-boib">🔗 Ver BOIB</a></td>
+                            <td><a href="${enlaceDocumento}" target="_blank" class="enlace-boib">🔗 Ver BOIB</a></td>
                         </tr>
                     `;
                 });
 
-                // Inyectamos todas las filas construidas de golpe en el DOM de la tabla
                 cuerpoTabla.innerHTML = htmlFilas;
 
             } catch (error) {
                 console.error("Error al conectar con el módulo de procesos:", error);
-                cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados" style="color:red;">⚠️ Error al conectar con el servidor backend. Asegúrate de ejecutar 'server.py'.</td></tr>`;
+                cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados" style="color:red;">⚠️ Error al conectar con el servidor en la nube de Render. Inténtalo de nuevo en unos instantes.</td></tr>`;
             }
         }
 
         // -----------------------------------------------------------------
-        # FUNCIÓN DE CONTROL: filtrarProcesos
-        # OBJETIVO: Cambiar el diseño del botón activo y refrescar la tabla 
-        #           al cambiar de categoría.
+        // MANTENIMIENTO: ACCIÓN DE BÚSQUEDA POR PALABRA CLAVE
+        // -----------------------------------------------------------------
+        function buscarPorPalabraClave() {
+            const keyword = document.getElementById('input-keyword').value;
+            // Al buscar texto, quitamos el estilo de activo de los botones de ámbito temporalmente
+            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
+            document.querySelector('.btn-filtro[onclick*="todos"]').classList.add('activo');
+            
+            cargarOposiciones('todos', keyword);
+        }
+
+        // -----------------------------------------------------------------
+        // FUNCIÓN DE CONTROL: filtrarProcesos (Original con persistencia)
         // -----------------------------------------------------------------
         function filtrarProcesos(tipo, botonPulsado) {
-            // Quitamos la clase 'activo' de todos los botones
             document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
-            
-            // Le añadimos la clase 'activo' únicamente al botón que el usuario acaba de pulsar
             botonPulsado.classList.add('activo');
             
-            // Recargamos la tabla con el nuevo filtro aplicado
+            // Al pulsar un filtro de botón, limpiamos el campo de texto para no mezclar búsquedas
+            document.getElementById('input-keyword').value = '';
             cargarOposiciones(tipo);
         }
 
-        // Lanzamiento automático de la primera consulta global al abrir la pestaña en el navegador
+        // Arranque inicial automático al cargar la pestaña en el dispositivo móvil
         cargarOposiciones();
     </script>
 </body>
