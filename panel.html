@@ -177,8 +177,8 @@
             cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados">Consultando base de datos en tiempo real...</td></tr>`;
             
             try {
-                // Sincronizado a la URL estable sin '-1' igual que tu archivo login
-                let url = 'https://mi-academia-tests.onrender.com/buscar-convocatorias';
+                // MODIFICADO: Cambiado temporalmente a localhost para probar el buscador en tu PC
+                let url = 'http://127.0.0.1:8000/buscar-convocatorias';
                 let parametros = [];
                 if (terminoKeyword !== '') parametros.push(`termino=${encodeURIComponent(terminoKeyword)}`);
                 if (tipoFiltro !== 'todos') parametros.push(`tipo=${encodeURIComponent(tipoFiltro)}`);
