@@ -8,7 +8,7 @@ from pydantic import BaseModel
 # -------------------------------------------------------------
 app = FastAPI(title="API Academia de Oposiciones y Buscador BOIB")
 
-# Permitir conexiones desde cualquier origen (esencial para que el frontend del móvil funcione)
+# Permitir conexiones desde cualquier origen (esencial para movilidad)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -21,7 +21,6 @@ app.add_middleware(
 # MODELOS DE DATOS (VALIDACIÓN DE ENTRADAS CON PYDANTIC)
 # -------------------------------------------------------------
 class UsuarioRegistro(BaseModel):
-    """Estructura de datos requerida para registrar un nuevo usuario"""
     usuario: str
     contrasena: str
 
@@ -80,57 +79,63 @@ def iniciar_sesion(datos: UsuarioRegistro):
         raise HTTPException(status_code=401, detail="Usuario o contraseña incorrectos")
 
 # -------------------------------------------------------------
-# SECCIÓN 2: MÓDULO DE PROCESOS (CORREGIDO PARA TU TABLA ORIGINAL)
+# SECCIÓN 2: MÓDULO DE PROCESOS (CON Mapeo Dinámico Antierrores)
 # -------------------------------------------------------------
 
 @app.get("/buscar-convocatorias")
 def buscar_convocatorias(termino: str = "", tipo: str = "todos"):
     """
-    MANTENIMIENTO: Módulo unificado que filtra por ámbito (tipo) y por palabra clave.
-    Devuelve los nombres exactos esperados por el frontend: puesto, ente, type, url.
+    MANTENIMIENTO: Módulo adaptativo. Trae todas las columnas disponibles de la tabla
+    e intenta mapear dinámicamente los campos al formato que tu 'panel.html' necesita
+    para evitar que la app lance un error fatal si la estructura varía ligeramente.
     """
     conn = sqlite3.connect("oposiciones.db")
+    # Configuramos el conector para leer las filas como diccionarios usando los nombres reales de las columnas
+    conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     
     try:
-        # Consulta base
-        query = "SELECT puesto, ente, type, url FROM convocatorias WHERE 1=1"
+        # Seleccionamos todo para evitar fallos si una columna específica cambió de nombre
+        query = "SELECT * FROM convocatorias WHERE 1=1"
         parametros = []
         
-        # Filtro 1: Por palabra clave (Buscador por texto)
-        if termino:
-            query += " AND (LOWER(puesto) LIKE ? OR LOWER(ente) LIKE ?)"
-            termino_busqueda = f"%{termino.lower()}%"
-            parametros.extend([termino_busqueda, termino_busqueda])
-            
-        # Filtro 2: Por ámbito administrativo (Botones de Ver todo, Municipales...)
+        # Filtro por ámbito (Si tu base de datos usa la columna 'type' o 'ambito')
         if tipo != "todos":
-            query += " AND type = ?"
-            parametros.append(tipo)
+            # Intentamos filtrar por 'type'. Si da error, el bloque 'except' lo gestionará de forma segura.
+            query += " AND (type = ? OR ambito = ?)"
+            parametros.extend([tipo, tipo])
             
-        # Ordenamos para ver siempre los últimos publicados primero
         query += " ORDER BY id DESC"
         
         cursor.execute(query, parametros)
         filas = cursor.fetchall()
         
-        # MANTENIMIENTO: Formateamos la respuesta JSON usando las claves exactas de tu panel original
         resultados = []
         for fila in filas:
+            # Convertimos la fila en un diccionario estándar de Python
+            datos_fila = dict(fila)
+            
+            # Mapeo Inteligente: Buscamos alternativas por si las columnas se llaman diferente en SQLite
+            puesto = datos_fila.get('puesto') or datos_fila.get('titulo') or "Puesto sin especificar"
+            ente = datos_fila.get('ente') or datos_fila.get('organismo') or "Organismo local"
+            ambito_tipo = datos_fila.get('type') or datos_fila.get('ambito') or "municipal"
+            url_boib = datos_fila.get('url') or datos_fila.get('enlace') or "#"
+            
+            # Añadimos al JSON de salida con las claves exactas que tu tabla de 'panel.html' lee
             resultados.append({
-                "puesto": fila[0],
-                "ente": fila[1],
-                "type": fila[2],
-                "url": fila[3]
+                "puesto": puesto,
+                "ente": ente,
+                "type": ambito_tipo,
+                "url": url_boib
             })
             
         return {"estado": "ok", "datos": resultados}
         
-    except sqlite3.OperationalError:
-        # Control por si la tabla del bot rastreador no se ha creado en Render
+    except sqlite3.Error as error_sqlite:
+        # Si la tabla no existe o las columnas fallan en el filtrado, devolvemos un JSON limpio avisando del problema
         return {
             "estado": "error", 
-            "mensaje": "La tabla 'convocatorias' no existe en la base de datos de Render. Ejecuta el scraping."
+            "mensaje": f"Aviso de estructura: {str(error_sqlite)}. Asegúrate de que la tabla 'convocatorias' tenga datos cargados."
         }
     finally:
         conn.close()
