@@ -27,8 +27,56 @@
         }
         .subtitulo {
             color: #64748b;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-size: 14px;
+        }
+
+        /* =================================================================
+           NUEVA BARRA DE NAVEGACIÓN (Ir a Tests / Cerrar Sesión)
+           ================================================================= */
+        .barra-navegacion {
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            margin-bottom: 25px;
+        }
+        .btn-nav-test {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s;
+        }
+        .btn-nav-test:hover {
+            background-color: #2563eb;
+        }
+        .btn-nav-salir {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        .btn-nav-salir:hover {
+            background-color: #dc2626;
         }
 
         /* =================================================================
@@ -163,6 +211,12 @@
         <h1>📋 Buscador de Ofertas de Empleo Público</h1>
         <div class="subtitulo">Monitoreo automatizado de plazas y edictos oficiales publicados en el BOIB.</div>
 
+        <!-- BARRA DE NAVEGACIÓN -->
+        <div class="barra-navegacion">
+            <a href="quiz.html" class="btn-nav-test">📝 Ir a Zona de Tests</a>
+            <a href="login.html" class="btn-nav-salir">🚪 Cerrar Sesión</a>
+        </div>
+
         <!-- MANTENIMIENTO: Barra para buscar por palabras clave específicas en movilidad -->
         <div class="bloque-busqueda">
             <input type="text" id="input-keyword" class="input-texto" placeholder="Escribe un término (Ej: Peón, Marratxí, Alaró...)">
@@ -201,10 +255,8 @@
             cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados">Consultando base de datos en tiempo real...</td></tr>`;
             
             try {
-                // Cambiado el endpoint local por tu URL global de Render definitiva
-                let url = 'https://mi-academia-tests.onrender.com/buscar-convocatorias';
+                let url = 'https://mi-academia-tests-1.onrender.com/buscar-convocatorias';
                 
-                // Añadimos los parámetros estructurados si el usuario filtra o busca texto
                 let parametros = [];
                 if (terminoKeyword !== '') {
                     parametros.push(`termino=${encodeURIComponent(terminoKeyword)}`);
@@ -220,15 +272,18 @@
                 const respuesta = await fetch(url);
                 const resultado = await respuesta.json();
 
-                // Control: Verificar si la respuesta fue exitosa y trae datos
-                if (resultado.estado !== "ok" || !resultado.datos || resultado.datos.length === 0) {
+                if (resultado.estado === "error") {
+                    cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados" style="color: #d97706;">⚠️ ${resultado.mensaje}</td></tr>`;
+                    return;
+                }
+
+                if (!resultado.datos || resultado.datos.length === 0) {
                     cuerpoTabla.innerHTML = `<tr><td colspan="4" class="sin-resultados">ℹ️ No se han registrado convocatorias con los criterios seleccionados.</td></tr>`;
                     return;
                 }
 
                 let htmlFilas = "";
                 resultado.datos.forEach(proceso => {
-                    // Mapeamos dinámicamente las etiquetas de los ámbitos institucionales originales
                     let claseBadge = "badge-municipal";
                     let nombreVisualBadge = "Municipal";
 
@@ -240,11 +295,9 @@
                         nombreVisualBadge = "Autonómica";
                     }
 
-                    // Ensamblamos manteniendo las variables originales: puesto, ente, url
-                    // Mantenimiento: Usamos campos alternativos por si varían entre tus bases de datos
-                    const tituloPuesto = proceso.titulo || proceso.puesto || "Categoría sin especificar";
+                    const tituloPuesto = proceso.puesto || proceso.titulo || "Categoría sin especificar";
                     const organismoEnte = proceso.ente || proceso.organismo || "Ayuntamiento / Ente";
-                    const enlaceDocumento = proceso.enlace || proceso.url || "#";
+                    const enlaceDocumento = proceso.url || proceso.enlace || "#";
 
                     htmlFilas += `
                         <tr>
@@ -264,32 +317,25 @@
             }
         }
 
-        // -----------------------------------------------------------------
-        // MANTENIMIENTO: ACCIÓN DE BÚSQUEDA POR PALABRA CLAVE
-        // -----------------------------------------------------------------
         function buscarPorPalabraClave() {
             const keyword = document.getElementById('input-keyword').value;
-            // Al buscar texto, quitamos el estilo de activo de los botones de ámbito temporalmente
             document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
             document.querySelector('.btn-filtro[onclick*="todos"]').classList.add('activo');
             
             cargarOposiciones('todos', keyword);
         }
 
-        // -----------------------------------------------------------------
-        // FUNCIÓN DE CONTROL: filtrarProcesos (Original con persistencia)
-        // -----------------------------------------------------------------
         function filtrarProcesos(tipo, botonPulsado) {
             document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
             botonPulsado.classList.add('activo');
             
-            // Al pulsar un filtro de botón, limpiamos el campo de texto para no mezclar búsquedas
             document.getElementById('input-keyword').value = '';
             cargarOposiciones(tipo);
         }
 
-        // Arranque inicial automático al cargar la pestaña en el dispositivo móvil
-        cargarOposiciones();
+        document.addEventListener("DOMContentLoaded", () => {
+            cargarOposiciones();
+        });
     </script>
 </body>
 </html>
