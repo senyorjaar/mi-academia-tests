@@ -171,27 +171,25 @@
                 const resultado = await respuesta.json();
 
                 if (!respuesta.ok) {
-                    // Si el servidor responde con un error (400, 401, etc.)
                     alerta.style.backgroundColor = '#fee2e2';
                     alerta.style.color = '#991b1b';
                     alerta.innerHTML = '❌ ' + (resultado.error || 'Ocurrió un problema.');
                     alerta.style.display = 'block';
                 } else {
-                    // Si todo va bien
                     alerta.style.backgroundColor = '#dcfce7';
                     alerta.style.color = '#166534';
                     alerta.innerHTML = '✅ ' + resultado.mensaje;
                     alerta.style.display = 'block';
 
                     if (modo === 'login') {
-                        // Guardamos temporalmente en el navegador quién inició sesión
                         localStorage.setItem('usuario_logeado', JSON.stringify(resultado.usuario));
-                        alerta.innerHTML += '... Redireccionando al simulador.';
+                        
+                        // MANTENIMIENTO: Redirección corregida al panel unificado
+                        alerta.innerHTML += '... Redireccionando al panel principal.';
                         setTimeout(() => {
-                            window.location.href = 'quiz.html'; // Salta automáticamente a los tests
+                            window.location.href = 'panel.html'; 
                         }, 1500);
                     } else {
-                        // Si se registró con éxito, lo mandamos al login para que entre
                         setTimeout(() => conmutarVista(false), 1500);
                     }
                 }
