@@ -21,6 +21,10 @@ security_bearer = HTTPBearer()
 DB_NAME = "oposiciones.db"
 U_CALENDARIO = "https://www.caib.es/eboibfront/ES"
 
+# 📢 CONFIGURACIÓN DE TELEGRAM
+TELEGRAM_TOKEN = "8416891328:AAGGrldrPsp8txnqOGQhJJLFH_81NKtBay0"
+TELEGRAM_CHAT_ID = "7196575735"
+
 # Modelos de datos para recibir el Login
 class LoginRequest(BaseModel):
     username: str
@@ -53,16 +57,30 @@ def verificar_token(credentials: HTTPAuthorizationCredentials = Security(securit
 
 def limpiar_titulo(texto):
     """Limpia el contenido extraído del BOIB devolviendo el enunciado largo y completo."""
-    # Convertimos a mayúsculas y limpiamos múltiples espacios/saltos de línea internos para no romper la tabla
     texto_limpio = " ".join(texto.split()).strip().upper()
     return texto_limpio
+
+def limpiar_titulo_telegram(texto):
+    """Recorta el texto para generar un título más limpio y directo exclusivo para Telegram."""
+    texto = texto.upper()
+    match = re.search(r"(BORSA|BOLSA|PLAZA|PLACES|CONVOCATORIA|OPOSICIÓ|SELECTI|PROVES|LLANTERNER|FONTANER|PEÓ|AUXILIAR|ADMINISTRATI).*", texto)
+    if match:
+        return match.group(0).split('\n')[0].split('.')[0][:120].strip()
+    return texto.split('\n')[0][:120].strip()
+
+def enviar_a_telegram(mensaje: str):
+    """Envía un mensaje de texto con formato Markdown al chat de Telegram configurado."""
+    try:
+        url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+        requests.post(url, data={'chat_id': TELEGRAM_CHAT_ID, 'text': mensaje, 'parse_mode': 'Markdown'}, timeout=10)
+    except Exception as e:
+        print(f"Error enviando a Telegram: {e}")
 
 
 # =====================================================================
 # 🌐 ENDPOINTS Y RUTAS WEB
 # =====================================================================
 
-# Ruta raíz por defecto redirige al login/panel
 @app.get("/")
 def leer_raiz():
     return FileResponse("static/index.html")
@@ -72,13 +90,11 @@ def registrar_usuario(datos: LoginRequest):
     conexion = sqlite3.connect(DB_NAME)
     cursor = conexion.cursor()
     
-    # Comprobar si el nombre de usuario ya está cogido
     cursor.execute("SELECT id FROM usuarios WHERE username = ?", (datos.username,))
     if cursor.fetchone():
         conexion.close()
         raise HTTPException(status_code=400, detail="El nombre de usuario ya existe.")
     
-    # Encriptar e insertar el nuevo usuario
     pass_encriptada = hash_password(datos.password)
     cursor.execute("INSERT INTO usuarios (username, password_hash) VALUES (?, ?)", (datos.username, pass_encriptada))
     
@@ -88,20 +104,15 @@ def registrar_usuario(datos: LoginRequest):
 
 @app.post("/login")
 def login(datos: LoginRequest):
-    # =====================================================================
     # 👑 CONFIGURACIÓN DEL USUARIO MAESTRO
-    # =====================================================================
     USUARIO_MAESTRO = "root"
-    PASSWORD_MAESTRA = "root1234"  # <-- Cambia esta contraseña por la que quieras
+    PASSWORD_MAESTRA = "root1234"
     
     if datos.username == USUARIO_MAESTRO and datos.password == PASSWORD_MAESTRA:
-        # Emitir token directamente sin tocar la base de datos
         expiracion = datetime.datetime.utcnow() + datetime.timedelta(hours=12)
         token = jwt.encode({"sub": USUARIO_MAESTRO, "role": "maestro", "exp": expiracion}, SECRET_KEY, algorithm=ALGORITHM)
         return {"token": token, "username": USUARIO_MAESTRO}
-    # =====================================================================
 
-    # Si no es el usuario maestro, procedemos con la validación normal en la BD
     conexion = sqlite3.connect(DB_NAME)
     cursor = conexion.cursor()
     cursor.execute("SELECT password_hash FROM usuarios WHERE username = ?", (datos.username,))
@@ -113,11 +124,9 @@ def login(datos: LoginRequest):
         
     password_hash = resultado[0]
     
-    # Comprobar si la contraseña introducida coincide con el hash encriptado
     if not bcrypt.checkpw(datos.password.encode('utf-8'), password_hash.encode('utf-8')):
         raise HTTPException(status_code=401, detail="Usuario o contraseña incorrectos")
         
-    # Crear token de acceso normal válido por 12 horas
     expiracion = datetime.datetime.utcnow() + datetime.timedelta(hours=12)
     token = jwt.encode({"sub": datos.username, "exp": expiracion}, SECRET_KEY, algorithm=ALGORITHM)
     
@@ -127,6 +136,7 @@ def login(datos: LoginRequest):
 def buscar_ofertas(tipo: str = Query("todos")):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0'}
     resultados_json = []
+    novedades_hoy_telegram = []
     
     try:
         res_cal = requests.get(U_CALENDARIO, headers=headers, timeout=20)
@@ -136,6 +146,9 @@ def buscar_ofertas(tipo: str = Query("todos")):
         ultimos_4 = enlaces_boletines[-4:]
         if not ultimos_4: 
             return []
+            
+        # El último boletín de la lista representa el día de hoy
+        url_hoy = ultimos_4[-1]
 
         municipios = [
             "palma", "calvià", "calvia", "eivissa", "manacor", "llucmajor", "marratxí", "marratxi", 
@@ -144,10 +157,8 @@ def buscar_ofertas(tipo: str = Query("todos")):
             "alaró", "alaro", "artà", "arta", "porreres", "valldemossa", "sant llorenç", "caib", "govern", "consell"
         ]
         
-        # Ajuste de filtros: Buscamos únicamente inicios de convocatorias y bases de plazas nuevas
         si_quiero = ["bases", "convocatoria", "convocatòria", "constitución", "constitució", "creación", "creació", "selecti", "proves"]
         
-        # Lista ampliada de exclusión de trámites intermedios y administrativos irrelevantes
         no_quiero = [
             "designación", "designació", "nombramiento", "nomenament", "lista", "llista", 
             "admitidos", "admesos", "puntuación", "puntuació", "corrección", "esmena", 
@@ -157,6 +168,7 @@ def buscar_ofertas(tipo: str = Query("todos")):
         ]
 
         for url_boletin in ultimos_4:
+            es_hoy = (url_boletin == url_hoy)
             try:
                 res_dia = requests.get(url_boletin, headers=headers, timeout=15)
                 soup_dia = BeautifulSoup(res_dia.text, 'html.parser')
@@ -175,7 +187,7 @@ def buscar_ofertas(tipo: str = Query("todos")):
                             link_pdf = bloque.find('a', href=True)
                             if link_pdf:
                                 url_f = "https://www.caib.es" + link_pdf['href'] if link_pdf['href'].startswith('/') else link_pdf['href']
-                                puesto = limpiar_titulo(full_text)
+                                puesto_completo = limpiar_titulo(full_text)
                                 
                                 ente = next((m.upper() for m in municipios if m in full_text), "MALLORCA")
                                 ambito = "municipal"
@@ -184,12 +196,23 @@ def buscar_ofertas(tipo: str = Query("todos")):
                                 elif "GOVERN" in ente or "CAIB" in ente:
                                     ambito = "autonomica"
                                 
-                                item = {"puesto": puesto, "ente": ente, "type": ambito, "url": url_f}
+                                item = {"puesto": puesto_completo, "ente": ente, "type": ambito, "url": url_f}
                                 
                                 if item not in resultados_json:
                                     resultados_json.append(item)
+                                    
+                                    # Si el anuncio pertenece al BOIB de hoy, lo preparamos para Telegram
+                                    if es_hoy:
+                                        puesto_corto = limpiar_titulo_telegram(full_text)
+                                        novedades_hoy_telegram.append((puesto_corto, url_f, ente))
             except: 
                 continue
+
+        # 📨 PROCESADO Y ENVÍO EXCLUSIVO A TELEGRAM (Solo si hay novedades hoy)
+        if novedades_hoy_telegram:
+            for p, u, e in novedades_hoy_telegram:
+                msg = f"🆕 *¡NUEVA! (BOIB HOY)*\n\n💼 {p}\n🏛️ {e}\n\n🔗 [DESCARGAR PDF]({u})"
+                enviar_a_telegram(msg)
 
     except Exception as e: 
         print(f"Error en Scraper: {e}")
