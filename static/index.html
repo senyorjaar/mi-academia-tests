@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia de Oposiciones - Acceso</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f1f5f9; margin: 0; padding: 40px; display: flex; justify-content: center; align-items: center; min-height: 80vh; }
+        .tarjeta { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); max-width: 400px; width: 100%; text-align: center; }
+        h1 { color: #0f172a; border-bottom: 3px solid #3b82f6; padding-bottom: 10px; margin-bottom: 20px; }
+        .pestanas { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tab { flex: 1; padding: 10px; background: #e2e8f0; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; color: #475569; }
+        .tab.activa { background: #3b82f6; color: white; }
+        .campo { margin-bottom: 15px; text-align: left; }
+        label { display: block; font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 5px; text-transform: uppercase; }
+        input { width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
+        input:focus { border-color: #3b82f6; outline: none; }
+        button.principal { background-color: #3b82f6; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+        button.principal:hover { background-color: #2563eb; }
+        .alerta { font-size: 14px; margin-top: 12px; display: none; font-weight: 600; padding: 10px; border-radius: 6px; }
+        .alerta-error { background-color: #fee2e2; color: #ef4444; }
+        .alerta-exito { background-color: #dcfce7; color: #15803d; }
+        .menu-privado { display: none; }
+        .btn-menu { background-color: #10b981; margin-bottom: 10px; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; }
+        .btn-menu:hover { background-color: #059669; }
+    </style>
+</head>
+<body>
+
+<div class="tarjeta">
+    <h1>🏛 nighttime Academia Oposiciones</h1>
+    
+    <!-- SECCIÓN PÚBLICA -->
+    <div id="seccion-autenticacion">
+        <div class="pestanas">
+            <button id="tab-login" class="tab activa" onclick="cambiarPestana('login')">🔑 Entrar</button>
+            <button id="tab-registro" class="tab" onclick="cambiarPestana('registro')">👤 Crear Cuenta</button>
+        </div>
+
+        <form id="form-auth" onsubmit="procesarFormulario(event)">
+            <div class="campo">
+                <label for="user">Usuario</label>
+                <input type="text" id="user" ready required>
+            </div>
+            <div class="campo">
+                <label for="pass">Contraseña</label>
+                <input type="password" id="pass" required>
+            </div>
+            <button type="submit" id="btn-enviar-auth" class="principal">Iniciar Sesión</button>
+        </form>
+        <div id="cuadro-alerta" class="alerta"></div>
+    </div>
+
+    <!-- PANEL PRIVADO -->
+    <div id="seccion-menu" class="menu-privado">
+        <p style="color: #64748b; font-weight: 600;">¡Bienvenido, <span id="nombre-usuario" style="color:#3b82f6;"></span>!</p>
+        <button class="btn-menu" onclick="window.location.href='/static/oposiciones.html'">📋 Buscador de Ofertas BOIB</button>
+        <button class="btn-menu" onclick="window.location.href='/static/quiz.html'">🧠 Cuestionarios y Tests</button>
+        <button style="background-color: #64748b; color: white; border: none; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer;" onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+</div>
+
+<script>
+    let modoActual = 'login'; // Puede ser 'login' o 'registro'
+
+    window.onload = function() {
+        const token = localStorage.getItem('token');
+        const username = localStorage.getItem('username');
+        if (token && username) {
+            mostrarMenu(username);
+        }
+    }
+
+    function cambiarPestana(modo) {
+        modoActual = modo;
+        const alerta = document.getElementById('cuadro-alerta');
+        alerta.style.display = "none";
+        
+        if (modo === 'login') {
+            document.getElementById('tab-login').classList.add('activa');
+            document.getElementById('tab-registro').classList.remove('activa');
+            document.getElementById('btn-enviar-auth').innerText = "🔒 Iniciar Sesión";
+        } else {
+            document.getElementById('tab-login').classList.remove('activa');
+            document.getElementById('tab-registro').classList.add('activa');
+            document.getElementById('btn-enviar-auth').innerText = "✨ Registrar Nuevo Usuario";
+        }
+    }
+
+    async function procesarFormulario(event) {
+        event.preventDefault();
+        const user = document.getElementById('user').value;
+        const pass = document.getElementById('pass').value;
+        const alerta = document.getElementById('cuadro-alerta');
+        
+        alerta.style.display = "none";
+        alerta.className = "alerta"; // Limpiar clases
+
+        // Determinar a qué endpoint llamamos
+        const endpoint = (modoActual === 'login') ? '/login' : '/register';
+
+        try {
+            const respuesta = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: user, password: pass })
+            });
+
+            const datos = await respuesta.json();
+
+            if (!respuesta.ok) {
+                throw new Error(datos.detail || "Ha ocurrido un error inesperado.");
+            }
+
+            if (modoActual === 'login') {
+                localStorage.setItem('token', datos.token);
+                localStorage.setItem('username', datos.username);
+                mostrarMenu(datos.username);
+            } else {
+                alerta.innerText = "✅ " + datos.message;
+                alerta.classList.add('alerta-exito');
+                alerta.style.display = "block";
+                cambiarPestana('login'); // Cambia a la pestaña de login tras registrarse
+            }
+
+        } catch (err) {
+            alerta.innerText = "❌ " + err.message;
+            alerta.classList.add('alerta-error');
+            alerta.style.display = "block";
+        }
+    }
+
+    function mostrarMenu(username) {
+        document.getElementById('seccion-autenticacion').style.display = "none";
+        document.getElementById('seccion-menu').style.display = "block";
+        document.getElementById('nombre-usuario').innerText = username;
+    }
+
+    function cerrarSesion() {
+        localStorage.clear();
+        window.location.reload();
+    }
+</script>
+</body>
+</html>

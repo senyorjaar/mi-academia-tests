@@ -1,0 +1,10 @@
+mi_proyecto_oposiciones/
+├── server.py              # Backend unificado en FastAPI (Login, Buscador, Tests)
+├── oposiciones.db         # Tu Base de Datos SQLite
+├── preguntas_txt/         # Carpeta donde colocas tus archivos .txt con las preguntas
+│   └── constitucion.txt
+├── static/                # Archivos estáticos de la interfaz
+│   ├── index.html         # Panel de Control / Login (Punto de Entrada)
+│   ├── oposiciones.html   # Tu Buscador de Ofertas (panel html)
+│   └── quiz.html          # Tu Generador de Tests (pagina del quiz)
+└── requirements.txt       # Librerías necesarias para Render

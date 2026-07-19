@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Exámenes - Academia Oposiciones</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f1f5f9; color: #1e293b; }
+        .contenedor { max-width: 800px; margin: auto; }
+        h1 { color: #0f172a; border-bottom: 3px solid #3b82f6; padding-bottom: 10px; margin-bottom: 5px; }
+        .subtitulo { color: #64748b; margin-bottom: 25px; }
+        .panel-configuracion { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 25px; display: flex; flex-direction: column; gap: 20px; }
+        .fila-config { display: flex; flex-wrap: wrap; gap: 20px; }
+        .seccion-config { flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 8px; }
+        .seccion-config label { font-size: 13px; font-weight: bold; color: #475569; text-transform: uppercase; }
+        select { padding: 12px 15px; border-radius: 8px; border: 2px solid #cbd5e1; background-color: #fff; font-weight: bold; color: #334155; width: 100%; font-size: 14px; cursor: pointer; }
+        select:focus { border-color: #3b82f6; }
+        .btn-generar-test { background-color: #3b82f6; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; }
+        .btn-generar-test:hover { background-color: #2563eb; }
+        .tarjeta-pregunta { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 20px; }
+        .enunciado { font-size: 16px; font-weight: 600; margin-bottom: 15px; color: #1e293b; }
+        .opcion { display: flex; align-items: center; gap: 12px; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 10px; cursor: pointer; transition: background 0.2s; }
+        .opcion:hover { background-color: #f8fafc; }
+        .opcion input { cursor: pointer; transform: scale(1.2); }
+        .opcion.correcta { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #15803d; font-weight: 600; }
+        .opcion.incorrecta { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b; }
+        .btn-corregir { background-color: #10b981; color: white; border: none; padding: 14px 28px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 15px; }
+        .btn-corregir:hover { background-color: #059669; }
+        .resultado-final { margin-top: 25px; padding: 20px; border-radius: 10px; text-align: center; font-size: 20px; font-weight: bold; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <button style="background: #475569; color: white; border: none; padding: 8px 15px; border-radius: 6px; font-weight: bold; cursor: pointer;" onclick="window.location.href='/'">⬅️ Volver al Menú</button>
+        <h1>🧠 Generador de Tests Avanzado</h1>
+        <div class="subtitulo">Configura tu sesión de estudio inteligente basándote en la base de datos real.</div>
+
+        <div class="panel-configuracion">
+            <div class="fila-config">
+                <div class="seccion-config">
+                    <label for="select-cantidad">1. Cantidad de preguntas</label>
+                    <select id="select-cantidad">
+                        <option value="10">📝 10 Preguntas (Test Rápido)</option>
+                        <option value="20" selected>📝 20 Preguntas (Estándar)</option>
+                        <option value="30">📝 30 Preguntas (Intensivo)</option>
+                        <option value="40">🔥 40 Preguntas (Límite Máximo)</option>
+                    </select>
+                </div>
+                
+                <div class="seccion-config">
+                    <label for="select-tema">2. Selecciona la Materia o Ley</label>
+                    <select id="select-tema">
+                        <option>Cargando temarios...</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button type="button" class="btn-generar-test" onclick="procesarLanzamientoExamen()">
+                🚀 Iniciar Cuestionario Personalizado
+            </button>
+        </div>
+
+        <form id="formulario-examen" onsubmit="corregirExamen(event)">
+            <div id="contenedor-preguntas"></div>
+            <button type="submit" class="btn-corregir" id="btn-enviar" style="display: none;">📊 Finalizar y Corregir Examen</button>
+        </form>
+
+        <div id="cuadro-resultado" class="resultado-final"></div>
+    </div>
+
+    <script>
+        let todasLasPreguntasBD = [];
+        let preguntasCargadasExamen = [];
+
+        function desordenarArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        async function inicializarEcosistema() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                alert("⚠️ Acceso denegado. Debes iniciar sesión primero.");
+                window.location.href = '/';
+                return;
+            }
+
+            try {
+                // Hacemos la llamada segura inyectando el Token JWT en los headers de autorización
+                const res = await fetch('/tests', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if(res.status === 401) {
+                    localStorage.clear();
+                    window.location.href = '/';
+                    return;
+                }
+
+                todasLasPreguntasBD = await res.json();
+                const selectTema = document.getElementById('select-tema');
+                const temasUnicos = [...new Set(todasLasPreguntasBD.map(p => p.tema))];
+                
+                let opcionesHTML = `<option value="simulacro">⚡ Simulacro General (Mezcla de todo el temario)</option>`;
+                temasUnicos.forEach(tema => {
+                    if(tema) opcionesHTML += `<option value="${tema}">📚 ${tema}</option>`;
+                });
+                
+                selectTema.innerHTML = opcionesHTML;
+                
+            } catch (error) {
+                document.getElementById('select-tema').innerHTML = "<option>⚠️ Error al cargar el banco de preguntas</option>";
+            }
+        }
+
+        function procesarLanzamientoExamen() {
+            document.getElementById('cuadro-resultado').style.display = "none";
+            const cantidadLimite = parseInt(document.getElementById('select-cantidad').value);
+            const temaSeleccionado = document.getElementById('select-tema').value;
+            
+            let poolPreguntas = (temaSeleccionado === 'simulacro') 
+                ? [...todasLasPreguntasBD] 
+                : todasLasPreguntasBD.filter(p => p.tema === temaSeleccionado);
+            
+            desordenarArray(poolPreguntas);
+            let preguntasRecortadas = poolPreguntas.slice(0, cantidadLimite);
+            
+            preguntasCargadasExamen = preguntasRecortadas.map(p => {
+                let opciones = [
+                    { letraOriginal: 'A', texto: p.opcion_a },
+                    { letraOriginal: 'B', texto: p.opcion_b },
+                    { letraOriginal: 'C', texto: p.opcion_c },
+                    { letraOriginal: 'D', texto: p.opcion_d }
+                ];
+                desordenarArray(opciones); // Mezclamos la posición física aleatoriamente
+                return {
+                    id: p.id,
+                    tema: p.tema,
+                    enunciado: p.enunciado,
+                    correctaOriginal: p.correcta,
+                    justificacion: p.justificacion || "Fundamento jurídico no especificado.",
+                    opcionesMezcladas: opciones
+                };
+            });
+            
+            const contenedor = document.getElementById('contenedor-preguntas');
+            contenedor.innerHTML = "";
+            
+            preguntasCargadasExamen.forEach((p, index) => {
+                const div = document.createElement('div');
+                div.className = 'tarjeta-pregunta';
+                
+                let opcionesHTML = "";
+                const letrasVisuales = ['A', 'B', 'C', 'D'];
+                
+                p.opcionesMezcladas.forEach((op, i) => {
+                    opcionesHTML += `
+                        <label class="opcion" id="opt-${p.id}-${letrasVisuales[i]}">
+                            <input type="radio" name="pregunta-${p.id}" value="${op.letraOriginal}" required> 
+                            <strong>${letrasVisuales[i]})</strong> ${op.texto}
+                        </label>
+                    `;
+                });
+
+                div.innerHTML = `
+                    <div class="enunciado">${index + 1}. ${p.enunciado} <span style="font-size:11px; background:#f1f5f9; padding:3px 6px; border-radius:4px; color:#64748b; margin-left:10px;">${p.tema}</span></div>
+                    ${opcionesHTML}
+                `;
+                contenedor.appendChild(div);
+            });
+            
+            document.getElementById('btn-enviar').style.display = "block";
+            window.scrollTo({ top: document.querySelector('.panel-configuracion').offsetHeight + 60, behavior: 'smooth' });
+        }
+
+        function corregirExamen(event) {
+            event.preventDefault();
+            let aciertos = 0;
+            const total = preguntasCargadasExamen.length;
+            
+            preguntasCargadasExamen.forEach(p => {
+                const seleccionada = document.querySelector(`input[name="pregunta-${p.id}"]:checked`);
+                const respuestaUsuario = seleccionada ? seleccionada.value : null;
+                const respuestaCorrecta = p.correctaOriginal;
+                
+                const boxJustificacion = document.getElementById(`just-box-${p.id}`);
+                if(boxJustificacion) boxJustificacion.remove();
+                
+                const letrasVisuales = ['A', 'B', 'C', 'D'];
+                
+                p.opcionesMezcladas.forEach((op, i) => {
+                    const elementoFila = document.getElementById(`opt-${p.id}-${letrasVisuales[i]}`);
+                    if (elementoFila) {
+                        elementoFila.classList.remove('correcta', 'incorrecta');
+                        if (op.letraOriginal === respuestaCorrecta) elementoFila.classList.add('correcta');
+                        if (respuestaUsuario && op.letraOriginal === respuestaUsuario && respuestaUsuario !== respuestaCorrecta) {
+                            elementoFila.classList.add('incorrecta');
+                        }
+                    }
+                });
+                
+                if (respuestaUsuario === respuestaCorrecta) aciertos++;
+                
+                const opcionA = document.getElementById(`opt-${p.id}-A`);
+                if (opcionA) {
+                    const tarjetaContenedora = opcionA.closest('.tarjeta-pregunta');
+                    if (tarjetaContenedora) {
+                        const divJust = document.createElement('div');
+                        divJust.id = `just-box-${p.id}`;
+                        divJust.style.marginTop = "15px";
+                        divJust.style.padding = "15px";
+                        divJust.style.backgroundColor = "#eff6ff";
+                        divJust.style.borderLeft = "4px solid #3b82f6";
+                        divJust.style.borderRadius = "6px";
+                        divJust.style.fontSize = "14px";
+                        divJust.style.color = "#1e40af";
+                        divJust.innerHTML = `<strong>⚖️ Justificación Legal:</strong> ${p.justificacion}`;
+                        tarjetaContenedora.appendChild(divJust);
+                    }
+                }
+            });
+            
+            const nota = ((aciertos / total) * 10).toFixed(2);
+            const cuadroResultado = document.getElementById('cuadro-resultado');
+            cuadroResultado.style.display = "block";
+            
+            if (nota >= 5) {
+                cuadroResultado.style.backgroundColor = "#dcfce7";
+                cuadroResultado.style.color = "#166534";
+                cuadroResultado.innerHTML = `🎉 ¡Test Completado! Aprobado con ${aciertos} de ${total}. Nota: ${nota}/10`;
+            } else {
+                cuadroResultado.style.backgroundColor = "#fee2e2";
+                cuadroResultado.style.color = "#991b1b";
+                cuadroResultado.innerHTML = `❌ ¡Test Completado! Suspendido con ${aciertos} de ${total}. Nota: ${nota}/10.`;
+            }
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+
+        inicializarEcosistema();
+    </script>
+</body>
+</html>
