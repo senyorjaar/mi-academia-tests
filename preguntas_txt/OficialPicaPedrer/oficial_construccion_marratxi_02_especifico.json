@@ -1,0 +1,325 @@
+/* ARCHIVO 2: 20191002_oficial_construccion_marratxi_02_especifico.json */
+[
+  {
+    "numero_original": 18,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Maquinaria de construcción / Dumper / Permisos de conducción",
+    "es_reserva": false,
+    "anulada": true,
+    "enunciado": "Para el manejo de un Dumper será necesario estar en posesión del siguiente requisito: (Pregunta ANULADA por el Tribunal Calificador en vía de revisión de examen)",
+    "opciones": {
+      "A": "No es necesario ningún requisito específico.",
+      "B": "Permiso de conducción tipo A.",
+      "C": "Permiso de conducción tipo B."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 19,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Revestimientos continuos",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Qué nombre recibe el trabajo de regularizar las diferencias superficiales del paramento?",
+    "opciones": {
+      "A": "Enfoscado.",
+      "B": "Revoque.",
+      "C": "Enlucido."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 20,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Herramientas de mano",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Cuál es el principal uso del mazo de goma?",
+    "opciones": {
+      "A": "Colocación de materiales cerámicos.",
+      "B": "Clavar estacas en el suelo.",
+      "C": "Golpear cortafríos o cinceles."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 21,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Herramientas electroportátiles / Amoladora",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "La función del amolado que sirve para cortar piezas de acero, fundición gris, metales no férricos y piedras es:",
+    "opciones": {
+      "A": "Afilado.",
+      "B": "Desbastado.",
+      "C": "Tronzado o corte."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 22,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Herramientas",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Cuál de las siguientes NO sería una herramienta de corte?",
+    "opciones": {
+      "A": "Broca de mampostería.",
+      "B": "Cortafríos.",
+      "C": "Piqueta."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 23,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Herramientas electroportátiles / Discos abrasivos",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Cuál debería ser el grosor de un disco de pulido?",
+    "opciones": {
+      "A": "2,5 mm",
+      "B": "6 mm",
+      "C": "10 mm"
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 24,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Maquinaria de obra / Hormigonera",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Qué movimiento o movimientos de giro efectúa una hormigonera en funcionamiento:",
+    "opciones": {
+      "A": "Alrededor de su eje y alrededor de su eje de sustentación.",
+      "B": "Alrededor de su eje y vertical en relación a la línea del horizonte.",
+      "C": "Únicamente alrededor de su eje."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 25,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Herramientas de mano",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Por qué otro nombre se conoce la herramienta denominada barreta:",
+    "opciones": {
+      "A": "Paleta.",
+      "B": "Maceta.",
+      "C": "Pata de cabra."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 26,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Áridos y Materiales de Construcción / Granulometría",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Cuando los granos de arena pasan por un tamiz de 2,5 mm de diámetro y son retenidos por otro de 1 mm, se considera que se trata de:",
+    "opciones": {
+      "A": "Arena fina.",
+      "B": "Arena media.",
+      "C": "Arena gruesa."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 27,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Materiales de Construcción / Cemento y fraguado",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Durante el endurecimiento del cemento se produce un fenómeno de disminución de volumen por pérdida de agua llamado:",
+    "opciones": {
+      "A": "Fraguado.",
+      "B": "Retardado.",
+      "C": "Retracción."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 28,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Materiales de Construcción / Yeso",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Cuál de las siguientes NO es una cualidad del yeso?",
+    "opciones": {
+      "A": "Protección contra el fuego.",
+      "B": "Impermeabilidad.",
+      "C": "Absorción acústica."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 29,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Hormigón / Puesta en obra y temperatura",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "La temperatura de la masa del hormigón en el momento de verterla en el encofrado no será inferior a:",
+    "opciones": {
+      "A": "0°C",
+      "B": "5ºC",
+      "C": "10°C"
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 30,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Materiales Cerámicos / Azulejos",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "De qué tipo o tipos podrá ser la parte trasera del azulejo:",
+    "opciones": {
+      "A": "De pasta roja.",
+      "B": "De pasta blanca.",
+      "C": "Son correctas las respuestas a y b."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 31,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Morteros / Dosificación",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Cuál es la dosificación óptima de cemento/arena para muros de fábrica de ladrillo?",
+    "opciones": {
+      "A": "",
+      "B": "1/5",
+      "C": "1/6"
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 32,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Morteros / Clasificación",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "De los diferentes morteros, qué nombre recibe el tipo de mortero con mayor cantidad de material base:",
+    "opciones": {
+      "A": "Morteros magros.",
+      "B": "Morteros grasos.",
+      "C": "Morteros especiales."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 33,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conglomerantes / Cemento hidráulico",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "El cemento hidráulico es:",
+    "opciones": {
+      "A": "El que tiene la propiedad de fraguar bajo el agua.",
+      "B": "El que utilizamos para colocar baldosas hidráulicas.",
+      "C": "El que necesita agua para su utilización en mortero."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 34,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conglomerantes / Cal aérea y calcinación",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿A partir de qué temperatura obtenemos el óxido de calcio mediante la calcinación o descomposición de rocas calizas?",
+    "opciones": {
+      "A": "Temperaturas superiores a los 900 °C",
+      "B": "Temperaturas superiores a los 800 ºC",
+      "C": "Temperaturas superiores a los 100 ºC"
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 35,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Herramientas y Revestimientos",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Qué herramienta se utiliza para marcar la primera capa de revoque y facilitar que la segunda capa se agarre con firmeza?",
+    "opciones": {
+      "A": "Paleta.",
+      "B": "Fratás.",
+      "C": "Llana dentada."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 36,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Mantenimiento y Materiales / Mármol",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Para la limpieza del mármol deberá usar:",
+    "opciones": {
+      "A": "Únicamente agua.",
+      "B": "Agua y jabón.",
+      "C": "Ácidos de limpieza."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 37,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Patologías de la edificación / Humedades",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Qué tipo de humedad es la causada por la penetración directa del agua en los edificios a través de sus muros?",
+    "opciones": {
+      "A": "Humedad de remonte capilar.",
+      "B": "Humedad meteórica.",
+      "C": "Humedad de filtración."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 38,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Instalaciones y Albañilería / Rozas",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Cuál puede ser la profundidad máxima de una roza?",
+    "opciones": {
+      "A": "1/5 del espesor del muro.",
+      "B": "1/6 del espesor del muro.",
+      "C": "1/7 del espesor del muro."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 39,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Fábricas de ladrillo y aparejos",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "En la elaboración de paredes de ladrillos las juntas verticales se denominan:",
+    "opciones": {
+      "A": "Llagas.",
+      "B": "Tendeles.",
+      "C": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 40,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Revestimientos continuos y ejecución",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Para la ejecución del enfoscado:",
+    "opciones": {
+      "A": "No hace falta humedecer el soporte.",
+      "B": "Se puede hacer en tiempo de heladas.",
+      "C": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "C"
+  }
+]

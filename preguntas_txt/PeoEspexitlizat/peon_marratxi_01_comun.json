@@ -1,0 +1,87 @@
+/* ARCHIVO 1: 20251002_peon_marratxi_01_comun.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978",
+    "es_reserva": false,
+    "enunciado": "Según el artículo 140 de la Constitución Española los Ayuntamientos están integrados por:",
+    "opciones": {
+      "A": "Alcaldes y concejales.",
+      "B": "Vecinos.",
+      "C": "Los alcaldes pedáneos de cada uno de los núcleos que integran el municipio.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local / Población y Padrón",
+    "es_reserva": false,
+    "enunciado": "¿Cuándo se adquiere la condición de vecino en un municipio?",
+    "opciones": {
+      "A": "Cuando se adquiere una vivienda.",
+      "B": "Cuando se tiene un contrato de alquiler de un local.",
+      "C": "En el mismo momento de su inscripción en el padrón municipal.",
+      "D": "Cuando se viene a vivir al municipio."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local / Población y Padrón",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de los siguientes datos deben figurar obligatoriamente en el padrón municipal de habitantes del municipio?",
+    "opciones": {
+      "A": "Nombre y apellidos.",
+      "B": "Domicilio habitual.",
+      "C": "Lugar y fecha de nacimiento.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Órganos de gobierno",
+    "es_reserva": false,
+    "enunciado": "Según el artículo 21 de la Ley 7/1985, de 2 de abril, reguladora de las bases del régimen local (LRBRL), ¿cuál de las siguientes atribuciones NO es competencia del Alcalde?",
+    "opciones": {
+      "A": "Dirigir el gobierno y la administración municipal.",
+      "B": "Representar al Ayuntamiento.",
+      "C": "Ejercer la jefatura de la policía municipal.",
+      "D": "Aprobación del reglamento orgánico y de las ordenanzas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Electoral (LOREG) / Pleno municipal",
+    "es_reserva": false,
+    "enunciado": "En el municipio de Marratxí, con más de 42.000 habitantes, el Pleno del Ayuntamiento a tenor de lo dispuesto en el artículo 179 de la Ley Orgánica de régimen electoral general (LOREG) estará compuesto por el siguiente número de concejales:",
+    "opciones": {
+      "A": "7",
+      "B": "11",
+      "C": "17",
+      "D": "21"
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Competencias municipales",
+    "es_reserva": false,
+    "enunciado": "Según el artículo 26 LRBRL, ¿cuál de las siguientes competencias NO es obligatoria en un municipio de 10.000 habitantes?",
+    "opciones": {
+      "A": "Cementerio.",
+      "B": "Biblioteca pública.",
+      "C": "Trasporte colectivo urbano de viajeros.",
+      "D": "Abastecimiento domiciliario de agua potable."
+    },
+    "respuesta_correcta": "C"
+  }
+]

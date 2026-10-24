@@ -1,0 +1,479 @@
+/* ARCHIVO 2: 20251011_oficial_electricista_marratxi_02_especifico.json */
+[
+  {
+    "numero_original": 11,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Magnitudes y unidades",
+    "es_reserva": false,
+    "enunciado": "La intensidad de corriente eléctrica se mide en:",
+    "opciones": {
+      "A": "Ohmios",
+      "B": "Voltios",
+      "C": "Watios",
+      "D": "Amperios"
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Materiales conductores y superconductores",
+    "es_reserva": false,
+    "enunciado": "Los materiales que prácticamente no ofrecen resistencia al paso de la corriente se denominan:",
+    "opciones": {
+      "A": "Aislantes",
+      "B": "Semiconductores",
+      "C": "Superconductores",
+      "D": "Conductores"
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Resistencia y conductores",
+    "es_reserva": false,
+    "enunciado": "A mayor sección de un conductor eléctrico la resistencia:",
+    "opciones": {
+      "A": "Aumenta",
+      "B": "Disminuye",
+      "C": "No varía dado que es una propiedad del material del conductor",
+      "D": "La sección del conductor no influye dado que solo depende de la longitud del mismo."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 14,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Circuitos y asociaciones de resistencias",
+    "es_reserva": false,
+    "enunciado": "Las asociaciones de resistencias pueden ser:",
+    "opciones": {
+      "A": "En serie, paralelo, mixtas, triangulo y estrella",
+      "B": "En serie, paralelo y mixtas.",
+      "C": "En serie y paralelo",
+      "D": "En serie, paralelo y en triángulo."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Resistividad",
+    "es_reserva": false,
+    "enunciado": "La resistividad o resistencia específica:",
+    "opciones": {
+      "A": "Es una constante que depende de la naturaleza del material y de la temperatura",
+      "B": "Es una constante que depende de la sección y longitud del material.",
+      "C": "Depende de la intensidad de la corriente.",
+      "D": "A y B son correctas"
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Cálculo de circuitos mixtos de resistencias",
+    "es_reserva": false,
+    "enunciado": "¿Cuál es la resistencia equivalente de la siguiente asociación? [Gráfico adjunto en examen: rama superior 12 Ω; rama central 1 Ω en serie con paralelo de 3 Ω y 6 Ω; rama inferior paralelo de dos resistencias de 24 Ω]",
+    "opciones": {
+      "A": "64 Ω",
+      "B": "3 Ω",
+      "C": "16 Ω",
+      "D": "6 Ω"
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 17,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Corriente alterna y magnitudes eficaces",
+    "es_reserva": false,
+    "enunciado": "Al hablar de tensión o intensidad de una corriente alterna sin más especificaciones se trata de:",
+    "opciones": {
+      "A": "Valor máximo",
+      "B": "Valor de cresta",
+      "C": "Valor eficaz",
+      "D": "Valor medio"
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 18,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Potencias en corriente alterna",
+    "es_reserva": false,
+    "enunciado": "En general en corriente alterna existen tres tipos de potencias:",
+    "opciones": {
+      "A": "Potencia activa, reactiva y eficaz.",
+      "B": "Potencia activa, reactiva y de cresta.",
+      "C": "Potencia activa, reactiva y continua.",
+      "D": "Ninguna de las anteriores es correcta."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 19,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Potencia en corriente continua",
+    "es_reserva": false,
+    "enunciado": "En corriente continua la potencia viene dada por la expresión:",
+    "opciones": {
+      "A": "P = U * I",
+      "B": "P = Pa * Pr",
+      "C": "P = I * R",
+      "D": "P = S * A"
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 20,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Instrumentación eléctrica / Aparatos electrodinámicos",
+    "es_reserva": false,
+    "enunciado": "¿Cómo están constituidos los aparatos de medida electrodinámicos?",
+    "opciones": {
+      "A": "Están constituidos por un condensador de capacidad variable.",
+      "B": "Consiste en un electroimán conectado a una corriente alterna.",
+      "C": "Están constituidos por dos bobinas concéntricas una fija y otra móvil atravesadas por la corriente que se desea medir.",
+      "D": "Se basa en el efecto producido en un conductor al paso de la corriente eléctrica."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 21,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Instrumentación eléctrica / Características metrológicas",
+    "es_reserva": false,
+    "enunciado": "Algunas características importantes de los aparatos de medida son:",
+    "opciones": {
+      "A": "Campo o alcance de indicación de un aparato de medida.",
+      "B": "Sensibilidad de un aparato de medida.",
+      "C": "Campo o alcance de medida.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 22,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Instrumentación eléctrica / Voltímetro",
+    "es_reserva": false,
+    "enunciado": "Para qué sirve un voltímetro:",
+    "opciones": {
+      "A": "Es todo aparato destinado a medir de forma directa tensión o diferencia de potencial entre dos puntos de un circuito.",
+      "B": "Es todo aparato destinado a medir la resistencia de precisión.",
+      "C": "Es todo aparato destinado a medir la intensidad.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 23,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Automatismos / Concepto y funciones",
+    "es_reserva": false,
+    "enunciado": "Un automatismo es un dispositivo que permite sustituir al operador humano en la realización de tareas de cálculo, trabajo rutinario y toma de decisiones,",
+    "opciones": {
+      "A": "Es correcto",
+      "B": "Es incorrecto",
+      "C": "No realiza la toma de decisiones.",
+      "D": "No realiza tareas de cálculo."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 24,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Automatismos / Clasificación tecnológica",
+    "es_reserva": false,
+    "enunciado": "Tipos de automatismo:",
+    "opciones": {
+      "A": "Electrónicos.",
+      "B": "Hidráulicos.",
+      "C": "Ninguna es correcta.",
+      "D": "La A y la B son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 25,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Automatismos / Estructura y bloques funcionales",
+    "es_reserva": false,
+    "enunciado": "Bloques que forman un automatismo:",
+    "opciones": {
+      "A": "Dispositivo de entrada.",
+      "B": "Dispositivo de señalización.",
+      "C": "Dispositivo de protección.",
+      "D": "La A y la B son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 26,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Automatismos / Esquemas eléctricos",
+    "es_reserva": false,
+    "enunciado": "¿Que representa el siguiente esquema de un automatismo? [Esquema adjunto de contactor KM1 y relé térmico F1 alimentando motor trifásico M 3~ con las tres líneas representadas independientemente]",
+    "opciones": {
+      "A": "Esquema unifilar trifásico.",
+      "B": "Esquema multifilar trifásico.",
+      "C": "Representación desarrollada trifásica.",
+      "D": "Ninguna es correcta."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 27,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Instalaciones eléctricas en edificios / Esquema de enlace",
+    "es_reserva": false,
+    "enunciado": "La instalación eléctrica de un edificio contiene:",
+    "opciones": {
+      "A": "Caja general de protección.",
+      "B": "Línea de derivación individual.",
+      "C": "Línea repartidora.",
+      "D": "Todas son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 28,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Instalaciones de protección contra el rayo / Mantenimiento de pararrayos",
+    "es_reserva": false,
+    "enunciado": "Como norma general, y a excepción de los radioactivos, los pararrayos deben mantenerse:",
+    "opciones": {
+      "A": "Cada 6 años.",
+      "B": "Cada 4 años.",
+      "C": "Cada 2 años.",
+      "D": "Cada año."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 29,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Mantenimiento eléctrico / Cuadros de distribución en baja tensión",
+    "es_reserva": false,
+    "enunciado": "En el cuadro general de distribución de una red de baja tensión se comprobarán los dispositivos de protección:",
+    "opciones": {
+      "A": "Cada 2 años.",
+      "B": "Cada 3 años.",
+      "C": "Cada 5 años.",
+      "D": "Cada 10 años."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 30,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Instalaciones de alumbrado / Alumbrado de seguridad y emergencia",
+    "es_reserva": false,
+    "enunciado": "El alumbrado de seguridad se subdivide en:",
+    "opciones": {
+      "A": "Alumbrado de evacuación.",
+      "B": "Alumbrado de reemplazamiento.",
+      "C": "La A y la D son correctas.",
+      "D": "Alumbrado antipánico."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 31,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Gestión de almacén y aprovisionamiento",
+    "es_reserva": false,
+    "enunciado": "De qué fases consta a nivel general la tarea de suministro de almacén:",
+    "opciones": {
+      "A": "Colocar y apilar bien los paquetes.",
+      "B": "Previsión de aprovisionamientos y planificación de adquisiciones.",
+      "C": "Procedimientos administrativos de contratación, petición de material y recepción de mercancías.",
+      "D": "Son correctas las respuestas b y c."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 35,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Instalaciones de alumbrado / REBT / Alumbrado de seguridad",
+    "es_reserva": false,
+    "enunciado": "El alumbrado de seguridad estará previsto para entrar en funcionamiento automáticamente cuando se produzca el fallo del alumbrado general o cuando la tensión del mismo baje a menos del siguiente porcentaje de su valor nominal:",
+    "opciones": {
+      "A": "70%",
+      "B": "85%",
+      "C": "30%",
+      "D": "75%"
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 36,
+    "tipo_temario": "especifico",
+    "materia_estimada": "REBT / ITC-BT-28 / Locales de pública concurrencia",
+    "es_reserva": false,
+    "enunciado": "Según la ITC-BT-28, el alumbrado de evacuación deberá poder funcionar, cuando se produzca el fallo de la alimentación normal, proporcionando la iluminancia prevista, como mínimo durante:",
+    "opciones": {
+      "A": "10 minutos",
+      "B": "30 minutos",
+      "C": "1 hora",
+      "D": "2 horas"
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 37,
+    "tipo_temario": "especifico",
+    "materia_estimada": "REBT / ITC-BT-28 / Locales de pública concurrencia",
+    "es_reserva": false,
+    "enunciado": "Según la ITC-BT-28, los locales de pública concurrencia que deban disponer de alumbrado de seguridad, deben situar estos elementos en:",
+    "opciones": {
+      "A": "Los locales que alojen equipos generales de las instalaciones de protección.",
+      "B": "Las salidas de emergencia y las señales de seguridad reglamentarias.",
+      "C": "Cualquier cambio de dirección de la ruta de evacuación.",
+      "D": "Todas las respuestas son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 38,
+    "tipo_temario": "especifico",
+    "materia_estimada": "REBT / ITC-BT-28 / Ámbito de aplicación",
+    "es_reserva": false,
+    "enunciado": "Según la ITC-BT-28, la instrucción es de aplicación en los siguientes locales de reunión, trabajo y usos sanitarios:",
+    "opciones": {
+      "A": "Cualquiera que sea su ocupación, los siguientes: templos, museos, salas de conferencias y congresos, casinos, hoteles, hostales, bares, cafeterías, restaurantes o similares, zonas comunes en agrupaciones de establecimientos comerciales, aeropuertos, estaciones de viajeros, estacionamientos cerrados y cubiertos para más de 5 vehículos, hospitales, ambulatorios y sanatorios, asilos y guarderías.",
+      "B": "Si la ocupación prevista es de más de 40 personas: bibliotecas, centros de enseñanza, consultorios médicos, establecimientos comerciales, oficinas con presencia de público, residencias de estudiantes, gimnasios, salas de exposiciones, centros culturales, clubes sociales y deportivos.",
+      "C": "Si la ocupación prevista es de más de 50 personas: bibliotecas, centros de enseñanza, consultorios médicos, establecimientos comerciales, oficinas con presencia de público, residencias de estudiantes, gimnasios, salas de exposiciones, centros culturales, clubes sociales y deportivos.",
+      "D": "Las respuestas A y C son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 39,
+    "tipo_temario": "especifico",
+    "materia_estimada": "REBT / ITC-BT-34 / Instalaciones con fines especiales",
+    "es_reserva": false,
+    "enunciado": "Según la ITC-BT-34, para la protección contra contactos directos e indirectos:",
+    "opciones": {
+      "A": "No se aceptan las medidas protectoras contra el contacto directo por medio de obstáculos ni por su colocación fuera del alcance.",
+      "B": "No se aceptan medidas protectoras contra el contacto indirecto mediante un emplazamiento no conductivo ni mediante uniones equipotenciales sin conexión a tierra.",
+      "C": "Cualquiera que sea el esquema de distribución utilizado, la protección de las instalaciones de los equipos eléctricos accesibles al público debe asegurarse mediante dispositivos diferenciales de corriente diferencial-residual asignada máxima de 30 Ma.",
+      "D": "Todas las respuestas son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 40,
+    "tipo_temario": "especifico",
+    "materia_estimada": "REBT / ITC-BT-34 / Instalaciones con fines especiales",
+    "es_reserva": false,
+    "enunciado": "Las conexiones al suelo según la ITC-BT-34 Instalaciones con fines especiales:",
+    "opciones": {
+      "A": "Cuando se instale un generador para suministrar alimentación a una instalación temporal, utilizando un sistema TN, TT o IT, debe tenerse cuidado para garantizar que la instalación está correctamente conectada a tierra.",
+      "B": "El conductor neutro o punto neutro del generador debe conectarse a las partes conductoras accesibles del generador.",
+      "C": "No se debe conectar a tierra la instalación.",
+      "D": "Las respuestas correctas son A) y B)."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 41,
+    "tipo_temario": "especifico",
+    "materia_estimada": "REBT / ITC-BT-34 / Luminarias en instalaciones temporales",
+    "es_reserva": false,
+    "enunciado": "Las luminarias, según la ITC-BT-34 Instalaciones con fines especiales:",
+    "opciones": {
+      "A": "Las luminarias fijas situadas a menos de 2,5 m del suelo o en lugares accesibles a las personas deben estar firmemente fijadas y situadas de forma que se impida todo riesgo de peligro para las personas o inflamación de materiales. El acceso al interior de las luminarias sólo puede realizarse mediante el uso de una herramienta.",
+      "B": "Las luminarias fijas situadas a menos de 3,5 m del suelo o en lugares accesibles a las personas deben estar firmemente fijadas y situadas de forma que se impida todo riesgo de peligro para las personas o inflamación de materiales. El acceso al interior de las luminarias sólo puede realizarse mediante el uso de una herramienta.",
+      "C": "Las luminarias fijas situadas a menos de 2 m del suelo o en lugares accesibles a las personas deben estar firmemente fijadas y situadas de forma que se impida todo riesgo de peligro para las personas o inflamación de materiales. El acceso al interior de las luminarias sólo puede realizarse mediante el uso de una herramienta.",
+      "D": "Todas las respuestas son incorrectas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 42,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Alumbrado exterior / Eficiencia energética / Ámbito de aplicación",
+    "es_reserva": false,
+    "enunciado": "El Reglamento de eficiencia energética en instalaciones de alumbrado exterior es de aplicación a:",
+    "opciones": {
+      "A": "Las nuevas instalaciones, en sus modificaciones y ampliaciones.",
+      "B": "Las instalaciones existentes antes de su entrada en vigor, cuando, mediante un estudio de eficiencia energética, la Administración Pública competente lo considere necesario.",
+      "C": "Las instalaciones existentes antes de su entrada en vigor, que sean objeto de modificaciones importantes y en sus ampliaciones, entendiendo por modificación importante aquella que afecte a más del 50% de la potencia o luces instaladas.",
+      "D": "Todas las respuestas son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 43,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Alumbrado exterior / Eficiencia energética / Régimen de funcionamiento",
+    "es_reserva": false,
+    "enunciado": "El Régimen de funcionamiento, de acuerdo con el Reglamento de eficiencia energética en instalaciones de alumbrado exterior:",
+    "opciones": {
+      "A": "Los sistemas de accionamiento deben garantizar que las instalaciones de alumbrado exterior se enciendan y apaguen con precisión, cuando la luminosidad ambiente lo requiera.",
+      "B": "Para obtener ahorro energético en casos tales como instalaciones de alumbrado ornamental, anuncios luminosos, espacios deportivos y áreas de trabajo exteriores, se establecerán los correspondientes ciclos de funcionamiento (encendido y apagado) de dichas instalaciones, para lo que se dispondrá de relojes astronómicos o sistemas equivalentes, capaces de ser programados por ciclos diarios, semanales, mensuales o anuales.",
+      "C": "Las instalaciones de alumbrado exterior con excepción de túneles y pasos inferiores, estarán en funcionamiento como máximo durante el periodo comprendido entre la puesta de sol y su salida o cuando la luminosidad ambiente lo requiera.",
+      "D": "Todas las respuestas son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 44,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Alumbrado exterior / Mantenimiento de la eficiencia energética",
+    "es_reserva": false,
+    "enunciado": "El mantenimiento de la eficiencia energética de las instalaciones, de acuerdo con el Reglamento de eficiencia energética en instalaciones de alumbrado exterior:",
+    "opciones": {
+      "A": "Todas las instalaciones deberán disponer de un plan de mantenimiento que comprenderá fundamentalmente las reposiciones masivas de lámparas, las operaciones de limpieza de luminarias y los trabajos de inspección y mediciones eléctricas. La programación de los trabajos y su periodicidad, se ajustarán al factor de mantenimiento adoptado, según lo establecido en la ITC-EA-06.",
+      "B": "Al objeto de disminuir los consumos de energía eléctrica en los alumbrados exteriores, el titular de la instalación llevará a cabo, como mínimo una vez al año, un análisis de los consumos anuales y de su evolución, para observar las desviaciones y corregir las causas que las han motivado durante el mantenimiento periódico de la instalación.",
+      "C": "En las instalaciones de alumbrado exterior será necesario disponer de un registro fiable de sus componentes incluyendo las lámparas, luminarias, equipos auxiliares, dispositivos de regulación del nivel luminoso, sistemas de accionamiento y gestión centralizada, cuadros de alumbrado, etc.",
+      "D": "Todas las respuestas son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 45,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Alumbrado exterior / Objeto del Reglamento de eficiencia energética",
+    "es_reserva": false,
+    "enunciado": "El objeto del Reglamento de eficiencia energética en instalaciones de alumbrado exterior es:",
+    "opciones": {
+      "A": "Establecer valores mínimos para los niveles de iluminación en los distintos tipos de vías o espacios a iluminar, que se rigen por la normativa que les es de aplicación para la mejora de la eficiencia y el ahorro energético, así como la disminución de las emisiones de gases de efecto invernadero.",
+      "B": "Mejorar la eficiencia y el ahorro energético, así como la disminución de las emisiones de gases de efecto invernadero.",
+      "C": "Limitar el resplandor luminoso nocturno o contaminación luminosa y reducir la luz intrusa o molesta.",
+      "D": "Las respuestas correctas son B) y C)."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 46,
+    "tipo_temario": "especifico",
+    "materia_estimada": "REBT / ITC-BT-34 / Envolventes y grados de protección IP",
+    "es_reserva": true,
+    "enunciado": "Según la ITC-BT-34 Instalaciones con fines especiales:",
+    "opciones": {
+      "A": "La aparamenta de mando y protección deberá estar situada en envolventes cerradas que no puedan abrirse o desmontarse más que con la ayuda de un útil o una llave, a excepción de sus accionamientos manuales. Los grados de protección para las canalizaciones y envolventes será IP 4X para instalaciones de interior e IP 45 para instalaciones de exterior, según UNE 20324.",
+      "B": "La aparamenta de mando y protección deberá estar situada en envolventes cerradas, a excepción de sus accionamientos manuales. Los grados de protección para las canalizaciones y envolventes serán IP 4X para instalaciones de interior e IP 46 para instalaciones de exterior, según UNE 20324.",
+      "C": "La aparamenta de mando y protección deberá estar situada en envolventes cerradas que no se puedan abrir o desmontar más que con la ayuda de un útil o una llave, a excepción de sus accionamientos manuales. Los grados de protección para las canalizaciones y envolventes serán IP 4X para instalaciones de interior e IP 46 para instalaciones de exterior, según UNE 20324.",
+      "D": "Ninguna respuesta es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 47,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electrotecnia / Circuitos de corriente alterna e impedancia",
+    "es_reserva": true,
+    "enunciado": "La impedancia en un circuito se expresa con la fórmula:",
+    "opciones": {
+      "A": "Z = I ÷ U",
+      "B": "Z = U × I",
+      "C": "Z = U ÷ I",
+      "D": "Z = U ÷ W"
+    },
+    "respuesta_correcta": "C"
+  }
+]

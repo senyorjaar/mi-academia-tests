@@ -1,0 +1,381 @@
+/* ARCHIVO 2: 20190329_notificador_marratxi_02_especifico.json */
+[
+  {
+    "numero_original": 9,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Patrimonio y edificios religiosos",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de población se encuentra situada la iglesia parroquial de San Alonso Rodríguez?",
+    "opciones": {
+      "A": "Sa Cabana.",
+      "B": "Marratxinet.",
+      "C": "Pont d'Inca.",
+      "D": "Pòrtol."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de población se encuentra situado la calle \"de sa perera\"?",
+    "opciones": {
+      "A": "Pòrtol.",
+      "B": "Pla de Na Tesa.",
+      "C": "Els Garrovers.",
+      "D": "Polígono industrial de Can Rubiol."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 11,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Posesiones y patrimonio rústico",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de las siguientes \"possessions\" se encuentra situada en Marratxí?",
+    "opciones": {
+      "A": "Son Salas.",
+      "B": "Sa Vall.",
+      "C": "Son Moix.",
+      "D": "Son Llàtzer."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Edificios e instalaciones municipales",
+    "es_reserva": false,
+    "enunciado": "¿Dónde se ubican las dependencias de la policía local de Marratxí?",
+    "opciones": {
+      "A": "Els Garrovers.",
+      "B": "Polígono industrial de Can Rubiol.",
+      "C": "Núcleo rural de Can Garriga.",
+      "D": "Pòrtol."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de población se encuentra situada la calle \"Can Putxet\"?",
+    "opciones": {
+      "A": "Pòrtol.",
+      "B": "Pont d'Inca.",
+      "C": "Pla de Na Tesa.",
+      "D": "Sa Cabaneta."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 14,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Empresas históricas y callejero",
+    "es_reserva": false,
+    "enunciado": "Si debieras realizar una notificación en la sede de la histórica empresa Bodegas Suau, ésta se realizaría en:",
+    "opciones": {
+      "A": "Pont d'Inca.",
+      "B": "Els Garrovers.",
+      "C": "El Figueral.",
+      "D": "Pòrtol."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Museos y equipamientos culturales",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de población de Marratxí se sitúa el Museu del Fang?",
+    "opciones": {
+      "A": "Pòrtol.",
+      "B": "Pont d'Inca.",
+      "C": "Pla de Na Tesa.",
+      "D": "Sa Cabaneta."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Historia local",
+    "es_reserva": false,
+    "enunciado": "¿Dónde se encontraba la primera sede del Ayuntamiento de Marratxí?",
+    "opciones": {
+      "A": "Pòrtol.",
+      "B": "Pont d'Inca.",
+      "C": "Sa Cabaneta.",
+      "D": "Marratxinet."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 17,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Caminos históricos y patrimonio",
+    "es_reserva": false,
+    "enunciado": "¿Qué camino situado en Marratxí está considerado como calzada de origen romano?",
+    "opciones": {
+      "A": "Camí de sa fita.",
+      "B": "Camí de Son Mulet.",
+      "C": "Camí de sa bomba.",
+      "D": "Camí de Can Forner."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 18,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Artesanía y patrimonio",
+    "es_reserva": false,
+    "enunciado": "Está considerada como \"Zona d'Interès Artesanal\" por la Comisión de artesanía de las Illes Balears, la zona de:",
+    "opciones": {
+      "A": "Pont d'Inca.",
+      "B": "Pla de Na Tesa.",
+      "C": "Pòrtol.",
+      "D": "Todo el término municipal."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 19,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Espacios naturales protegidos (ANEI)",
+    "es_reserva": false,
+    "enunciado": "En Marratxí, están declaradas como ANEI (Áreas naturales de especial interés) la siguientes zonas:",
+    "opciones": {
+      "A": "Son Cós y Sa Garriga de Son Caulelles.",
+      "B": "El Pinar y Sa Pleta de Son Alegre.",
+      "C": "Sa Pleta y el olivar de Els Caülls.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 20,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de población se encuentra la calle de \"Cas Capità\"?",
+    "opciones": {
+      "A": "Cas Capità.",
+      "B": "Pla de Na Tesa.",
+      "C": "Ses Cases Noves.",
+      "D": "Sa Cabaneta."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 21,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de población se encuentra la calle \"Guillem Colom\"?",
+    "opciones": {
+      "A": "Sant Marçal.",
+      "B": "Son Ramonell.",
+      "C": "Ses Cases Noves.",
+      "D": "Sa Vinya de Son Verí."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 22,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de población se encuentra la avenida \"Gabriel Alomar i Villalonga\"?",
+    "opciones": {
+      "A": "Pont d'Inca.",
+      "B": "Sa Cabaneta.",
+      "C": "Cas Capità.",
+      "D": "Es Benestar."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 23,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero y conexiones viales",
+    "es_reserva": false,
+    "enunciado": "La calle Malta conecta únicamente con una de las siguientes calles, ¿cuál?",
+    "opciones": {
+      "A": "Camí de Sa Cabaneta.",
+      "B": "Avenida de Can Carbonell.",
+      "C": "Avenida Antoni Maura.",
+      "D": "Avenida Gabriel Alomar i Villalonga."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 24,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Equipamientos sociales",
+    "es_reserva": false,
+    "enunciado": "El Centro de día \"Brot de Ginjol\" se encuentra situado en el núcleo de población de:",
+    "opciones": {
+      "A": "Can Carbonell.",
+      "B": "Son Ramonell.",
+      "C": "Es Benestar.",
+      "D": "Ses Cases Noves."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 25,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero y accesos",
+    "es_reserva": false,
+    "enunciado": "¿Por qué calle se accede al cementerio municipal de Marratxí?",
+    "opciones": {
+      "A": "Camí de Muntanya.",
+      "B": "Camí de Son Ametler.",
+      "C": "Carretera Palma - Manacor",
+      "D": "Camí vell de Bunyola."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 26,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de población se encuentra la calle \"Sant Llatzet\"?",
+    "opciones": {
+      "A": "Pla de Na Tesa.",
+      "B": "Es Figueral.",
+      "C": "Pont d'Inca.",
+      "D": "Pòrtol."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 27,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Hidrografía",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de los siguientes torrentes pasa por Marratxí?",
+    "opciones": {
+      "A": "Coanegra.",
+      "B": "Alegre.",
+      "C": "Estret negre.",
+      "D": "Sa Riera."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 28,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Historia de Mallorca",
+    "es_reserva": false,
+    "enunciado": "En el \"repartiment\" de Mallorca, después de la conquista de 1229, el territorio de Marratxí le correspondió a:",
+    "opciones": {
+      "A": "Obispo Berenguer de Palou.",
+      "B": "Obispo Francisco 1.",
+      "C": "Obispo Berenguer d'Anoia.",
+      "D": "al Rey de Aragón, Jaume I."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 29,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Gentilicios",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de éstos gentilicios no corresponden a habitantes del municipio de Marratxí?",
+    "opciones": {
+      "A": "Marratxiner/marratxinera.",
+      "B": "Portolà/portolana.",
+      "C": "Pladenateser/pladenatesera.",
+      "D": "Tauja/taujana."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 30,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero y servicios",
+    "es_reserva": false,
+    "enunciado": "La farmacia del núcleo de población de Pòrtol está situada en la calle:",
+    "opciones": {
+      "A": "Camí de n'Olesa.",
+      "B": "Major.",
+      "C": "Gladiol.",
+      "D": "Lliri."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 31,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Cultura y ferias",
+    "es_reserva": false,
+    "enunciado": "En Marratxí se celebra con carácter bianual un certamen de:",
+    "opciones": {
+      "A": "Teatro.",
+      "B": "Pintura.",
+      "C": "Cerámica.",
+      "D": "Circo."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 32,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Equipamientos sanitarios",
+    "es_reserva": false,
+    "enunciado": "El Centro de salud \"Martí Serra\" se encuentra ubicado en el núcleo de población de:",
+    "opciones": {
+      "A": "Sa Cabana.",
+      "B": "Pòrtol.",
+      "C": "Sa Cabaneta.",
+      "D": "Es Figueral."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 33,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Puentes e infraestructuras históricas",
+    "es_reserva": false,
+    "enunciado": "El puente histórico situado junto a la estación de tren de Marratxí (Es Figueral) se denomina:",
+    "opciones": {
+      "A": "\"Pont major\".",
+      "B": "\"Pont de Son Macià\".",
+      "C": "\"Pont dels Caülls\".",
+      "D": "\"Pont antic\"."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 34,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Tradición y festividades",
+    "es_reserva": false,
+    "enunciado": "El patrón del municipio de Marratxí es:",
+    "opciones": {
+      "A": "Sant Antoni.",
+      "B": "Sant Pere.",
+      "C": "Sant Cosme.",
+      "D": "Sant Marçal."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 35,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Bibliografía municipal",
+    "es_reserva": true,
+    "enunciado": "¿Cuál fue el año de publicación de la primera edición del libro de conocimientos del término municipal de Marratxí \"Així és Marratxí\"?",
+    "opciones": {
+      "A": "1898.",
+      "B": "1993.",
+      "C": "2003.",
+      "D": "2015."
+    },
+    "respuesta_correcta": "B"
+  }
+]

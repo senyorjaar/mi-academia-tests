@@ -1,0 +1,172 @@
+/* ARCHIVO 1: 20170327_oficial_mantenimiento_marratxi_01_comun.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Estado de Derecho",
+    "es_reserva": false,
+    "enunciado": "Qué tres poderes caracterizan el Estado de Derecho:",
+    "opciones": {
+      "A": "Legislativo, Administrativo y Judicial.",
+      "B": "Legislativo, Constituyente y Ejecutivo.",
+      "C": "Legislativo, Ejecutivo y Judicial."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "comun",
+    "materia_estimada": "Derecho Constitucional / Jerarquía normativa",
+    "es_reserva": false,
+    "enunciado": "La pirámide normativa la componen (de mayor a menor fuerza normativa):",
+    "opciones": {
+      "A": "La Constitución, los Reglamentos y las Leyes.",
+      "B": "La Constitución, las Leyes y los Reglamentos.",
+      "C": "La Constitución, las Leyes y las Ordenanzas."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Forma política del Estado",
+    "es_reserva": false,
+    "enunciado": "La forma de gobierno del Estado español es:",
+    "opciones": {
+      "A": "la monarquía.",
+      "B": "la democracia.",
+      "C": "la monarquía parlamentaria."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / La Corona",
+    "es_reserva": false,
+    "enunciado": "No es una función del Rey:",
+    "opciones": {
+      "A": "Sancionar y promulgar las leyes.",
+      "B": "Ejercer el mando supremo de las fuerzas armadas.",
+      "C": "Aprobar las leyes."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Mancomunidades",
+    "es_reserva": false,
+    "enunciado": "Las mancomunidades están clasificadas como:",
+    "opciones": {
+      "A": "Entidades locales básicas.",
+      "B": "Entidades locales inframunicipales.",
+      "C": "Entidades locales supramunicipales."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Junta de Gobierno Local",
+    "es_reserva": false,
+    "enunciado": "La Junta de Gobierno Local está formada por el Alcalde y:",
+    "opciones": {
+      "A": "por un tercio de los concejales establecido legalmente.",
+      "B": "por un número igual o menor al tercio del número legal de los mismos.",
+      "C": "por un número superior al tercio del número legal de los mismos."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 7,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Diputación Provincial",
+    "es_reserva": false,
+    "enunciado": "El Presidente de la Diputación provincial:",
+    "opciones": {
+      "A": "Es elegido por el Pleno de entre sus miembros por mayoría simple.",
+      "B": "Es elegido por el Pleno de entre sus miembros por mayoría absoluta en primera votación o mayoría simple en segunda votación.",
+      "C": "Es elegido por el Pleno de entre sus miembros por mayoría cualificada."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 8,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Funcionarios interinos",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de las siguientes circunstancias no puede darse para el nombramiento de funcionarios interinos según el artículo 10 del Estatuto Básico del Empleado Público (EBEP)?",
+    "opciones": {
+      "A": "La existencia de plazas vacantes cuando no sea posible su cobertura por funcionarios de carrera.",
+      "B": "La sustitución definitiva de los titulares.",
+      "C": "La ejecución de programas de carácter temporal."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 9,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local / Funcionarios con habilitación de carácter nacional",
+    "es_reserva": false,
+    "enunciado": "Los municipios con una población superior a los 20.000 habitantes tienen una secretaría:",
+    "opciones": {
+      "A": "de primera clase.",
+      "B": "de segunda clase.",
+      "C": "de entrada."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública Local / Clasificación y subescalas",
+    "es_reserva": false,
+    "enunciado": "La escala de Administración especial se divide en las subescalas:",
+    "opciones": {
+      "A": "Orgánica y funcional.",
+      "B": "Administrativa y operativa.",
+      "C": "Servicios especiales y Técnica."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 11,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Ámbito de aplicación (Ley 31/1995)",
+    "es_reserva": false,
+    "enunciado": "La Ley de Prevención de Riesgos Laborales será de aplicación directa a:",
+    "opciones": {
+      "A": "todos los trabajadores y empleados públicos.",
+      "B": "no se aplica directamente a las Fuerzas Armadas.",
+      "C": "no se aplica directamente a los empleados."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Obligaciones de los trabajadores",
+    "es_reserva": false,
+    "enunciado": "Son obligaciones de los trabajadores en materia de prevención de riesgos laborales:",
+    "opciones": {
+      "A": "Utilizar correctamente los medios y equipos de protección facilitados por el empresario.",
+      "B": "No interrumpir su actividad y no abandonar el lugar de trabajo incluso cuando el trabajador pueda estar expuesto a un riesgo grave e inminente.",
+      "C": "Son correctas las respuestas a) y b)."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Servicios de prevención",
+    "es_reserva": false,
+    "enunciado": "¿Cuándo será obligatorio la constitución en la empresa de un servicio de prevención propio?",
+    "opciones": {
+      "A": "Cuando la empresa tenga menos de diez trabajadores.",
+      "B": "En cualquier caso cuando la empresa supere los 250 trabajadores.",
+      "C": "Cuando la empresa cuente con más de 500 trabajadores."
+    },
+    "respuesta_correcta": "C"
+  }
+]

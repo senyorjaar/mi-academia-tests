@@ -1,0 +1,255 @@
+/* ARCHIVO 1: 20191002_oficial_construccion_marratxi_01_comun.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Fuerzas Armadas",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Según la Constitución Española. ¿Quién tiene como misión garantizar la soberanía e independencia de España, defender su integridad territorial y el ordenamiento constitucional?",
+    "opciones": {
+      "A": "Los sindicatos de trabajadores.",
+      "B": "El Tribunal Constitucional.",
+      "C": "Las Fuerzas Armadas."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Cortes Generales",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Según la Constitución Española. ¿Cuál de las siguientes no es una función principal de las Cortes Generales?",
+    "opciones": {
+      "A": "Ejercer la potestad legislativa del Estado.",
+      "B": "Nombrar a los Ministros del Gobierno.",
+      "C": "Aprobar los Presupuestos Generales del Estado."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Historia constitucional",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Quién aprobó tras la tramitación parlamentaria el texto de la Constitución de 31 de octubre de 1978?",
+    "opciones": {
+      "A": "El Congreso de los Diputados.",
+      "B": "El Senado.",
+      "C": "Son correctas las respuestas a y b."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Estructura",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Cuántos artículos tiene la vigente Constitución Española?",
+    "opciones": {
+      "A": "98",
+      "B": "155",
+      "C": "169"
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Poder Judicial",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Según la Constitución Española. La justicia emana del pueblo y se administra en nombre de:",
+    "opciones": {
+      "A": "El Ministro de Justicia.",
+      "B": "El Rey.",
+      "C": "El Alcalde."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Entidades locales básicas",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Según la Ley Reguladora de las Bases del Régimen Local (LRBRL) son Entidades locales básicas:",
+    "opciones": {
+      "A": "El municipio y la isla en los archipiélagos balear y canario.",
+      "B": "Las comunidades autónomas.",
+      "C": "Las comarcas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 7,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Término municipal",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "El término municipal es:",
+    "opciones": {
+      "A": "El territorio en que el Ayuntamiento ejerce sus competencias.",
+      "B": "Los terrenos propiedad del Ayuntamiento.",
+      "C": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 8,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Competencias municipales",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "El Ayuntamiento de Marratxí, con una población de derecho cercana a los 40.000 habitantes, NO deberá prestar obligatoriamente el siguiente servicio:",
+    "opciones": {
+      "A": "Alumbrado público.",
+      "B": "Transporte colectivo urbano de viajeros.",
+      "C": "Protección civil."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 9,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Clases de personal",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Los empleados públicos se clasifican en:",
+    "opciones": {
+      "A": "Funcionarios de carrera y funcionarios interinos.",
+      "B": "Personal laboral y personal eventual.",
+      "C": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Derechos de los empleados públicos",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Cuál de los siguientes NO es un derecho de los funcionarios?",
+    "opciones": {
+      "A": "Derecho al cargo o inamovilidad.",
+      "B": "Derecho a la repatriación en el extranjero.",
+      "C": "Derecho a la libre sindicación."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 11,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Código de conducta y deberes",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "¿Cuál de los siguientes NO es un deber de los funcionarios?",
+    "opciones": {
+      "A": "Guardar secreto de las materias clasificadas u otras cuya difusión esté prohibida legalmente.",
+      "B": "No aceptar ningún trato de favor que implique privilegio o ventaja injustificada.",
+      "C": "Comunicar las ausencias del término municipal durante el disfrute de los períodos de licencias y vacaciones."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Formación",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Según la legislación de prevención de riesgos laborales, la formación de los trabajadores deberá ser garantizada por:",
+    "opciones": {
+      "A": "El empresario.",
+      "B": "El trabajador.",
+      "C": "Los sindicatos."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Obligaciones de los trabajadores",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Según la legislación de prevención de riesgos laborales, las obligaciones de los trabajadores son:",
+    "opciones": {
+      "A": "Usar adecuadamente las máquinas, aparatos y medios para desarrollar su actividad.",
+      "B": "Adquirir los equipos de prevención individual.",
+      "C": "Costearse su formación en prevención de riesgos laborales."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 14,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Señalización de seguridad",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Según la legislación de prevención de riesgos laborales, las señales con pictograma negro sobre fondo amarillo y de forma triangular corresponden a:",
+    "opciones": {
+      "A": "Señales de prohibición.",
+      "B": "Señales de advertencia.",
+      "C": "Señales de salvamento o socorro."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Equipos de trabajo temporales en altura",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "Según la legislación de prevención de riesgos laborales, los largueros de las escaleras de mano para acceder a lugares elevados deberán prolongarse:",
+    "opciones": {
+      "A": "No hace falta que se prologuen los largueros.",
+      "B": "Al menos un metro por encima de éstos.",
+      "C": "Con 20 centímetros por encima de éstos es suficiente."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "comun",
+    "materia_estimada": "Igualdad efectiva de mujeres y hombres / Conciliación",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "El principio de igualdad de trato entre mujeres y hombres supone la ausencia de toda discriminación, directa o indirecta, por razón de sexo, y especialmente, las derivadas de:",
+    "opciones": {
+      "A": "La maternidad.",
+      "B": "La asunción de obligaciones familiares.",
+      "C": "Son correctas las respuestas a y b."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 17,
+    "tipo_temario": "comun",
+    "materia_estimada": "Derecho Laboral / Estatuto de los Trabajadores / Jornada y conciliación",
+    "es_reserva": false,
+    "anulada": false,
+    "enunciado": "El Estatuto de los Trabajadores, en su artículo 34.8, dispone que las personas trabajadoras tienen derecho a solicitar las adaptaciones de la duración y distribución de la jornada de trabajo por motivos de conciliación familiar, dichas adaptaciones deberán ser:",
+    "opciones": {
+      "A": "Razonables y proporcionadas en relación con las necesidades de la persona trabajadora y con las necesidades organizativas o productivas de la empresa.",
+      "B": "Razonables y proporcionadas únicamente en relación con las necesidades de la persona trabajadora.",
+      "C": "Razonables, proporcionadas y obligatorias para la empresa únicamente en relación con las necesidades de la persona trabajadora."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 41,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Organización territorial del Estado",
+    "es_reserva": true,
+    "anulada": false,
+    "enunciado": "El Estado se organiza territorialmente en:",
+    "opciones": {
+      "A": "Islas, provincias y comunidades autónomas.",
+      "B": "Municipios, cabildos y provincias.",
+      "C": "Municipios, provincias y comunidades autónomas."
+    },
+    "respuesta_correcta": "C"
+  }
+]

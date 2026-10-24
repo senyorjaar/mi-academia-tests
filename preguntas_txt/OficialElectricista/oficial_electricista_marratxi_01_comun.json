@@ -1,0 +1,185 @@
+/* ARCHIVO 1: 20251011_oficial_electricista_marratxi_01_comun.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Poder Judicial",
+    "es_reserva": false,
+    "enunciado": "Según la Constitución el órgano de gobierno del poder judicial es:",
+    "opciones": {
+      "A": "El Tribunal Supremo.",
+      "B": "El Tribunal Constitucional.",
+      "C": "El Gobierno.",
+      "D": "El Consejo General del Poder Judicial."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Entidades locales territoriales",
+    "es_reserva": false,
+    "enunciado": "Son entidades locales territoriales según el artículo 3 de la Ley 7/1985, de 2 de abril, Reguladora de las bases del régimen local (LRBRL):",
+    "opciones": {
+      "A": "Municipio, provincia y la isla.",
+      "B": "Municipio, provincia y la comarca.",
+      "C": "Municipio, provincia y las áreas metropolitanas.",
+      "D": "Municipio, provincia y las mancomunidades."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Electoral (LOREG) / Composición del Pleno",
+    "es_reserva": false,
+    "enunciado": "En un municipio de 40.000 habitantes el número de concejales será de:",
+    "opciones": {
+      "A": "17",
+      "B": "21",
+      "C": "23",
+      "D": "25"
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Personal eventual",
+    "es_reserva": false,
+    "enunciado": "El personal eventual en un municipio:",
+    "opciones": {
+      "A": "Es personal funcionario de régimen general.",
+      "B": "Es personal laboral.",
+      "C": "Solo puede realizar funciones de confianza y asesoramiento especial.",
+      "D": "Tiene que superar un proceso de selección como el resto de personal."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Retribuciones básicas",
+    "es_reserva": false,
+    "enunciado": "Son retribuciones básicas:",
+    "opciones": {
+      "A": "Sueldo y trienios.",
+      "B": "Sueldo, trienios y complemento de destino.",
+      "C": "Sueldo, trienios, complemento de destino y complemento específico.",
+      "D": "Sueldo, trienios, complementos de destino, complemento específico y complemento de carrera profesional horizontal."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / Régimen de Incompatibilidades (Ley 53/1984)",
+    "es_reserva": false,
+    "enunciado": "No podrá reconocerse a un funcionario compatibilidad para el ejercicio de actividad privada cuando su complemento específico supere en cómputo anual el siguiente porcentaje de las retribuciones básicas:",
+    "opciones": {
+      "A": "20 por ciento.",
+      "B": "25 por ciento.",
+      "C": "30 por ciento.",
+      "D": "35 por ciento."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 7,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Ley 31/1995 / Objeto",
+    "es_reserva": false,
+    "enunciado": "Que tiene como objetivo la Ley 31/1995 de Prevención de riesgos laborales (LPRL):",
+    "opciones": {
+      "A": "Únicamente la señalización de seguridad.",
+      "B": "Velar por el empresario.",
+      "C": "Velar por la seguridad e higiene en el trabajo.",
+      "D": "Únicamente la formación en materia preventiva."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 8,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Ley 31/1995 / Principios generales",
+    "es_reserva": false,
+    "enunciado": "¿Qué principios generales se establecen en relación a la LPRL?",
+    "opciones": {
+      "A": "La prevención de los riesgos profesionales para la prevención de la seguridad y la salud.",
+      "B": "La eliminación o disminución de los riesgos derivados del trabajo.",
+      "C": "La información, la consulta, la participación equilibrada y la formación de los trabajadores en materia preventiva.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 9,
+    "tipo_temario": "comun",
+    "materia_estimada": "Igualdad efectiva de mujeres y hombres / Ley Orgánica 3/2007",
+    "es_reserva": false,
+    "enunciado": "Los principales fundamentos jurídicos en los que se asienta la Ley 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, tienen su origen en:",
+    "opciones": {
+      "A": "La Constitución Española.",
+      "B": "Los Tratados y conferencias de las Naciones Unidas.",
+      "C": "Los Tratados y directivas de la Unión Europea.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "comun",
+    "materia_estimada": "Igualdad efectiva de mujeres y hombres / Ley Orgánica 3/2007",
+    "es_reserva": false,
+    "enunciado": "Las mujeres y los hombres son iguales en dignidad humana e iguales en derechos y deberes, y para conseguirlo la Ley 3/2007:",
+    "opciones": {
+      "A": "Establece principios de actuación de los poderes públicos.",
+      "B": "Regula derechos y deberes de las personas físicas y jurídicas tanto públicas como privadas.",
+      "C": "Prevé medidas destinadas a eliminar y corregir en los sectores público y privado toda forma de discriminación por razón de sexo.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 32,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Manipulación manual de cargas",
+    "es_reserva": false,
+    "enunciado": "Según la LPRL que peso máximo se recomienda no sobrepasar a la hora de manipular una carga:",
+    "opciones": {
+      "A": "45 kg.",
+      "B": "50 kg.",
+      "C": "25 kg.",
+      "D": "20 kg."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 33,
+    "tipo_temario": "comun",
+    "materia_estimada": "Seguridad y Salud / Planes de evacuación y emergencia",
+    "es_reserva": false,
+    "enunciado": "¿Cómo actuaremos en caso de incendio, amenaza de bomba, etc. según el procedimiento de actuación de emergencias (plan de evacuación)?",
+    "opciones": {
+      "A": "Dirigirse a los puntos de reunión sobre los recorridos de evacuación ya determinados.",
+      "B": "Prever los medios y formas de transporte de posibles heridos, ancianos, niños y discapacitados.",
+      "C": "Recoger nuestras cosas y dirigirnos a nuestros domicilios sin mediar ningún aviso.",
+      "D": "Las respuestas a y b son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 34,
+    "tipo_temario": "comun",
+    "materia_estimada": "Primeros auxilios / Protocolo PAS",
+    "es_reserva": false,
+    "enunciado": "¿Qué pasos y cómo debemos actuar ante un accidente?",
+    "opciones": {
+      "A": "Proteger, avisar y socorrer.",
+      "B": "Avisar y esperar.",
+      "C": "Exclusivamente iniciar los primeros auxilios.",
+      "D": "Avisar y correr."
+    },
+    "respuesta_correcta": "A"
+  }
+]

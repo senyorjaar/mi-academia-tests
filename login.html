@@ -98,8 +98,8 @@
             <h2>🔑 Iniciar Sesión</h2>
             <form onsubmit="procesarAutenticacion(event, 'login')">
                 <div class="grupo-input">
-                    <label>Correo Electrónico</label>
-                    <input type="email" id="login-email" required placeholder="tu@correo.com">
+                    <label>Usuario o Correo Electrónico</label>
+                    <input type="text" id="login-identificador" required placeholder="root o tu@correo.com">
                 </div>
                 <div class="grupo-input">
                     <label>Contraseña</label>
@@ -114,8 +114,8 @@
             <h2>📝 Registrarse</h2>
             <form onsubmit="procesarAutenticacion(event, 'registro')">
                 <div class="grupo-input">
-                    <label>Nombre Completo</label>
-                    <input type="text" id="reg-nombre" required placeholder="Juan Pérez">
+                    <label>Nombre de Usuario</label>
+                    <input type="text" id="reg-nombre" required placeholder="Ej: senyor">
                 </div>
                 <div class="grupo-input">
                     <label>Correo Electrónico</label>
@@ -132,20 +132,18 @@
     </div>
 
     <script>
-        // Función estética para saltar de una pestaña a otra sin recargar
         function conmutarVista(mostrarRegistro) {
             document.getElementById('caja-alerta').style.display = 'none';
             document.getElementById('vista-login').style.display = mostrarRegistro ? 'none' : 'block';
             document.getElementById('vista-registro').style.display = mostrarRegistro ? 'block' : 'none';
         }
 
-        // Lógica de comunicación con el backend de Python
         async function procesarAutenticacion(event, modo) {
             event.preventDefault();
             const alerta = document.getElementById('caja-alerta');
             alerta.style.display = 'none';
 
-            let url = 'https://mi-academia-tests.onrender.com/' + modo;
+            let url = '/' + modo;
             let cuerpoCarga = {};
 
             if (modo === 'registro') {
@@ -156,7 +154,7 @@
                 };
             } else {
                 cuerpoCarga = {
-                    email: document.getElementById('login-email').value,
+                    identificador: document.getElementById('login-identificador').value,
                     password: document.getElementById('login-password').value
                 };
             }
@@ -183,12 +181,10 @@
 
                     if (modo === 'login') {
                         localStorage.setItem('usuario_logeado', JSON.stringify(resultado.usuario));
-                        
-                        // MANTENIMIENTO: Redirección corregida al panel unificado
                         alerta.innerHTML += '... Redireccionando al panel principal.';
                         setTimeout(() => {
                             window.location.href = 'panel.html'; 
-                        }, 1500);
+                        }, 1200);
                     } else {
                         setTimeout(() => conmutarVista(false), 1500);
                     }
@@ -196,7 +192,7 @@
             } catch (error) {
                 alerta.style.backgroundColor = '#fee2e2';
                 alerta.style.color = '#991b1b';
-                alerta.innerHTML = '❌ Imposible conectar con server.py';
+                alerta.innerHTML = '❌ Imposible conectar con el servidor backend.';
                 alerta.style.display = 'block';
             }
         }

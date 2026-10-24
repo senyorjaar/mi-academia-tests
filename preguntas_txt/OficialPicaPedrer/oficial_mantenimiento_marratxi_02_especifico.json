@@ -1,0 +1,367 @@
+/* ARCHIVO 2: 20170327_oficial_mantenimiento_marratxi_02_especifico.json */
+[
+  {
+    "numero_original": 14,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad / REBT / Secciones de conductor",
+    "es_reserva": false,
+    "enunciado": "La sección mínima del cableado para alumbrado será:",
+    "opciones": {
+      "A": "1,0 mm²",
+      "B": "2.0 mm²",
+      "C": "1,5 mm²"
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad / Instrumentación",
+    "es_reserva": false,
+    "enunciado": "El amperímetro sirve para medir:",
+    "opciones": {
+      "A": "La intensidad eléctrica.",
+      "B": "La resistencia eléctrica.",
+      "C": "La iluminación eléctrica."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad / Código de colores del cableado",
+    "es_reserva": false,
+    "enunciado": "Los cables eléctricos deben ser de diferente color y sección. El cable de toma de tierra:",
+    "opciones": {
+      "A": "es amarillo con una franja verde.",
+      "B": "puede ser azul o amarillo con franja verde.",
+      "C": "es de color negro, marrón o gris."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 17,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad / Magnitudes y unidades",
+    "es_reserva": false,
+    "enunciado": "La tensión eléctrica se mide en:",
+    "opciones": {
+      "A": "vatios.",
+      "B": "amperios.",
+      "C": "voltios."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 18,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Maquinaria de obra / Hormigonera",
+    "es_reserva": false,
+    "enunciado": "¿Qué movimiento distinguimos en el giro de la hormigonera?",
+    "opciones": {
+      "A": "Giro alrededor de su eje y de alrededor del eje de sustentación.",
+      "B": "No se distingue ningún giro.",
+      "C": "Giro solo alrededor de su eje."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 19,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Construcción / Pavimentos",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles son las dos funciones principales de los pavimentos?",
+    "opciones": {
+      "A": "Aislamiento y estructura.",
+      "B": "Ornamentación y estructura.",
+      "C": "Ornamentación y aislamiento."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 20,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Materiales de Construcción / Morteros",
+    "es_reserva": false,
+    "enunciado": "Los morteros se pueden dividir en:",
+    "opciones": {
+      "A": "Morteros blancos y grasos.",
+      "B": "Morteros grasos y magros.",
+      "C": "Morteros grasos y ligeros."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 21,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Herramientas electroportátiles / Amoladoras y discos radiales",
+    "es_reserva": false,
+    "enunciado": "El diámetro de los discos radiales determinados por los estándares existentes son:",
+    "opciones": {
+      "A": "50 mm, 80 mm, 90 mm, 100 mm, 125 mm y 300 mm.",
+      "B": "100 mm, 115 mm, 125 mm, 150 mm, 180 mm, 230 mm y 300 mm.",
+      "C": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 22,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Carpintería / Herrajes y bisagras",
+    "es_reserva": false,
+    "enunciado": "En una puerta de anchura máxima 60 cm y un espesor de 19 mm colocaremos según la altura las siguientes bisagras de cazoleta:",
+    "opciones": {
+      "A": "hasta 220 cm tres bisagras.",
+      "B": "hasta 160 cm dos bisagras.",
+      "C": "hasta 220 cm cuatro bisagras."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 23,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Carpintería y Pintura / Tratamiento de maderas y barnices",
+    "es_reserva": false,
+    "enunciado": "La primera mano de barniz sobre madera se aplicará diluida con:",
+    "opciones": {
+      "A": "10% de barniz y el resto diluyente.",
+      "B": "50% de barniz y el resto diluyente.",
+      "C": "Siempre se aplicará sin diluir."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 24,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Herramientas y Accesorios / Brocas",
+    "es_reserva": false,
+    "enunciado": "Las brocas de mampostería:",
+    "opciones": {
+      "A": "Se conocen con el nombre de Widia.",
+      "B": "Sirven para realizar el avellanado.",
+      "C": "También se conocen como brocas planas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 25,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Herramientas de mano / Limas y escofinas",
+    "es_reserva": false,
+    "enunciado": "Señala la respuesta correcta:",
+    "opciones": {
+      "A": "La lima de madera también es adecuada para metal.",
+      "B": "La escofina (raspa) solo se usa para madera.",
+      "C": "La lima de metal no puede usarse para madera."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 26,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Herramientas electroportátiles / Lijadoras",
+    "es_reserva": false,
+    "enunciado": "La lijadora roto-orbital:",
+    "opciones": {
+      "A": "sirve para llegar fácilmente a esquinas y ángulos de acceso complicado.",
+      "B": "solo sirven para pulir maderas.",
+      "C": "su funcionamiento se basa en movimiento orbital y excéntrico."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 27,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería / Redes de desagüe y materiales",
+    "es_reserva": false,
+    "enunciado": "Las tuberías son un elemento fundamental en las instalaciones de fontanería. Los desagües de estas en la actualidad se realizan normalmente de:",
+    "opciones": {
+      "A": "plomo.",
+      "B": "hierro.",
+      "C": "cobre."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 28,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería / Tuberías de cobre",
+    "es_reserva": false,
+    "enunciado": "¿Cuál es el principal inconveniente que se puede plantear en las tuberías de cobre?",
+    "opciones": {
+      "A": "La dilatación.",
+      "B": "Las costuras que se pueden crear provocando paredes rugosas.",
+      "C": "La imposibilidad de curvarlo."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 29,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería y Materiales / Tuberías de PVC",
+    "es_reserva": false,
+    "enunciado": "Las bajas temperaturas afectan negativamente al PVC:",
+    "opciones": {
+      "A": "Sí",
+      "B": "No",
+      "C": "Es indiferente."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 30,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería / Instalaciones interiores de suministro",
+    "es_reserva": false,
+    "enunciado": "En una vivienda se suele comenzar la instalación de tuberías:",
+    "opciones": {
+      "A": "Desde la entrada general usando tuberías de 22 cm de diámetro.",
+      "B": "Desde la entrada general usando tuberías de 18 cm de diámetro.",
+      "C": "Desde la entrada general usando tuberías de 50 cm de diámetro."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 31,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Instalaciones de Gas y Seguridad / Botellas de gases",
+    "es_reserva": false,
+    "enunciado": "Las ojivas (botellas de acero estriado en las que se suministra el gas) van pintadas en función del gas que contienen. Señala la respuesta correcta:",
+    "opciones": {
+      "A": "Nitrógeno color verde.",
+      "B": "Acetileno color blanco.",
+      "C": "Hidrógeno color verde."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 32,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Pintura y Acabados / Abrasivos",
+    "es_reserva": false,
+    "enunciado": "Las esponjas recubiertas de granos de abrasivo que se usan por los pintores para eliminar emplastes, yesos, pinturas, etc. se llaman:",
+    "opciones": {
+      "A": "almohadillas.",
+      "B": "espátulas.",
+      "C": "espumas de pulido."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 33,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Pintura y Acabados / Pinturas plásticas",
+    "es_reserva": false,
+    "enunciado": "La pintura plástica se puede encontrar en acabado:",
+    "opciones": {
+      "A": "Mate, satinado o brillante.",
+      "B": "Mate, satinado o translucido.",
+      "C": "Mate, opaco o satinado."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 34,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Pintura y Acabados / Pinturas al aceite",
+    "es_reserva": false,
+    "enunciado": "Las pinturas al aceite:",
+    "opciones": {
+      "A": "Se deben aplicar en capas gruesas.",
+      "B": "Secan muy rápido.",
+      "C": "Amarillean con el tiempo."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 35,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Pintura y Acabados / Composición de pinturas",
+    "es_reserva": false,
+    "enunciado": "El producto químico o natural usado por el fabricante durante el proceso de fabricación de la pintura y que forma parte de ella en su fabricación y envasado se llama:",
+    "opciones": {
+      "A": "Diluyente.",
+      "B": "Decapante.",
+      "C": "Disolvente."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 36,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Mecanizado y Herramientas / Taladrado",
+    "es_reserva": false,
+    "enunciado": "Durante la operación de taladro, en el supuesto de que se pudiera variar el número de revoluciones en el taladro, cuanto más duro sea el material a taladrar:",
+    "opciones": {
+      "A": "más lenta deberá ser la velocidad de trabajo del taladro.",
+      "B": "más rápida deberá ser la velocidad de trabajo del taladro.",
+      "C": "siempre se usará la velocidad máxima del taladro independientemente de la dureza del material.."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 37,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Soldadura / Soldadura blanda",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de las siguientes afirmaciones se corresponde con la soldadura blanda?",
+    "opciones": {
+      "A": "La soldadura funde los materiales a unir.",
+      "B": "La soldadura se consigue por medio de un soldante.",
+      "C": "La unión se realiza doblando las dos piezas a unir sobre sí mismas una o más veces."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 38,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería y Fijaciones / Tacos",
+    "es_reserva": false,
+    "enunciado": "En la colocación de tacos para sujeción de forma segura, una norma básica es:",
+    "opciones": {
+      "A": "que el agujero debe ser de un diámetro levemente superior al taco.",
+      "B": "que el agujero debe tener el mismo diámetro que el taco.",
+      "C": "que el agujero debe ser de un diámetro levemente inferior al taco."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 39,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Mantenimiento Mecánico / Lubricantes",
+    "es_reserva": false,
+    "enunciado": "Los lubricantes (grafito, azufre, grasas, resinas, aceites vegetales, aceites minerales, ...) pueden clasificarse en:",
+    "opciones": {
+      "A": "sólidos, semifluidos y fluidos.",
+      "B": "semifluidos y fluidos.",
+      "C": "exclusivamente sólidos y fluidos."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 40,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Preparación del terreno",
+    "es_reserva": false,
+    "enunciado": "Indicar la respuesta correcta:",
+    "opciones": {
+      "A": "Previo a la plantación existen una serie de actividades como son: cavar, desmenuzar, mullir, laboreo y roturar y desbrozar.",
+      "B": "El laboreo consiste en abrir surcos en el suelo con el fin de poder plantar en ellos.",
+      "C": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 41,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Mantenimiento de céspedes",
+    "es_reserva": true,
+    "enunciado": "La época de siega del césped suele comenzar a finales de invierno y cuanto más corta en altura más sensible será el césped:",
+    "opciones": {
+      "A": "La afirmación anterior es correcta.",
+      "B": "La afirmación anterior es incorrecta.",
+      "C": "La afirmación es indiferente."
+    },
+    "respuesta_correcta": "B"
+  }
+]

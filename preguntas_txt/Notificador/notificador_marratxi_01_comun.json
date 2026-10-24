@@ -1,0 +1,115 @@
+/* ARCHIVO 1: 20190329_notificador_marratxi_01_comun.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Creación de municipios",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de los siguientes son requisitos imprescindibles para la creación de nuevos municipios?",
+    "opciones": {
+      "A": "Que existan núcleos de población territorialmente diferenciados.",
+      "B": "Que estos núcleos tengan al menos 2.000 habitantes.",
+      "C": "Que los municipios resultantes sean financieramente sostenibles.",
+      "D": "Son correctas las respuestas a y c."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Término municipal",
+    "es_reserva": false,
+    "enunciado": "Cuál de las siguientes afirmaciones no es correcta en relación al territorio de un municipio:",
+    "opciones": {
+      "A": "El territorio del término municipal es aquel en el que el Ayuntamiento ejerce sus competencias.",
+      "B": "El territorio del municipio estará formado por territorios continuos, aunque se pueden mantener las situaciones de discontinuidad reconocidas en la actualidad..",
+      "C": "El territorio de un municipio debe pertenecer a una sola provincia.",
+      "D": "El territorio de un municipio puede pertenecer a dos provincias."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Población y Padrón municipal",
+    "es_reserva": false,
+    "enunciado": "Cuando una persona vive en varios municipios deberá inscribirse en el padrón municipal de:",
+    "opciones": {
+      "A": "Todos los municipios donde resida.",
+      "B": "En un solo municipio a elección de la persona interesada.",
+      "C": "En el municipio donde habite más tiempo al año.",
+      "D": "En el municipio de nacimiento de la persona interesada."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Organización municipal",
+    "es_reserva": false,
+    "enunciado": "En el Ayuntamiento de Marratxí, con una población aproximada de 40.000 habitantes, ¿debe existir la Junta de Gobierno Local?",
+    "opciones": {
+      "A": "Sí, obligatoriamente.",
+      "B": "Sí, pero solo si lo dispone su reglamento orgánico.",
+      "C": "Sí, pero siempre que lo acuerdo el Pleno del Ayuntamiento.",
+      "D": "No, en ningún caso, pues no existe ningún órgano con esa denominación."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "comun",
+    "materia_estimada": "Procedimiento Administrativo Común (Ley 39/2015) / Notificaciones",
+    "es_reserva": false,
+    "enunciado": "Cuando la notificación se realice en el domicilio del interesado, de no hallarse presente en éste, podrá hacerse cargo de la misma cualquier persona mayor de:",
+    "opciones": {
+      "A": "12 años.",
+      "B": "14 años.",
+      "C": "16 años.",
+      "D": "18 años."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "comun",
+    "materia_estimada": "Procedimiento Administrativo Común (Ley 39/2015) / Notificaciones",
+    "es_reserva": false,
+    "enunciado": "Si nadie se hace cargo de una notificación el intento de notificación se repetirá por una sola vez y en una hora distinta dentro de:",
+    "opciones": {
+      "A": "los 10 días siguientes.",
+      "B": "los 5 días siguientes.",
+      "C": "los 3 días siguientes.",
+      "D": "los 15 días siguientes."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 7,
+    "tipo_temario": "comun",
+    "materia_estimada": "Procedimiento Administrativo Común (Ley 39/2015) / Notificaciones",
+    "es_reserva": false,
+    "enunciado": "Si el primer intento de notificación se ha realizado a las 10:00 horas el segundo intento deberá realizarse después de:",
+    "opciones": {
+      "A": "las 11:00 horas.",
+      "B": "las 13:00 horas.",
+      "C": "las 14:00 horas.",
+      "D": "las 15:00 horas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 8,
+    "tipo_temario": "comun",
+    "materia_estimada": "Procedimiento Administrativo Común (Ley 39/2015) / Notificaciones",
+    "es_reserva": false,
+    "enunciado": "Cuando un interesado o su representante rechacen la notificación:",
+    "opciones": {
+      "A": "se deberá repetir el intento de notificación al día siguiente.",
+      "B": "se hará constar en el expediente, especificándose las circunstancias del intento de notificación y el medio, dando por efectuado el trámite.",
+      "C": "se suspenderá la tramitación del procedimiento.",
+      "D": "se deberá publicar la notificación por edictos."
+    },
+    "respuesta_correcta": "B"
+  }
+]

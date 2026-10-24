@@ -1,0 +1,199 @@
+/* ARCHIVO 1: 20201031_peon_marratxi_01_comun.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978",
+    "es_reserva": false,
+    "enunciado": "La forma política del Estado español es:",
+    "opciones": {
+      "A": "la monarquía parlamentaria",
+      "B": "la monarquía",
+      "C": "la soberanía popular",
+      "D": "la democracia"
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Principios constitucionales",
+    "es_reserva": false,
+    "enunciado": "Señala cual de los siguientes NO es uno de los principios de nuestro ordenamiento jurídico:",
+    "opciones": {
+      "A": "publicidad de las normas",
+      "B": "seguridad jurídica",
+      "C": "jerarquía normativa",
+      "D": "irretroactividad de todas las disposiciones"
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Derechos y Deberes Fundamentales",
+    "es_reserva": false,
+    "enunciado": "¿Cual de las siguientes materias aparece regulada en el título primero de la constitución española del 78?:",
+    "opciones": {
+      "A": "competencias exclusivas y delegables de las comunidades autónomas",
+      "B": "reforma constitucional",
+      "C": "procedimientos especiales de acceso a la autonomía",
+      "D": "derechos y deberes fundamentales"
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Elementos del municipio",
+    "es_reserva": false,
+    "enunciado": "NO es un elemento del municipio:",
+    "opciones": {
+      "A": "el término municipal o territorio",
+      "B": "la población",
+      "C": "la organización",
+      "D": "la legislación"
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Órganos de gobierno",
+    "es_reserva": false,
+    "enunciado": "Es competencia del pleno (señala la opción correcta):",
+    "opciones": {
+      "A": "dictar bandos",
+      "B": "dirigir el gobierno o la administración municipal",
+      "C": "ejercer la jefatura de la policía municipal",
+      "D": "la aprobación de las ordenanzas municipales"
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Organización territorial del Estado",
+    "es_reserva": false,
+    "enunciado": "El Estado se organiza territorialmente en:",
+    "opciones": {
+      "A": "municipios, provincias y comunidades autónomas",
+      "B": "municipios, islas y provincias",
+      "C": "municipios y comunidades autónomas",
+      "D": "municipios"
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 7,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP",
+    "es_reserva": false,
+    "enunciado": "Según el artículo 10 del texto refundido del estatuto básico del empleado público son funcionarios interinos aquellos nombrados como tales por razones justificadas de necesidad y urgencia cuando se de alguna de las siguientes circunstancias:",
+    "opciones": {
+      "A": "existencia de plazas vacantes",
+      "B": "cuando no sea posible su cobertura por funcionarios de carrera",
+      "C": "la sustitución transitoria de los titulares el exceso o acumulación de tareas por un plazo máximo de seis meses dentro de un periodo de 12 meses",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 8,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública Local / Escalas de personal",
+    "es_reserva": false,
+    "enunciado": "Los peones especializados de oficios funcionarios de carrera pertenecen a la siguiente escala:",
+    "opciones": {
+      "A": "escala de administración general",
+      "B": "escala de fiscalización interna",
+      "C": "escala de administración especial",
+      "D": "escala de funcionarios con habilitación de carácter nacional"
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 9,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Retribuciones",
+    "es_reserva": false,
+    "enunciado": "Cuáles de las siguientes NO son retribuciones complementarias:",
+    "opciones": {
+      "A": "complemento de destino",
+      "B": "complemento específico",
+      "C": "trienios",
+      "D": "servicios extraordinarios prestados fuera de la jornada normal de trabajo"
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Ley 31/1995",
+    "es_reserva": false,
+    "enunciado": "Según el artículo 29 de la ley 31/1995 de prevención de riesgos laborales los trabajadores con arreglo a su formación y siguiendo las instrucciones del empresario deberán:",
+    "opciones": {
+      "A": "utilizar correctamente los medios y equipos de formación facilitados por el empresario de acuerdo con las instrucciones recibidas por este",
+      "B": "cooperar con el empresario para que éste pueda garantizar unas condiciones de trabajo que sean seguras y no entrañan riesgos para la seguridad y la salud de los trabajadores",
+      "C": "no poner fuera de funcionamiento y utilizar correctamente los dispositivos de seguridad existentes o que se instalen en los medios relacionados con su actividad o en los lugares de trabajo en los que ésta tenga lugar",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 11,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Delegados de prevención",
+    "es_reserva": false,
+    "enunciado": "Los delegados de prevención previstos en la normativa de riesgos laborales son los representantes de los trabajadores con funciones específicas en materia de prevención de riesgos en el trabajo. En una empresa con 284 trabajadores (los mismos que tiene el Ayuntamiento de Marratxi) deberían dirigirse por y entre los representantes de Personal:",
+    "opciones": {
+      "A": "Dos delegados de prevención",
+      "B": "Tres delegados de prevención",
+      "C": "Cuatro delegados de prevención",
+      "D": "No existe la figura de los delegados de prevención"
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Señalización de seguridad",
+    "es_reserva": false,
+    "enunciado": "Los colores de seguridad podrán formar parte de una señalización de seguridad o constituirla por sí mismos ¿cual de los siguientes colores debería utilizarse para indicar señales de advertencia?",
+    "opciones": {
+      "A": "rojo",
+      "B": "amarillo",
+      "C": "azul",
+      "D": "verde"
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Vías y salidas de evacuación",
+    "es_reserva": false,
+    "enunciado": "Cuáles de las siguientes afirmaciones son correctas cuando hablamos de vías y salidas de evacuación:",
+    "opciones": {
+      "A": "Las vías y salidas de evacuación deberán permanecer expeditas y desembocar lo más directamente posible en el exterior o en una zona de seguridad",
+      "B": "Las vías y salidas de evacuación así como las vías de circunvalación que den acceso a ellas únicamente podrán obstruirse de manera temporal o cerrarse con llave solo en supuestos justificados por riesgos de robo o hurto",
+      "C": "Las puertas de emergencia deberán abrirse hacia el exterior y no deberán estar cerradas de forma que cualquier persona que necesite utilizarlas en caso de urgencia pueda abrirlas fácil e inmediatamente",
+      "D": "Son correctas las respuestas a y c."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 44,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local / Padrón municipal de habitantes",
+    "es_reserva": true,
+    "enunciado": "Señala la respuesta correcta ¿cual de los siguientes son datos que han de figurar obligatoriamente en el padrón municipal?",
+    "opciones": {
+      "A": "nombre y apellidos sexo y número de teléfono",
+      "B": "nombre y apellidos sexo y personas que les puedan representar",
+      "C": "nombre y apellidos sexo y estado civil",
+      "D": "nombre y apellidos sexo y certificado o título escolar o académico que posea"
+    },
+    "respuesta_correcta": "D"
+  }
+]

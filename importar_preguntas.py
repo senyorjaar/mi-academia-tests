@@ -1,95 +1,153 @@
-# =====================================================================
-# ARCHIVO: importar_preguntas.py
-# FUNCIÓN: Importador Automático Masivo y Multiarchivo de Preguntas
-# TECNOLOGÍAS: Python Integrado, Módulos 'os' y 'glob' (Gestión de Archivos)
-# =====================================================================
-
-import sqlite3
 import os
 import glob
+import json
+import sqlite3
 
-def importar_multiples_txt():
-    # 1. Definimos el nombre de la carpeta donde guardas tus blocs de notas (.txt)
-    carpeta_origen = "preguntas_txt"
-    
-    # Verificación de seguridad: Si la carpeta no existe, avisamos y paramos el script
-    if not os.path.exists(carpeta_origen):
-        print(f"❌ Error: No existe la carpeta '{carpeta_origen}'. Créala y mete tus archivos dentro.")
-        return
-        
-    # 2. El comando 'glob' busca de forma automática todos los archivos que terminen en .txt dentro de esa carpeta
-    archivos_txt = glob.glob(os.path.join(carpeta_origen, "*.txt"))
-    
-    # Verificación de seguridad: Si la carpeta está vacía, avisamos y paramos
-    if not archivos_txt:
-        print(f"⚠️ No se encontró ningún archivo .txt dentro de la carpeta '{carpeta_origen}'.")
-        return
-        
-    # 3. Conectamos a la base de datos local
-    conexion = sqlite3.connect("oposiciones.db")
-    cursor = conexion.cursor()
-    
-    total_importado = 0  # Contador global para saber cuántas preguntas metemos en total
-    
-    print(f"🔍 Detectados {len(archivos_txt)} archivos listos para procesar...\n")
-    
-    # 4. 🔄 BUCLE PRINCIPAL: Procesamos los archivos uno por uno
-    for ruta_archivo in archivos_txt:
-        nombre_archivo = os.path.basename(ruta_archivo)  # Extrae solo el nombre (Ej: constitucionAP.txt)
-        contador_local = 0                             # Contador individual para este archivo
-        
+DB_NAME = "oposiciones.db"
+
+def asegurar_columnas(cursor):
+    """Asegura que la tabla preguntas tenga la columna archivo_origen sin borrar datos."""
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS preguntas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            tema TEXT,
+            enunciado TEXT,
+            opcion_a TEXT,
+            opcion_b TEXT,
+            opcion_c TEXT,
+            opcion_d TEXT,
+            correcta TEXT,
+            justificacion TEXT,
+            archivo_origen TEXT
+        )
+    """)
+    cursor.execute("PRAGMA table_info(preguntas)")
+    columnas = [col[1] for col in cursor.fetchall()]
+    if "archivo_origen" not in columnas:
+        cursor.execute("ALTER TABLE preguntas ADD COLUMN archivo_origen TEXT")
+
+def insertar_pregunta(cursor, tema, enunciado, op_a, op_b, op_c, op_d, correcta, justificacion, archivo_origen=""):
+    cursor.execute("""
+        INSERT INTO preguntas (tema, enunciado, opcion_a, opcion_b, opcion_c, opcion_d, correcta, justificacion, archivo_origen)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        tema.strip(),
+        enunciado.strip(),
+        op_a.strip(),
+        op_b.strip(),
+        op_c.strip(),
+        op_d.strip(),
+        correcta.strip().upper(),
+        justificacion.strip(),
+        archivo_origen.strip()
+    ))
+
+def importar_desde_txt(cursor):
+    total_txt = 0
+    archivos_txt = glob.glob("preguntas_txt/**/*.txt", recursive=True)
+    archivos_txt = [f for f in archivos_txt if os.path.basename(f) not in ["requirements.txt", "runtime.txt"]]
+
+    for ruta in archivos_txt:
+        nombre = os.path.basename(ruta)
+        # Nombre del contenedor (carpeta)
+        contenedor = os.path.basename(os.path.dirname(ruta))
+        contador = 0
         try:
-            # Abrimos el archivo con codificación UTF-8 para que lea bien los acentos, la ñ y caracteres en catalán
-            with open(ruta_archivo, "r", encoding="utf-8") as archivo:
-                for num_linea, linea in enumerate(archivo, 1):
-                    linea = linea.strip()  # Limpia espacios vacíos sueltos al inicio o final de la línea
-                    
-                    # Si la línea está vacía o es un comentario (empieza por #), la ignoramos y seguimos
-                    if not linea or linea.startswith("#"): 
+            with open(ruta, "r", encoding="utf-8") as f:
+                for linea in f:
+                    linea = linea.strip()
+                    if not linea or linea.startswith("#"):
                         continue
-                        
-                    # Rompemos la línea en trozos usando la barra vertical '|' como cuchillo
                     partes = linea.split("|")
-                    
-                    # REGLA DE VALIDACIÓN: Cada pregunta debe tener exactamente 8 campos
                     if len(partes) == 8:
-                        tema, enunciado, op_a, op_b, op_c, op_d, correcta, justificacion = partes
-                        
-                        # Inyectamos de forma segura los 8 campos en la base de datos usando marcadores '?'
-                        cursor.execute("""
-                            INSERT INTO preguntas (tema, enunciado, opcion_a, opcion_b, opcion_c, opcion_d, correcta, justificacion)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                        """, (
-                            tema.strip(), 
-                            enunciado.strip(), 
-                            op_a.strip(), 
-                            op_b.strip(), 
-                            op_c.strip(), 
-                            op_d.strip(), 
-                            correcta.strip().upper(),  # Aseguramos la letra de la respuesta en mayúscula (A)
-                            justificacion.strip()       # Texto completo del comentario/artículo legal
-                        ))
-                        
-                        contador_local += 1
-                        total_importado += 1
-                    else:
-                        # Si una línea está rota o mal estructurada, avisamos sin detener el resto del archivo
-                        print(f"⚠️ [{nombre_archivo}] Línea {num_linea} ignorada: tiene {len(partes)} campos de 8 requeridos.")
-                        
-            print(f"📁 {nombre_archivo}: {contador_local} preguntas procesadas con éxito.")
-            
+                        _, enun, a, b, c, d, corr, just = partes
+                        # Usamos ÚNICAMENTE el nombre de la carpeta contenedora
+                        insertar_pregunta(cursor, contenedor, enun, a, b, c, d, corr, just, nombre)
+                        contador += 1
+                        total_txt += 1
+            if contador > 0:
+                print(f"📄 [TXT] ({contenedor}) -> {nombre}: {contador} preguntas.")
         except Exception as e:
-            # Si el archivo tiene un fallo grave de lectura, capturamos el error para que el programa no se caiga
-            print(f"❌ Error crítico al leer el archivo {nombre_archivo}: {e}")
+            print(f"❌ Error al leer TXT {nombre}: {e}")
+    return total_txt
+
+def importar_desde_json(cursor):
+    total_json = 0
+    # Busca exclusivamente en tu carpeta preguntas_txt
+    archivos_json = glob.glob("preguntas_txt/**/*.json", recursive=True)
+
+    for ruta in archivos_json:
+        nombre = os.path.basename(ruta)
+        # Nombre del contenedor (Notificador, OficialElectricista, PeoEspexitlizat, etc.)
+        contenedor = os.path.basename(os.path.dirname(ruta))
+        contador = 0
+        try:
+            with open(ruta, "r", encoding="utf-8-sig") as f:
+                contenido = f.read().strip()
+
+            if not contenido:
+                continue
+
+            # Tu lógica original que descarta comentarios /* ... */
+            pos_inicio = contenido.find("[")
+            if pos_inicio == -1:
+                pos_inicio = contenido.find("{")
+
+            if pos_inicio != -1:
+                contenido = contenido[pos_inicio:]
+
+            datos = json.loads(contenido)
+
+            if isinstance(datos, dict):
+                datos = [datos]
+
+            if isinstance(datos, list):
+                for item in datos:
+                    # TEMA: Únicamente el nombre de la carpeta contenedora
+                    tema = contenedor
+                    enunciado = item.get("enunciado", "")
+                    opciones = item.get("opciones", {})
+                    op_a = opciones.get("A", "")
+                    op_b = opciones.get("B", "")
+                    op_c = opciones.get("C", "")
+                    op_d = opciones.get("D", "")
+                    correcta = item.get("respuesta_correcta", "")
+                    justificacion = item.get("justificacion", "Convocatoria Oficial Marratxí")
+
+                    if enunciado and op_a and correcta:
+                        insertar_pregunta(cursor, tema, enunciado, op_a, op_b, op_c, op_d, correcta, justificacion, nombre)
+                        contador += 1
+                        total_json += 1
+
+            if contador > 0:
+                print(f"📦 [JSON] ({contenedor}) -> {nombre}: {contador} preguntas.")
+        except Exception as e:
+            print(f"❌ Error al leer JSON {nombre}: {e}")
             
-    # 5. Guardamos permanentemente todos los cambios en la base de datos y cerramos
+    return total_json
+
+def ejecutar_importacion_completa():
+    conexion = sqlite3.connect(DB_NAME)
+    cursor = conexion.cursor()
+
+    asegurar_columnas(cursor)
+
+    # Limpia preguntas anteriores para que no se mezclen las materias viejas
+    cursor.execute("DELETE FROM preguntas")
+    conexion.commit()
+
+    print("🚀 Importando preguntas clasificadas únicamente por CARPETA CONTENEDORA...\n")
+    n_txt = importar_desde_txt(cursor)
+    n_json = importar_desde_json(cursor)
+
     conexion.commit()
     conexion.close()
-    
-    print("\n--------------------------------------------------")
-    print(f"🚀 ¡PASO 2 COMPLETADO! Total global inyectado: {total_importado} preguntas.")
-    print("--------------------------------------------------")
 
-# Punto de entrada para ejecutar la función al lanzar el script
+    print("\n--------------------------------------------------")
+    print(f"✅ Proceso terminado:")
+    print(f"   • Desde TXT:  {n_txt}")
+    print(f"   • Desde JSON: {n_json}")
+    print(f"   • Total:      {n_txt + n_json}\n")
+
 if __name__ == "__main__":
-    importar_multiples_txt()
+    ejecutar_importacion_completa()
