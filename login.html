@@ -5,197 +5,240 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso - Academia Oposiciones</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f1f5f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        .caja-autenticacion {
-            background: white;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             width: 100%;
-            max-width: 400px;
+            max-width: 440px;
+            padding: 35px 30px;
         }
-        h2 {
-            margin-top: 0;
-            color: #0f172a;
-            border-bottom: 2px solid #3b82f6;
+
+        .alerta {
+            display: none;
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #f87171;
+            padding: 12px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .titulo-caja {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #2563eb;
             padding-bottom: 8px;
         }
-        .grupo-input {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-bottom: 15px;
+
+        .campo {
+            margin-bottom: 18px;
         }
-        label {
+
+        .campo label {
+            display: block;
             font-size: 13px;
-            font-weight: bold;
-            color: #475569;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 6px;
         }
-        input {
+
+        .campo input {
+            width: 100%;
             padding: 10px 12px;
-            border-radius: 6px;
             border: 1px solid #cbd5e1;
-            outline: none;
+            border-radius: 6px;
             font-size: 14px;
+            color: #0f172a;
+            outline: none;
+            transition: border-color 0.2s;
         }
-        input:focus {
-            border-color: #3b82f6;
+
+        .campo input:focus {
+            border-color: #2563eb;
         }
-        button {
+
+        .btn-principal {
             width: 100%;
             padding: 12px;
-            background-color: #3b82f6;
-            color: white;
+            background-color: #2563eb;
+            color: #ffffff;
             border: none;
             border-radius: 6px;
             font-size: 15px;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: background-color 0.2s;
             margin-top: 10px;
         }
-        button:hover {
-            background-color: #2563eb;
+
+        .btn-principal:hover {
+            background-color: #1d4ed8;
         }
-        .enlace-cambio {
+
+        .btn-registro {
+            background-color: #10b981;
+        }
+
+        .btn-registro:hover {
+            background-color: #059669;
+        }
+
+        .cambiar-vista {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 13px;
             color: #64748b;
         }
-        .enlace-cambio span {
-            color: #3b82f6;
-            cursor: pointer;
-            font-weight: bold;
+
+        .cambiar-vista a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
         }
-        .enlace-cambio span:hover {
+
+        .cambiar-vista a:hover {
             text-decoration: underline;
-        }
-        .mensaje-alerta {
-            padding: 10px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            font-size: 13px;
-            display: none;
-            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
-    <div class="caja-autenticacion">
-        <div id="caja-alerta" class="mensaje-alerta"></div>
+<div class="card">
+    <div id="mensajeAlerta" class="alerta"></div>
 
-        <div id="vista-login">
-            <h2>🔑 Iniciar Sesión</h2>
-            <form onsubmit="procesarAutenticacion(event, 'login')">
-                <div class="grupo-input">
-                    <label>Usuario o Correo Electrónico</label>
-                    <input type="text" id="login-identificador" required placeholder="root o tu@correo.com">
-                </div>
-                <div class="grupo-input">
-                    <label>Contraseña</label>
-                    <input type="password" id="login-password" required placeholder="••••••••">
-                </div>
-                <button type="submit">Entrar a la Plataforma</button>
-            </form>
-            <div class="enlace-cambio">¿No tienes cuenta? <span onclick="conmutarVista(true)">Regístrate aquí</span></div>
+    <!-- VISTA INICIAR SESIÓN -->
+    <div id="vistaLogin">
+        <div class="titulo-caja">
+            <span>🔑</span> Iniciar Sesión
         </div>
-
-        <div id="vista-registro" style="display: none;">
-            <h2>📝 Registrarse</h2>
-            <form onsubmit="procesarAutenticacion(event, 'registro')">
-                <div class="grupo-input">
-                    <label>Nombre de Usuario</label>
-                    <input type="text" id="reg-nombre" required placeholder="Ej: senyor">
-                </div>
-                <div class="grupo-input">
-                    <label>Correo Electrónico</label>
-                    <input type="email" id="reg-email" required placeholder="tu@correo.com">
-                </div>
-                <div class="grupo-input">
-                    <label>Contraseña de Acceso</label>
-                    <input type="password" id="reg-password" required placeholder="Mínimo 6 caracteres">
-                </div>
-                <button type="submit" style="background-color: #10b981;">Crear mi Cuenta</button>
-            </form>
-            <div class="enlace-cambio">¿Ya eres alumno? <span onclick="conmutarVista(false)">Inicia sesión</span></div>
+        <form id="formLogin">
+            <div class="campo">
+                <label for="loginUsuario">Usuario o Correo Electrónico</label>
+                <input type="text" id="loginUsuario" required autofocus autocomplete="username">
+            </div>
+            <div class="campo">
+                <label for="loginPassword">Contraseña</label>
+                <input type="password" id="loginPassword" required autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn-principal">Entrar a la Plataforma</button>
+        </form>
+        <div class="cambiar-vista">
+            ¿No tienes cuenta? <a href="#" id="irARegistro">Regístrate aquí</a>
         </div>
     </div>
 
-    <script>
-        function conmutarVista(mostrarRegistro) {
-            document.getElementById('caja-alerta').style.display = 'none';
-            document.getElementById('vista-login').style.display = mostrarRegistro ? 'none' : 'block';
-            document.getElementById('vista-registro').style.display = mostrarRegistro ? 'block' : 'none';
-        }
+    <!-- VISTA REGISTRARSE -->
+    <div id="vistaRegistro" style="display: none;">
+        <div class="titulo-caja">
+            <span>📝</span> Registrarse
+        </div>
+        <form id="formRegistro">
+            <div class="campo">
+                <label for="regUsuario">Nombre de Usuario</label>
+                <input type="text" id="regUsuario" required autocomplete="username">
+            </div>
+            <div class="campo">
+                <label for="regEmail">Correo Electrónico</label>
+                <input type="email" id="regEmail" required autocomplete="email">
+            </div>
+            <div class="campo">
+                <label for="regPassword">Contraseña de Acceso</label>
+                <input type="password" id="regPassword" required autocomplete="new-password">
+            </div>
+            <button type="submit" class="btn-principal btn-registro">Crear mi Cuenta</button>
+        </form>
+        <div class="cambiar-vista">
+            ¿Ya eres alumno? <a href="#" id="irALogin">Inicia sesión</a>
+        </div>
+    </div>
+</div>
 
-        async function procesarAutenticacion(event, modo) {
-            event.preventDefault();
-            const alerta = document.getElementById('caja-alerta');
-            alerta.style.display = 'none';
+<script>
+    const alerta = document.getElementById('mensajeAlerta');
+    const vistaLogin = document.getElementById('vistaLogin');
+    const vistaRegistro = document.getElementById('vistaRegistro');
 
-            let url = '/' + modo;
-            let cuerpoCarga = {};
+    function mostrarError(texto) {
+        alerta.textContent = '❌ ' + texto;
+        alerta.style.display = 'block';
+    }
 
-            if (modo === 'registro') {
-                cuerpoCarga = {
-                    nombre: document.getElementById('reg-nombre').value,
-                    email: document.getElementById('reg-email').value,
-                    password: document.getElementById('reg-password').value
-                };
+    function ocultarError() {
+        alerta.style.display = 'none';
+        alerta.textContent = '';
+    }
+
+    document.getElementById('irARegistro').addEventListener('click', (e) => {
+        e.preventDefault();
+        ocultarError();
+        vistaLogin.style.display = 'none';
+        vistaRegistro.style.display = 'block';
+    });
+
+    document.getElementById('irALogin').addEventListener('click', (e) => {
+        e.preventDefault();
+        ocultarError();
+        vistaRegistro.style.display = 'none';
+        vistaLogin.style.display = 'block';
+    });
+
+    document.getElementById('formLogin').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        ocultarError();
+
+        const usuario = document.getElementById('loginUsuario').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+
+        try {
+            // RUTA RELATIVA: Funciona tanto en local como en producción en Render
+            const respuesta = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ usuario, password })
+            });
+
+            const datos = await respuesta.json();
+
+            if (respuesta.ok && datos.exito) {
+                sessionStorage.setItem('usuario', datos.usuario);
+                sessionStorage.setItem('rol', datos.rol);
+                window.location.href = '/panel.html';
             } else {
-                cuerpoCarga = {
-                    identificador: document.getElementById('login-identificador').value,
-                    password: document.getElementById('login-password').value
-                };
+                mostrarError(datos.mensaje || 'Credenciales inválidas.');
             }
-
-            try {
-                const respuesta = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(cuerpoCarga)
-                });
-
-                const resultado = await respuesta.json();
-
-                if (!respuesta.ok) {
-                    alerta.style.backgroundColor = '#fee2e2';
-                    alerta.style.color = '#991b1b';
-                    alerta.innerHTML = '❌ ' + (resultado.error || 'Ocurrió un problema.');
-                    alerta.style.display = 'block';
-                } else {
-                    alerta.style.backgroundColor = '#dcfce7';
-                    alerta.style.color = '#166534';
-                    alerta.innerHTML = '✅ ' + resultado.mensaje;
-                    alerta.style.display = 'block';
-
-                    if (modo === 'login') {
-                        localStorage.setItem('usuario_logeado', JSON.stringify(resultado.usuario));
-                        alerta.innerHTML += '... Redireccionando al panel principal.';
-                        setTimeout(() => {
-                            window.location.href = 'panel.html'; 
-                        }, 1200);
-                    } else {
-                        setTimeout(() => conmutarVista(false), 1500);
-                    }
-                }
-            } catch (error) {
-                alerta.style.backgroundColor = '#fee2e2';
-                alerta.style.color = '#991b1b';
-                alerta.innerHTML = '❌ Imposible conectar con el servidor backend.';
-                alerta.style.display = 'block';
-            }
+        } catch (error) {
+            mostrarError('Imposible conectar con el servidor backend.');
         }
-    </script>
+    });
+
+    document.getElementById('formRegistro').addEventListener('submit', (e) => {
+        e.preventDefault();
+        mostrarError('El autoregistro está desactivado. Accede con tu usuario root asignado.');
+    });
+</script>
+
 </body>
 </html>
