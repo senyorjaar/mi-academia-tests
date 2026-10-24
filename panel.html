@@ -235,7 +235,7 @@
         .etiqueta-insular { background-color: #fef3c7; color: #92400e; }
         .etiqueta-municipal { background-color: #ffe4e6; color: #9f1239; }
         .etiqueta-autonomica { background-color: #dbeafe; color: #1e40af; }
-        
+
         .badge-escala {
             display: inline-block;
             padding: 4px 8px;
@@ -268,7 +268,7 @@
             font-size: 13px;
         }
         .btn-enlace-boib:hover { text-decoration: underline; }
-        
+
         .btn-pdf-descarga {
             display: inline-flex;
             align-items: center;
@@ -304,7 +304,7 @@
                 <a href="quiz.html" class="btn-accion-top btn-test">📝 Ir a Zona de Tests</a>
                 <button onclick="sincronizarConBoib()" id="btn-sync" class="btn-accion-top btn-sync">🔄 Actualizar Mes del BOIB</button>
             </div>
-            <a href="login.html" class="btn-accion-top btn-salir" onclick="localStorage.removeItem('usuario_logeado')">🚪 Cerrar Sesión</a>
+            <a href="/api/logout" class="btn-accion-top btn-salir">🚪 Cerrar Sesión</a>
         </div>
 
         <div class="encabezado-seccion">
@@ -332,7 +332,7 @@
             </div>
             <div class="fila-filtro">
                 <span class="filtro-etiqueta">🎓 ESCALA:</span>
-                <button id="escala-todos" class="btn-filtro btn-escala activo" onclick="cambiarFiltroEscala('TODOS', this)">Todas</button>
+                <button id="escala-todos" class="btn-filtro btn-escala activo" onclick="cambiarFiltroEscala('TODAS', this)">Todas</button>
                 <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('AP', this)">AP (Peón / Oficios / Servicios)</button>
                 <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('C2', this)">C2 (Oficiales de Oficios / Auxiliares)</button>
                 <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('C1', this)">C1 (Policía / Administrativos)</button>
@@ -364,7 +364,7 @@
 
     <script>
         let filtroAmbitoActual = 'todos';
-        let filtroEscalaActual = 'TODOS';
+        let filtroEscalaActual = 'TODAS';
         let modoHistorico = false;
 
         async function solicitarConvocatorias() {
@@ -373,17 +373,27 @@
 
             try {
                 let textoBusqueda = document.getElementById('campo-palabra').value.trim();
+                let dias = modoHistorico ? 365 : 30;
+
                 let parametros = [
-                    `historico=${modoHistorico}`,
-                    `tipo=${encodeURIComponent(filtroAmbitoActual)}`,
+                    `dias=${dias}`,
+                    `isla=${encodeURIComponent(filtroAmbitoActual)}`,
                     `escala=${encodeURIComponent(filtroEscalaActual)}`
                 ];
+
                 if (textoBusqueda) {
-                    parametros.push(`termino=${encodeURIComponent(textoBusqueda)}`);
+                    parametros.push(`q=${encodeURIComponent(textoBusqueda)}`);
                 }
 
-                let url = '/buscar-convocatorias?' + parametros.join('&');
+                // Ruta conectada al endpoint real de server_boib.py
+                let url = '/api/buscar?' + parametros.join('&');
                 const respuesta = await fetch(url);
+
+                if (respuesta.status === 401) {
+                    window.location.href = '/login.html';
+                    return;
+                }
+
                 const datosJson = await respuesta.json();
 
                 if (!datosJson.datos || datosJson.datos.length === 0) {
@@ -393,34 +403,41 @@
 
                 let filasHtml = "";
                 datosJson.datos.forEach(item => {
+                    const puesto = item.titulo || item.puesto || "Convocatoria";
+                    const ente = item.organismo || item.ente || "Administración";
+                    const escala = item.escala || "S/E";
+                    const fecha = item.fecha || "-";
+                    const urlBoib = item.url || "#";
+                    const isla = (item.isla || "").toLowerCase();
+
                     let claseAmbito = "etiqueta-municipal";
                     let nombreAmbito = "Municipal";
 
-                    if (item.ambito === "insular") {
+                    if (isla.includes("consell") || isla.includes("insular")) {
                         claseAmbito = "etiqueta-insular";
                         nombreAmbito = "Insular";
-                    } else if (item.ambito === "autonomica") {
+                    } else if (isla.includes("govern") || isla.includes("autonom") || isla.includes("balears")) {
                         claseAmbito = "etiqueta-autonomica";
                         nombreAmbito = "Autonómica";
                     }
 
-                    let claseEscala = `badge-${item.escala}`;
+                    let claseEscala = `badge-${escala.replace('/', '_')}`;
 
                     let botonPdfHtml = "";
-                    if (item.url_pdf) {
-                        botonPdfHtml = `<a href="${item.url_pdf}" target="_blank" class="btn-pdf-descarga">📄 PDF Directo</a>`;
+                    if (urlBoib.endsWith(".pdf") || urlBoib.includes("/pdf/")) {
+                        botonPdfHtml = `<a href="${urlBoib}" target="_blank" class="btn-pdf-descarga">📄 PDF Directo</a>`;
                     }
 
                     filasHtml += `
                         <tr>
-                            <td class="col-puesto">${item.puesto}</td>
-                            <td class="col-ente">${item.ente}</td>
+                            <td class="col-puesto">${puesto}</td>
+                            <td class="col-ente">${ente}</td>
                             <td><span class="etiqueta-ambito ${claseAmbito}">${nombreAmbito}</span></td>
-                            <td><span class="badge-escala ${claseEscala}">${item.escala}</span></td>
-                            <td class="col-fecha">${item.fecha}</td>
+                            <td><span class="badge-escala ${claseEscala}">${escala}</span></td>
+                            <td class="col-fecha">${fecha}</td>
                             <td>
                                 <div class="acciones-descarga">
-                                    <a href="${item.url}" target="_blank" class="btn-enlace-boib">🔗 Ver BOIB</a>
+                                    <a href="${urlBoib}" target="_blank" class="btn-enlace-boib">🔗 Ver BOIB</a>
                                     ${botonPdfHtml}
                                 </div>
                             </td>
@@ -442,7 +459,14 @@
             btn.innerText = "⏳ Extrayendo Escalas y PDFs del BOIB...";
 
             try {
-                const res = await fetch('/ejecutar-escaner', { method: 'POST' });
+                // Ruta conectada al endpoint real de server_boib.py
+                const res = await fetch('/api/actualizar_boib', { method: 'POST' });
+
+                if (res.status === 401) {
+                    window.location.href = '/login.html';
+                    return;
+                }
+
                 const resultado = await res.json();
                 alert(resultado.mensaje || "Sincronización completada.");
                 solicitarConvocatorias();
