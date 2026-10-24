@@ -11,7 +11,7 @@ except ImportError:
     detectar_escala = lambda t: "S/E"
 
 # -------------------------------------------------------------
-# CONFIGURACIÓN DE RUTAS ABSOLUTAS Y FLASK
+# CONFIGURACIÓN DE RUTAS ABSOLUTAS Y BASE DE DATOS
 # -------------------------------------------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__, static_folder=BASE_DIR, static_url_path='')
@@ -21,6 +21,39 @@ def obtener_conexion():
     conexion = sqlite3.connect(DB_NAME)
     conexion.row_factory = sqlite3.Row
     return conexion
+
+def inicializar_base_datos():
+    """Garantiza que la base de datos tenga las tablas necesarias y el usuario root."""
+    try:
+        conexion = obtener_conexion()
+        cursor = conexion.cursor()
+        
+        # Crear tabla de usuarios si no existe
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS usuarios (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                usuario TEXT UNIQUE NOT NULL,
+                password TEXT NOT NULL,
+                rol TEXT NOT NULL DEFAULT 'alumno'
+            )
+        """)
+
+        # Verificar si existe el usuario root; si no, crearlo
+        cursor.execute("SELECT id FROM usuarios WHERE usuario = 'root'")
+        if not cursor.fetchone():
+            cursor.execute("""
+                INSERT INTO usuarios (usuario, password, rol)
+                VALUES ('root', 'root', 'admin')
+            """)
+
+        conexion.commit()
+        conexion.close()
+        print("Base de datos verificada con éxito.")
+    except Exception as e:
+        print(f"Error al inicializar la base de datos: {e}")
+
+# Inicializar tablas al arrancar la app
+inicializar_base_datos()
 
 def normalizar(texto):
     if not texto:
