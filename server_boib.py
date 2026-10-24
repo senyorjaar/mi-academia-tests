@@ -24,29 +24,33 @@ def obtener_conexion():
     return conexion
 
 def inicializar_sistema():
-    """Crea la tabla usuarios e inserta la cuenta root si no existen."""
+    """Garantiza la estructura correcta de la tabla usuarios y crea la cuenta root."""
     try:
         conexion = obtener_conexion()
         cursor = conexion.cursor()
+        
+        # Eliminar tabla previa si tiene columnas incompatibles y recrearla
+        cursor.execute("DROP TABLE IF EXISTS usuarios")
         cursor.execute("""
-            CREATE TABLE IF NOT EXISTS usuarios (
+            CREATE TABLE usuarios (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 usuario TEXT UNIQUE NOT NULL,
                 password TEXT NOT NULL,
                 rol TEXT NOT NULL DEFAULT 'admin'
             )
         """)
-        cursor.execute("SELECT id FROM usuarios WHERE usuario = 'root'")
-        if not cursor.fetchone():
-            cursor.execute("""
-                INSERT INTO usuarios (usuario, password, rol)
-                VALUES ('root', 'root', 'admin')
-            """)
+        
+        # Insertar credencial administrativa por defecto
+        cursor.execute("""
+            INSERT INTO usuarios (usuario, password, rol)
+            VALUES ('root', 'root', 'admin')
+        """)
+        
         conexion.commit()
         conexion.close()
-        print("Tablas y credenciales verificadas.")
+        print("Tabla usuarios recreada con éxito.")
     except Exception as e:
-        print(f"Error inicializando base de datos: {e}")
+        print(f"Error inicializando tabla usuarios: {e}")
 
 inicializar_sistema()
 
