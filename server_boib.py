@@ -2,7 +2,7 @@ import os
 import sqlite3
 import unicodedata
 from datetime import datetime, timedelta
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory, redirect, session
 
 try:
     from botBuscadorOposiciones import buscar_novedades_reales_boib, detectar_escala
@@ -11,10 +11,11 @@ except ImportError:
     detectar_escala = lambda t: "S/E"
 
 # -------------------------------------------------------------
-# CONFIGURACIÓN DE RUTAS ABSOLUTAS Y BASE DE DATOS
+# CONFIGURACIÓN GENERAL Y RUTAS ABSOLUTAS
 # -------------------------------------------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__, static_folder=BASE_DIR, static_url_path='')
+app.secret_key = "clave_secreta_oposiciones_balears_segura"
 DB_NAME = os.path.join(BASE_DIR, "oposiciones.db")
 
 def obtener_conexion():
@@ -22,38 +23,32 @@ def obtener_conexion():
     conexion.row_factory = sqlite3.Row
     return conexion
 
-def inicializar_base_datos():
-    """Garantiza que la base de datos tenga las tablas necesarias y el usuario root."""
+def inicializar_sistema():
+    """Crea la tabla usuarios e inserta la cuenta root si no existen."""
     try:
         conexion = obtener_conexion()
         cursor = conexion.cursor()
-        
-        # Crear tabla de usuarios si no existe
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS usuarios (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 usuario TEXT UNIQUE NOT NULL,
                 password TEXT NOT NULL,
-                rol TEXT NOT NULL DEFAULT 'alumno'
+                rol TEXT NOT NULL DEFAULT 'admin'
             )
         """)
-
-        # Verificar si existe el usuario root; si no, crearlo
         cursor.execute("SELECT id FROM usuarios WHERE usuario = 'root'")
         if not cursor.fetchone():
             cursor.execute("""
                 INSERT INTO usuarios (usuario, password, rol)
                 VALUES ('root', 'root', 'admin')
             """)
-
         conexion.commit()
         conexion.close()
-        print("Base de datos verificada con éxito.")
+        print("Tablas y credenciales verificadas.")
     except Exception as e:
-        print(f"Error al inicializar la base de datos: {e}")
+        print(f"Error inicializando base de datos: {e}")
 
-# Inicializar tablas al arrancar la app
-inicializar_base_datos()
+inicializar_sistema()
 
 def normalizar(texto):
     if not texto:
@@ -63,38 +58,43 @@ def normalizar(texto):
     return "".join([c for c in forma_nfkd if not unicodedata.combining(c)])
 
 # -------------------------------------------------------------
-# RUTAS DE PÁGINAS Y VISTAS ESTÁTICAS
+# RUTAS DE ACCESO Y PROTECCIÓN DE VISTAS
 # -------------------------------------------------------------
 @app.route('/')
 def index():
-    ruta_login = os.path.join(BASE_DIR, 'login.html')
-    if os.path.exists(ruta_login):
-        return send_from_directory(BASE_DIR, 'login.html')
-    return "<h1>Bienvenido al Servidor de Oposiciones</h1>"
+    if session.get('autenticado'):
+        return redirect('/panel.html')
+    return send_from_directory(BASE_DIR, 'login.html')
 
 @app.route('/login.html')
 def servir_login():
+    if session.get('autenticado'):
+        return redirect('/panel.html')
     return send_from_directory(BASE_DIR, 'login.html')
 
 @app.route('/panel.html')
 def servir_panel():
+    if not session.get('autenticado'):
+        return redirect('/login.html')
     return send_from_directory(BASE_DIR, 'panel.html')
 
 @app.route('/quiz.html')
 def servir_quiz():
+    if not session.get('autenticado'):
+        return redirect('/login.html')
     return send_from_directory(BASE_DIR, 'quiz.html')
 
 # -------------------------------------------------------------
-# API DE AUTENTICACIÓN
+# API DE AUTENTICACIÓN Y SESIONES
 # -------------------------------------------------------------
 @app.route('/api/login', methods=['POST'])
-def login():
+def api_login():
     datos = request.get_json(silent=True) or {}
     usuario = datos.get('usuario', '').strip()
     password = datos.get('password', '').strip()
 
     if not usuario or not password:
-        return jsonify({"exito": False, "mensaje": "Faltan credenciales"}), 400
+        return jsonify({"exito": False, "mensaje": "Ingresa usuario y contraseña."}), 400
 
     try:
         conexion = obtener_conexion()
@@ -104,21 +104,31 @@ def login():
         conexion.close()
 
         if user:
+            session['autenticado'] = True
+            session['usuario'] = user['usuario']
+            session['rol'] = user['rol']
             return jsonify({
                 "exito": True,
                 "usuario": user["usuario"],
                 "rol": user["rol"]
             })
-        else:
-            return jsonify({"exito": False, "mensaje": "Usuario o contraseña incorrectos"}), 401
+        return jsonify({"exito": False, "mensaje": "Usuario o contraseña incorrectos."}), 401
     except Exception as e:
-        return jsonify({"exito": False, "mensaje": f"Error de base de datos: {str(e)}"}), 500
+        return jsonify({"exito": False, "mensaje": f"Error interno: {str(e)}"}), 500
+
+@app.route('/api/logout', methods=['GET', 'POST'])
+def api_logout():
+    session.clear()
+    return redirect('/login.html')
 
 # -------------------------------------------------------------
 # API DEL BUSCADOR DE OPOSICIONES (BOIB)
 # -------------------------------------------------------------
 @app.route('/api/buscar', methods=['GET'])
 def api_buscar():
+    if not session.get('autenticado'):
+        return jsonify({"exito": False, "error": "Acceso no autorizado"}), 401
+
     filtro_escala = request.args.get('escala', '').strip().upper()
     filtro_isla = normalizar(request.args.get('isla', ''))
     filtro_termino = normalizar(request.args.get('q', ''))
@@ -173,6 +183,9 @@ def api_buscar():
 
 @app.route('/api/actualizar_boib', methods=['POST'])
 def api_actualizar_boib():
+    if not session.get('autenticado'):
+        return jsonify({"exito": False, "error": "No autorizado"}), 401
+
     if not buscar_novedades_reales_boib:
         return jsonify({"exito": False, "mensaje": "Módulo botBuscadorOposiciones no disponible"}), 500
 
@@ -190,6 +203,9 @@ def api_actualizar_boib():
 # -------------------------------------------------------------
 @app.route('/api/carpetas', methods=['GET'])
 def api_carpetas():
+    if not session.get('autenticado'):
+        return jsonify({"exito": False, "error": "No autorizado"}), 401
+
     try:
         conexion = obtener_conexion()
         cursor = conexion.cursor()
@@ -209,6 +225,9 @@ def api_carpetas():
 
 @app.route('/api/archivos', methods=['GET'])
 def api_archivos():
+    if not session.get('autenticado'):
+        return jsonify({"exito": False, "error": "No autorizado"}), 401
+
     carpeta = request.args.get('carpeta', '').strip()
     try:
         conexion = obtener_conexion()
@@ -237,6 +256,9 @@ def api_archivos():
 
 @app.route('/api/preguntas', methods=['GET'])
 def api_preguntas():
+    if not session.get('autenticado'):
+        return jsonify({"exito": False, "error": "No autorizado"}), 401
+
     carpeta = request.args.get('carpeta', '').strip()
     archivo = request.args.get('archivo', '').strip()
     limite = request.args.get('limite', default=20, type=int)
@@ -273,7 +295,7 @@ def api_preguntas():
         return jsonify({"exito": False, "error": str(e)}), 500
 
 # -------------------------------------------------------------
-# RUTA COMODÍN PARA ARCHIVOS RESTANTES
+# ARCHIVOS ESTÁTICOS
 # -------------------------------------------------------------
 @app.route('/<path:archivo>')
 def servir_archivos(archivo):
@@ -287,7 +309,7 @@ def servir_archivos(archivo):
     return f"<h3>Error 404: El archivo '{archivo}' no existe en el servidor</h3>", 404
 
 # -------------------------------------------------------------
-# ARRANQUE LOCAL Y PRODUCCIÓN
+# ARRANQUE
 # -------------------------------------------------------------
 if __name__ == '__main__':
     puerto = int(os.environ.get("PORT", 5000))

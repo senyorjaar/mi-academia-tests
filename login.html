@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso - Academia Oposiciones</title>
+    <title>Acceso Privado - Academia Oposiciones</title>
     <style>
         * {
             box-sizing: border-box;
@@ -11,7 +11,6 @@
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-
         body {
             background-color: #f0f4f8;
             display: flex;
@@ -20,16 +19,14 @@
             min-height: 100vh;
             padding: 20px;
         }
-
         .card {
             background: #ffffff;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             width: 100%;
-            max-width: 440px;
+            max-width: 420px;
             padding: 35px 30px;
         }
-
         .alerta {
             display: none;
             background-color: #fee2e2;
@@ -40,9 +37,8 @@
             font-size: 14px;
             margin-bottom: 20px;
         }
-
         .titulo-caja {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 25px;
@@ -52,11 +48,9 @@
             border-bottom: 2px solid #2563eb;
             padding-bottom: 8px;
         }
-
         .campo {
             margin-bottom: 18px;
         }
-
         .campo label {
             display: block;
             font-size: 13px;
@@ -64,7 +58,6 @@
             color: #334155;
             margin-bottom: 6px;
         }
-
         .campo input {
             width: 100%;
             padding: 10px 12px;
@@ -73,13 +66,10 @@
             font-size: 14px;
             color: #0f172a;
             outline: none;
-            transition: border-color 0.2s;
         }
-
         .campo input:focus {
             border-color: #2563eb;
         }
-
         .btn-principal {
             width: 100%;
             padding: 12px;
@@ -90,37 +80,10 @@
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s;
             margin-top: 10px;
         }
-
         .btn-principal:hover {
             background-color: #1d4ed8;
-        }
-
-        .btn-registro {
-            background-color: #10b981;
-        }
-
-        .btn-registro:hover {
-            background-color: #059669;
-        }
-
-        .cambiar-vista {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        .cambiar-vista a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .cambiar-vista a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -129,91 +92,43 @@
 <div class="card">
     <div id="mensajeAlerta" class="alerta"></div>
 
-    <!-- VISTA INICIAR SESIÓN -->
-    <div id="vistaLogin">
-        <div class="titulo-caja">
-            <span>🔑</span> Iniciar Sesión
-        </div>
-        <form id="formLogin">
-            <div class="campo">
-                <label for="loginUsuario">Usuario o Correo Electrónico</label>
-                <input type="text" id="loginUsuario" required autofocus autocomplete="username">
-            </div>
-            <div class="campo">
-                <label for="loginPassword">Contraseña</label>
-                <input type="password" id="loginPassword" required autocomplete="current-password">
-            </div>
-            <button type="submit" class="btn-principal">Entrar a la Plataforma</button>
-        </form>
-        <div class="cambiar-vista">
-            ¿No tienes cuenta? <a href="#" id="irARegistro">Regístrate aquí</a>
-        </div>
+    <div class="titulo-caja">
+        <span>🔑</span> Acceso a la Academia
     </div>
 
-    <!-- VISTA REGISTRARSE -->
-    <div id="vistaRegistro" style="display: none;">
-        <div class="titulo-caja">
-            <span>📝</span> Registrarse
+    <form id="formLogin">
+        <div class="campo">
+            <label for="loginUsuario">Usuario</label>
+            <input type="text" id="loginUsuario" required autofocus autocomplete="username">
         </div>
-        <form id="formRegistro">
-            <div class="campo">
-                <label for="regUsuario">Nombre de Usuario</label>
-                <input type="text" id="regUsuario" required autocomplete="username">
-            </div>
-            <div class="campo">
-                <label for="regEmail">Correo Electrónico</label>
-                <input type="email" id="regEmail" required autocomplete="email">
-            </div>
-            <div class="campo">
-                <label for="regPassword">Contraseña de Acceso</label>
-                <input type="password" id="regPassword" required autocomplete="new-password">
-            </div>
-            <button type="submit" class="btn-principal btn-registro">Crear mi Cuenta</button>
-        </form>
-        <div class="cambiar-vista">
-            ¿Ya eres alumno? <a href="#" id="irALogin">Inicia sesión</a>
+        <div class="campo">
+            <label for="loginPassword">Contraseña</label>
+            <input type="password" id="loginPassword" required autocomplete="current-password">
         </div>
-    </div>
+        <button type="submit" id="btnSubmit" class="btn-principal">Entrar a la Plataforma</button>
+    </form>
 </div>
 
 <script>
     const alerta = document.getElementById('mensajeAlerta');
-    const vistaLogin = document.getElementById('vistaLogin');
-    const vistaRegistro = document.getElementById('vistaRegistro');
+    const formLogin = document.getElementById('formLogin');
+    const btnSubmit = document.getElementById('btnSubmit');
 
     function mostrarError(texto) {
         alerta.textContent = '❌ ' + texto;
         alerta.style.display = 'block';
     }
 
-    function ocultarError() {
+    formLogin.addEventListener('submit', async (e) => {
+        e.preventDefault();
         alerta.style.display = 'none';
-        alerta.textContent = '';
-    }
-
-    document.getElementById('irARegistro').addEventListener('click', (e) => {
-        e.preventDefault();
-        ocultarError();
-        vistaLogin.style.display = 'none';
-        vistaRegistro.style.display = 'block';
-    });
-
-    document.getElementById('irALogin').addEventListener('click', (e) => {
-        e.preventDefault();
-        ocultarError();
-        vistaRegistro.style.display = 'none';
-        vistaLogin.style.display = 'block';
-    });
-
-    document.getElementById('formLogin').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        ocultarError();
+        btnSubmit.disabled = true;
+        btnSubmit.textContent = 'Verificando...';
 
         const usuario = document.getElementById('loginUsuario').value.trim();
         const password = document.getElementById('loginPassword').value.trim();
 
         try {
-            // RUTA RELATIVA: Funciona tanto en local como en producción en Render
             const respuesta = await fetch('/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -223,20 +138,17 @@
             const datos = await respuesta.json();
 
             if (respuesta.ok && datos.exito) {
-                sessionStorage.setItem('usuario', datos.usuario);
-                sessionStorage.setItem('rol', datos.rol);
                 window.location.href = '/panel.html';
             } else {
-                mostrarError(datos.mensaje || 'Credenciales inválidas.');
+                mostrarError(datos.mensaje || 'Credenciales no válidas.');
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = 'Entrar a la Plataforma';
             }
         } catch (error) {
-            mostrarError('Imposible conectar con el servidor backend.');
+            mostrarError('Error de comunicación con el servidor.');
+            btnSubmit.disabled = false;
+            btnSubmit.textContent = 'Entrar a la Plataforma';
         }
-    });
-
-    document.getElementById('formRegistro').addEventListener('submit', (e) => {
-        e.preventDefault();
-        mostrarError('El autoregistro está desactivado. Accede con tu usuario root asignado.');
     });
 </script>
 
