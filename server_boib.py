@@ -29,7 +29,6 @@ def inicializar_sistema():
         conexion = obtener_conexion()
         cursor = conexion.cursor()
         
-        # Eliminar tabla previa si tiene columnas incompatibles y recrearla
         cursor.execute("DROP TABLE IF EXISTS usuarios")
         cursor.execute("""
             CREATE TABLE usuarios (
@@ -40,7 +39,6 @@ def inicializar_sistema():
             )
         """)
         
-        # Insertar credencial administrativa por defecto
         cursor.execute("""
             INSERT INTO usuarios (usuario, password, rol)
             VALUES ('root', 'root', 'admin')
@@ -48,7 +46,7 @@ def inicializar_sistema():
         
         conexion.commit()
         conexion.close()
-        print("Tabla usuarios recreada con éxito.")
+        print("Sistema y credenciales inicializados.")
     except Exception as e:
         print(f"Error inicializando tabla usuarios: {e}")
 
@@ -136,28 +134,17 @@ def api_buscar():
     filtro_escala = request.args.get('escala', '').strip().upper()
     filtro_isla = normalizar(request.args.get('isla', ''))
     filtro_termino = normalizar(request.args.get('q', ''))
-    dias = request.args.get('dias', default=30, type=int)
-
-    fecha_limite = (datetime.now() - timedelta(days=dias)).strftime('%Y-%m-%d')
 
     try:
         conexion = obtener_conexion()
         cursor = conexion.cursor()
 
-        query = """
+        # Obtenemos las convocatorias más recientes sin filtrar fecha por texto
+        cursor.execute("""
             SELECT id, titulo, organismo, fecha, url, escala, isla, num_plazas 
             FROM convocatorias 
-            WHERE fecha >= ?
-        """
-        parametros = [fecha_limite]
-
-        if filtro_escala and filtro_escala != "TODAS":
-            query += " AND UPPER(escala) = ?"
-            parametros.append(filtro_escala)
-
-        query += " ORDER BY fecha DESC LIMIT 200"
-
-        cursor.execute(query, parametros)
+            ORDER BY id DESC LIMIT 300
+        """)
         filas = cursor.fetchall()
         conexion.close()
 
@@ -167,12 +154,22 @@ def api_buscar():
             titulo_norm = normalizar(fila_dict.get('titulo', ''))
             org_norm = normalizar(fila_dict.get('organismo', ''))
             isla_norm = normalizar(fila_dict.get('isla', ''))
+            escala_row = str(fila_dict.get('escala', '')).strip().upper()
 
-            if filtro_isla and filtro_isla != "todas" and filtro_isla not in isla_norm:
-                continue
+            # Filtro por Escala TREBEP
+            if filtro_escala and filtro_escala not in ["TODAS", "TODOS"]:
+                if filtro_escala not in escala_row:
+                    continue
 
-            if filtro_termino and (filtro_termino not in titulo_norm and filtro_termino not in org_norm):
-                continue
+            # Filtro por Ámbito / Isla
+            if filtro_isla and filtro_isla not in ["todas", "todos"]:
+                if filtro_isla not in isla_norm and filtro_isla not in org_norm:
+                    continue
+
+            # Filtro por término libre
+            if filtro_termino:
+                if filtro_termino not in titulo_norm and filtro_termino not in org_norm:
+                    continue
 
             resultados.append(fila_dict)
 
