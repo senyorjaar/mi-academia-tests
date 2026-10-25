@@ -3,185 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador de Oposiciones - Academia</title>
+    <title>Panel Principal - Buscador BOIB y Oposiciones</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 25px;
-            background-color: #f8fafc;
-            color: #1e293b;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 20px;
         }
         .contenedor {
-            max-width: 1250px;
-            margin: auto;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .barra-superior {
+        /* BARRA SUPERIOR */
+        .barra-nav {
+            background: #ffffff;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
         }
-        .grupo-botones-top {
+        .logo-area {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1e293b;
             display: flex;
+            align-items: center;
             gap: 10px;
         }
-        .btn-accion-top {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: 600;
+        .acciones-nav {
+            display: flex;
+            gap: 12px;
+        }
+        .btn-nav {
+            padding: 9px 16px;
+            border-radius: 6px;
             font-size: 14px;
+            font-weight: 600;
             text-decoration: none;
             cursor: pointer;
             border: none;
-            transition: opacity 0.2s;
-        }
-        .btn-accion-top:hover {
-            opacity: 0.9;
-        }
-        .btn-test {
-            background-color: #2563eb;
-            color: white;
-        }
-        .btn-sync {
-            background-color: #0891b2;
-            color: white;
-        }
-        .btn-salir {
-            background-color: #dc2626;
-            color: white;
-        }
-        .encabezado-seccion {
-            border-bottom: 3px solid #3b82f6;
-            padding-bottom: 12px;
-            margin-bottom: 8px;
-        }
-        .titulo-pagina {
-            font-size: 26px;
-            font-weight: 800;
-            color: #0f172a;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .descripcion-sub {
-            color: #64748b;
-            font-size: 14px;
-            margin-top: 6px;
-            margin-bottom: 25px;
-        }
-        .barra-busqueda {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        .input-busqueda {
-            flex: 1;
-            padding: 14px 18px;
-            border: 1.5px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 15px;
-            outline: none;
-            background-color: white;
-        }
-        .input-busqueda:focus {
-            border-color: #2563eb;
-        }
-        .btn-buscar {
-            background-color: #16a34a;
-            color: white;
-            border: none;
-            padding: 0 28px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .btn-buscar:hover {
-            background-color: #15803d;
-        }
-        .pestanas-modo {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
-        }
-        .btn-tab {
-            background: none;
-            border: none;
-            font-size: 15px;
-            font-weight: 700;
-            color: #64748b;
-            cursor: pointer;
-            padding: 8px 16px;
-            border-radius: 6px;
-        }
-        .btn-tab.activo {
-            background-color: #e0f2fe;
-            color: #0369a1;
-        }
-        .panel-filtros {
-            background: white;
-            padding: 16px 20px;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-            margin-bottom: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        .fila-filtro {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .filtro-etiqueta {
-            font-size: 13px;
-            font-weight: bold;
-            color: #475569;
-            min-width: 90px;
-        }
-        .btn-filtro {
-            background-color: white;
-            border: 1.5px solid #cbd5e1;
-            color: #475569;
-            padding: 7px 14px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
         }
-        .btn-filtro:hover {
-            border-color: #2563eb;
-            color: #2563eb;
-        }
-        .btn-filtro.activo {
-            background-color: #2563eb;
-            border-color: #2563eb;
-            color: white;
-        }
-        .btn-escala.activo {
-            background-color: #0f172a;
-            border-color: #0f172a;
-            color: white;
-        }
-        .tabla-contenedor {
-            background: white;
+        .btn-test { background-color: #2563eb; color: #ffffff; }
+        .btn-test:hover { background-color: #1d4ed8; }
+        .btn-sync { background-color: #0284c7; color: #ffffff; }
+        .btn-sync:hover { background-color: #0369a1; }
+        .btn-sync:disabled { background-color: #94a3b8; cursor: not-allowed; }
+        .btn-logout { background-color: #ef4444; color: #ffffff; }
+        .btn-logout:hover { background-color: #dc2626; }
+
+        /* SECCIÓN PRINCIPAL */
+        .tarjeta-panel {
+            background: #ffffff;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+        .cabecera-seccion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+        .cabecera-seccion h2 {
+            font-size: 22px;
+            color: #1e293b;
+        }
+        .contador-badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* BUSCADOR */
+        .caja-busqueda {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .input-buscar {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+        .input-buscar:focus { border-color: #2563eb; }
+        .btn-buscar {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0 22px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-buscar:hover { background-color: #059669; }
+
+        /* FILTROS */
+        .zona-filtros {
+            background-color: #f8fafc;
             border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .linea-filtro {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .etiqueta-f {
+            font-size: 13px;
+            font-weight: 700;
+            color: #475569;
+            min-width: 80px;
+        }
+        .btn-f {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-f:hover { border-color: #2563eb; color: #2563eb; }
+        .btn-f.activo { background-color: #2563eb; color: #ffffff; border-color: #2563eb; }
+        .btn-f-escala.activo { background-color: #0f172a; color: #ffffff; border-color: #0f172a; }
+
+        /* TABLA */
+        .tabla-scroll {
+            width: 100%;
+            overflow-x: auto;
         }
         table {
             width: 100%;
@@ -190,328 +169,253 @@
         }
         th {
             background-color: #f8fafc;
-            padding: 14px 18px;
+            padding: 12px 14px;
             font-size: 12px;
             font-weight: 700;
             color: #475569;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 2px solid #e2e8f0;
         }
         td {
-            padding: 15px 18px;
-            font-size: 14px;
+            padding: 14px;
+            font-size: 13px;
             border-bottom: 1px solid #f1f5f9;
             vertical-align: middle;
         }
-        tr:last-child td {
-            border-bottom: none;
-        }
-        tr:hover td {
-            background-color: #fbfcfe;
-        }
-        .col-puesto {
-            font-weight: 700;
-            color: #0f172a;
-            line-height: 1.4;
-        }
-        .col-ente {
-            color: #334155;
-            font-weight: 500;
-        }
-        .col-fecha {
-            color: #64748b;
-            font-size: 13px;
-            white-space: nowrap;
-        }
-        .etiqueta-ambito {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-        .etiqueta-insular { background-color: #fef3c7; color: #92400e; }
-        .etiqueta-municipal { background-color: #ffe4e6; color: #9f1239; }
-        .etiqueta-autonomica { background-color: #dbeafe; color: #1e40af; }
-
+        tr:hover td { background-color: #f8fafc; }
+        
         .badge-escala {
             display: inline-block;
-            padding: 4px 8px;
-            border-radius: 6px;
+            padding: 3px 8px;
+            border-radius: 4px;
             font-size: 11px;
             font-weight: 800;
-            text-align: center;
-            background-color: #f1f5f9;
-            color: #334155;
-            border: 1px solid #cbd5e1;
-            white-space: nowrap;
+            background-color: #e2e8f0;
+            color: #1e293b;
         }
-        .badge-A1 { background-color: #ede9fe; color: #5b21b6; border-color: #c4b5fd; }
-        .badge-A2 { background-color: #e0e7ff; color: #3730a3; border-color: #a5b4fc; }
-        .badge-B  { background-color: #e0f2fe; color: #0369a1; border-color: #7dd3fc; }
-        .badge-C1 { background-color: #dcfce7; color: #166534; border-color: #86efac; }
-        .badge-C2 { background-color: #fef9c3; color: #854d0e; border-color: #fde047; }
-        .badge-AP { background-color: #ffedd5; color: #9a3412; border-color: #fdba74; }
-        .badge-Laboral { background-color: #f3e8ff; color: #6b21a8; border-color: #d8b4fe; }
+        .badge-AP { background-color: #ffedd5; color: #9a3412; }
+        .badge-C2 { background-color: #fef9c3; color: #854d0e; }
+        .badge-C1 { background-color: #dcfce7; color: #166534; }
+        .badge-B  { background-color: #e0f2fe; color: #0369a1; }
+        .badge-A2 { background-color: #e0e7ff; color: #3730a3; }
+        .badge-A1 { background-color: #ede9fe; color: #5b21b6; }
+        .badge-Laboral { background-color: #f3e8ff; color: #6b21a8; }
 
-        .acciones-descarga {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .btn-enlace-boib {
+        .btn-link-boib {
             color: #2563eb;
-            text-decoration: none;
             font-weight: 700;
-            font-size: 13px;
-        }
-        .btn-enlace-boib:hover { text-decoration: underline; }
-
-        .btn-pdf-descarga {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #fee2e2;
-            color: #991b1b;
-            padding: 4px 8px;
-            border-radius: 6px;
             text-decoration: none;
             font-size: 12px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .btn-link-boib:hover { text-decoration: underline; }
+        .btn-pdf {
+            display: inline-block;
+            background-color: #fee2e2;
+            color: #991b1b;
+            padding: 3px 7px;
+            border-radius: 4px;
+            font-size: 11px;
             font-weight: 700;
+            text-decoration: none;
             border: 1px solid #fca5a5;
-            transition: all 0.2s;
         }
-        .btn-pdf-descarga:hover {
-            background-color: #ef4444;
-            color: white;
-            border-color: #dc2626;
-        }
+        .btn-pdf:hover { background-color: #ef4444; color: #ffffff; }
+
         .mensaje-aviso {
             text-align: center;
-            padding: 45px 20px;
+            padding: 30px;
             color: #64748b;
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <div class="contenedor">
-        <div class="barra-superior">
-            <div class="grupo-botones-top">
-                <a href="quiz.html" class="btn-accion-top btn-test">📝 Ir a Zona de Tests</a>
-                <button onclick="sincronizarConBoib()" id="btn-sync" class="btn-accion-top btn-sync">🔄 Actualizar Mes del BOIB</button>
+
+<div class="contenedor">
+    <!-- NAVEGACIÓN SUPERIOR -->
+    <div class="barra-nav">
+        <div class="logo-area">
+            <span>🏛️</span> Academia Oposiciones
+        </div>
+        <div class="acciones-nav">
+            <a href="quiz.html" class="btn-nav btn-test">📝 Ir al Simulador de Tests</a>
+            <button onclick="sincronizarBOIB()" id="btnSync" class="btn-nav btn-sync">🔄 Actualizar Mes del BOIB</button>
+            <a href="/api/logout" class="btn-nav btn-logout">🚪 Salir</a>
+        </div>
+    </div>
+
+    <!-- PANEL PRINCIPAL -->
+    <div class="tarjeta-panel">
+        <div class="cabecera-seccion">
+            <h2>📋 Monitor de Ofertas de Empleo Público (BOIB)</h2>
+            <span class="contador-badge" id="lblContador">Cargando...</span>
+        </div>
+
+        <!-- BUSCADOR -->
+        <div class="caja-busqueda">
+            <input type="text" id="txtBuscar" class="input-buscar" placeholder="Filtrar por puesto o municipio (ej. Peón, Palma, Marratxí, Calvià...)" onkeyup="comprobarEnter(event)">
+            <button onclick="cargarConvocatorias()" class="btn-buscar">Buscar</button>
+        </div>
+
+        <!-- FILTROS RÁPIDOS -->
+        <div class="zona-filtros">
+            <div class="linea-filtro">
+                <span class="etiqueta-f">Ámbito:</span>
+                <button class="btn-f activo" onclick="filtrarAmbito('todos', this)">Todos</button>
+                <button class="btn-f" onclick="filtrarAmbito('Municipal', this)">Municipales</button>
+                <button class="btn-f" onclick="filtrarAmbito('Insular', this)">Insulares</button>
+                <button class="btn-f" onclick="filtrarAmbito('Autonómica', this)">Autonómicos</button>
             </div>
-            <a href="/api/logout" class="btn-accion-top btn-salir">🚪 Cerrar Sesión</a>
-        </div>
-
-        <div class="encabezado-seccion">
-            <h1 class="titulo-pagina">📋 Buscador de Ofertas de Empleo Público</h1>
-        </div>
-        <div class="descripcion-sub">Monitoreo con discriminación estricta según el Estatuto Básico del Empleado Público (TREBEP).</div>
-
-        <div class="barra-busqueda">
-            <input type="text" id="campo-palabra" class="input-busqueda" placeholder="Escribe un término (Ej: Peón, Marratxí, Calvià, Andratx...)" onkeyup="manejarEnter(event)">
-            <button onclick="ejecutarBusquedaTexto()" class="btn-buscar">Buscar</button>
-        </div>
-
-        <div class="pestanas-modo">
-            <button id="tab-vigentes" class="btn-tab activo" onclick="cambiarVistaHistorico(false)">🟢 Convocatorias del Mes (Vigentes)</button>
-            <button id="tab-historico" class="btn-tab" onclick="cambiarVistaHistorico(true)">📦 Archivo Histórico (+1 mes)</button>
-        </div>
-
-        <div class="panel-filtros">
-            <div class="fila-filtro">
-                <span class="filtro-etiqueta">🏛️ ÁMBITO:</span>
-                <button id="filtro-todos" class="btn-filtro activo" onclick="cambiarFiltroAmbito('todos', this)">🌍 Todos</button>
-                <button class="btn-filtro" onclick="cambiarFiltroAmbito('municipal', this)">🏙️ Municipales</button>
-                <button class="btn-filtro" onclick="cambiarFiltroAmbito('insular', this)">🚗 Insulares</button>
-                <button class="btn-filtro" onclick="cambiarFiltroAmbito('autonomica', this)">🏛️ Autonómicos</button>
-            </div>
-            <div class="fila-filtro">
-                <span class="filtro-etiqueta">🎓 ESCALA:</span>
-                <button id="escala-todos" class="btn-filtro btn-escala activo" onclick="cambiarFiltroEscala('TODAS', this)">Todas</button>
-                <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('AP', this)">AP (Peón / Oficios / Servicios)</button>
-                <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('C2', this)">C2 (Oficiales de Oficios / Auxiliares)</button>
-                <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('C1', this)">C1 (Policía / Administrativos)</button>
-                <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('B', this)">Grupo B (FP Grado Superior)</button>
-                <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('A2', this)">A2 (Gestión / Técnica / Diplomados)</button>
-                <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('A1', this)">A1 (Superior / TAG / Letrados)</button>
-                <button class="btn-filtro btn-escala" onclick="cambiarFiltroEscala('LABORAL', this)">Laboral</button>
+            <div class="linea-filtro">
+                <span class="etiqueta-f">Escala:</span>
+                <button class="btn-f btn-f-escala activo" onclick="filtrarEscala('TODAS', this)">Todas</button>
+                <button class="btn-f btn-f-escala" onclick="filtrarEscala('AP', this)">AP (Peones / Servicios)</button>
+                <button class="btn-f btn-f-escala" onclick="filtrarEscala('C2', this)">C2 (Oficiales / Auxiliares)</button>
+                <button class="btn-f btn-f-escala" onclick="filtrarEscala('C1', this)">C1 (Administrativo / Policía)</button>
+                <button class="btn-f btn-f-escala" onclick="filtrarEscala('B', this)">Grupo B</button>
+                <button class="btn-f btn-f-escala" onclick="filtrarEscala('A2', this)">A2</button>
+                <button class="btn-f btn-f-escala" onclick="filtrarEscala('A1', this)">A1</button>
+                <button class="btn-f btn-f-escala" onclick="filtrarEscala('Laboral', this)">Laboral</button>
             </div>
         </div>
 
-        <div class="tabla-contenedor">
+        <!-- TABLA -->
+        <div class="tabla-scroll">
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 38%;">Puesto / Categoría</th>
-                        <th style="width: 18%;">Organismo / Ente</th>
+                        <th style="width: 42%;">Convocatoria / Puesto</th>
+                        <th style="width: 20%;">Organismo Convocante</th>
                         <th style="width: 10%;">Ámbito</th>
                         <th style="width: 10%;">Escala</th>
-                        <th style="width: 9%;">Fecha</th>
-                        <th style="width: 15%;">Documentos</th>
+                        <th style="width: 8%;">Fecha</th>
+                        <th style="width: 10%;">Documentación</th>
                     </tr>
                 </thead>
-                <tbody id="filas-tabla">
+                <tbody id="cuerpoTabla">
                     <tr><td colspan="6" class="mensaje-aviso">Cargando convocatorias...</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
 
-    <script>
-        let filtroAmbitoActual = 'todos';
-        let filtroEscalaActual = 'TODAS';
-        let modoHistorico = false;
+<script>
+    let ambitoActual = 'todos';
+    let escalaActual = 'TODAS';
 
-        async function solicitarConvocatorias() {
-            const contenedorCuerpo = document.getElementById('filas-tabla');
-            contenedorCuerpo.innerHTML = `<tr><td colspan="6" class="mensaje-aviso">Consultando base de datos...</td></tr>`;
+    async function cargarConvocatorias() {
+        const tbody = document.getElementById('cuerpoTabla');
+        const contador = document.getElementById('lblContador');
+        tbody.innerHTML = `<tr><td colspan="6" class="mensaje-aviso">Consultando base de datos...</td></tr>`;
 
-            try {
-                let textoBusqueda = document.getElementById('campo-palabra').value.trim();
-                let dias = modoHistorico ? 365 : 30;
+        try {
+            const q = document.getElementById('txtBuscar').value.trim();
+            const params = new URLSearchParams({
+                dias: 365,
+                ambito: ambitoActual,
+                escala: escalaActual
+            });
+            if (q) params.append('q', q);
 
-                let parametros = [
-                    `dias=${dias}`,
-                    `isla=${encodeURIComponent(filtroAmbitoActual)}`,
-                    `escala=${encodeURIComponent(filtroEscalaActual)}`
-                ];
-
-                if (textoBusqueda) {
-                    parametros.push(`q=${encodeURIComponent(textoBusqueda)}`);
-                }
-
-                // Ruta conectada al endpoint real de server_boib.py
-                let url = '/api/buscar?' + parametros.join('&');
-                const respuesta = await fetch(url);
-
-                if (respuesta.status === 401) {
-                    window.location.href = '/login.html';
-                    return;
-                }
-
-                const datosJson = await respuesta.json();
-
-                if (!datosJson.datos || datosJson.datos.length === 0) {
-                    contenedorCuerpo.innerHTML = `<tr><td colspan="6" class="mensaje-aviso">ℹ️ No se encontraron convocatorias con estos criterios.</td></tr>`;
-                    return;
-                }
-
-                let filasHtml = "";
-                datosJson.datos.forEach(item => {
-                    const puesto = item.titulo || item.puesto || "Convocatoria";
-                    const ente = item.organismo || item.ente || "Administración";
-                    const escala = item.escala || "S/E";
-                    const fecha = item.fecha || "-";
-                    const urlBoib = item.url || "#";
-                    const isla = (item.isla || "").toLowerCase();
-
-                    let claseAmbito = "etiqueta-municipal";
-                    let nombreAmbito = "Municipal";
-
-                    if (isla.includes("consell") || isla.includes("insular")) {
-                        claseAmbito = "etiqueta-insular";
-                        nombreAmbito = "Insular";
-                    } else if (isla.includes("govern") || isla.includes("autonom") || isla.includes("balears")) {
-                        claseAmbito = "etiqueta-autonomica";
-                        nombreAmbito = "Autonómica";
-                    }
-
-                    let claseEscala = `badge-${escala.replace('/', '_')}`;
-
-                    let botonPdfHtml = "";
-                    if (urlBoib.endsWith(".pdf") || urlBoib.includes("/pdf/")) {
-                        botonPdfHtml = `<a href="${urlBoib}" target="_blank" class="btn-pdf-descarga">📄 PDF Directo</a>`;
-                    }
-
-                    filasHtml += `
-                        <tr>
-                            <td class="col-puesto">${puesto}</td>
-                            <td class="col-ente">${ente}</td>
-                            <td><span class="etiqueta-ambito ${claseAmbito}">${nombreAmbito}</span></td>
-                            <td><span class="badge-escala ${claseEscala}">${escala}</span></td>
-                            <td class="col-fecha">${fecha}</td>
-                            <td>
-                                <div class="acciones-descarga">
-                                    <a href="${urlBoib}" target="_blank" class="btn-enlace-boib">🔗 Ver BOIB</a>
-                                    ${botonPdfHtml}
-                                </div>
-                            </td>
-                        </tr>
-                    `;
-                });
-
-                contenedorCuerpo.innerHTML = filasHtml;
-
-            } catch (err) {
-                console.error("Error:", err);
-                contenedorCuerpo.innerHTML = `<tr><td colspan="6" class="mensaje-aviso" style="color:#dc2626;">⚠️ Error al conectar con el servidor.</td></tr>`;
+            const res = await fetch('/api/buscar?' + params.toString());
+            if (res.status === 401) {
+                window.location.href = '/login.html?redirect=/panel.html';
+                return;
             }
-        }
 
-        async function sincronizarConBoib() {
-            const btn = document.getElementById('btn-sync');
-            btn.disabled = true;
-            btn.innerText = "⏳ Extrayendo Escalas y PDFs del BOIB...";
+            const data = await res.json();
+            const lista = data.datos || [];
+            contador.textContent = `${lista.length} ${lista.length === 1 ? 'convocatoria' : 'convocatorias'}`;
 
-            try {
-                // Ruta conectada al endpoint real de server_boib.py
-                const res = await fetch('/api/actualizar_boib', { method: 'POST' });
+            if (lista.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="mensaje-aviso">ℹ️ No hay convocatorias que coincidan con los filtros aplicados.</td></tr>`;
+                return;
+            }
 
-                if (res.status === 401) {
-                    window.location.href = '/login.html';
-                    return;
+            let filasHtml = "";
+            lista.forEach(item => {
+                const puesto = item.titulo || "Convocatoria pública";
+                const org = item.organismo || "Administración";
+                const amb = item.ambito || "Municipal";
+                const esc = item.escala || "S/E";
+                const fecha = item.fecha || "-";
+                const urlHtml = item.enlace || "#";
+                const urlPdf = item.enlace_pdf || "";
+
+                let pdfBoton = "";
+                if (urlPdf && urlPdf !== "#") {
+                    pdfBoton = `<a href="${urlPdf}" target="_blank" class="btn-pdf">📄 PDF</a>`;
                 }
 
-                const resultado = await res.json();
-                alert(resultado.mensaje || "Sincronización completada.");
-                solicitarConvocatorias();
-            } catch (error) {
-                alert("❌ Error al conectar con el BOIB.");
-            } finally {
-                btn.disabled = false;
-                btn.innerText = "🔄 Actualizar Mes del BOIB";
+                filasHtml += `
+                    <tr>
+                        <td><strong>${puesto}</strong></td>
+                        <td>${org}</td>
+                        <td>${amb}</td>
+                        <td><span class="badge-escala badge-${esc}">${esc}</span></td>
+                        <td>${fecha}</td>
+                        <td>
+                            <a href="${urlHtml}" target="_blank" class="btn-link-boib">🔗 Ver BOIB</a>
+                            ${pdfBoton}
+                        </td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = filasHtml;
+
+        } catch (e) {
+            console.error("Error al cargar datos:", e);
+            tbody.innerHTML = `<tr><td colspan="6" class="mensaje-aviso" style="color: #dc2626;">⚠️ Error al obtener los datos del servidor.</td></tr>`;
+            contador.textContent = "0 convocatorias";
+        }
+    }
+
+    async function sincronizarBOIB() {
+        const btn = document.getElementById('btnSync');
+        btn.disabled = true;
+        btn.textContent = "⏳ Escaneando BOIB...";
+
+        try {
+            const res = await fetch('/api/actualizar_boib', { method: 'POST' });
+            if (res.status === 401) {
+                window.location.href = '/login.html?redirect=/panel.html';
+                return;
             }
+            const data = await res.json();
+            alert(data.mensaje || "Actualización completada.");
+            cargarConvocatorias();
+        } catch (e) {
+            alert("❌ Error al comunicar con el escaneador.");
+        } finally {
+            btn.disabled = false;
+            btn.textContent = "🔄 Actualizar Mes del BOIB";
         }
+    }
 
-        function cambiarVistaHistorico(esHistorico) {
-            modoHistorico = esHistorico;
-            document.getElementById('tab-vigentes').classList.toggle('activo', !esHistorico);
-            document.getElementById('tab-historico').classList.toggle('activo', esHistorico);
-            solicitarConvocatorias();
-        }
+    function filtrarAmbito(ambito, btn) {
+        document.querySelectorAll('.linea-filtro:first-child .btn-f').forEach(b => b.classList.remove('activo'));
+        btn.classList.add('activo');
+        ambitoActual = ambito;
+        cargarConvocatorias();
+    }
 
-        function cambiarFiltroAmbito(tipoAmbito, elementoBoton) {
-            document.querySelectorAll('.fila-filtro:first-child .btn-filtro').forEach(b => b.classList.remove('activo'));
-            elementoBoton.classList.add('activo');
-            filtroAmbitoActual = tipoAmbito;
-            solicitarConvocatorias();
-        }
+    function filtrarEscala(escala, btn) {
+        document.querySelectorAll('.btn-f-escala').forEach(b => b.classList.remove('activo'));
+        btn.classList.add('activo');
+        escalaActual = escala;
+        cargarConvocatorias();
+    }
 
-        function cambiarFiltroEscala(escala, elementoBoton) {
-            document.querySelectorAll('.btn-escala').forEach(b => b.classList.remove('activo'));
-            elementoBoton.classList.add('activo');
-            filtroEscalaActual = escala;
-            solicitarConvocatorias();
-        }
+    function comprobarEnter(e) {
+        if (e.key === "Enter") cargarConvocatorias();
+    }
 
-        function ejecutarBusquedaTexto() {
-            solicitarConvocatorias();
-        }
+    document.addEventListener('DOMContentLoaded', cargarConvocatorias);
+</script>
 
-        function manejarEnter(evento) {
-            if (evento.key === "Enter") {
-                ejecutarBusquedaTexto();
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            solicitarConvocatorias();
-        });
-    </script>
 </body>
 </html>

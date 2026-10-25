@@ -66,9 +66,14 @@
             font-size: 14px;
             color: #0f172a;
             outline: none;
+            transition: border-color 0.2s;
         }
         .campo input:focus {
             border-color: #2563eb;
+        }
+        .campo input:disabled {
+            background-color: #f1f5f9;
+            cursor: not-allowed;
         }
         .btn-principal {
             width: 100%;
@@ -81,9 +86,14 @@
             font-weight: 600;
             cursor: pointer;
             margin-top: 10px;
+            transition: background-color 0.2s;
         }
         .btn-principal:hover {
             background-color: #1d4ed8;
+        }
+        .btn-principal:disabled {
+            background-color: #93c5fd;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -98,12 +108,12 @@
 
     <form id="formLogin">
         <div class="campo">
-            <label for="loginUsuario">Usuario</label>
-            <input type="text" id="loginUsuario" required autofocus autocomplete="username">
+            <label for="loginUsuario">Usuario o Correo Electrónico</label>
+            <input type="text" id="loginUsuario" required autofocus autocomplete="username" placeholder="root o root@academia.com">
         </div>
         <div class="campo">
             <label for="loginPassword">Contraseña</label>
-            <input type="password" id="loginPassword" required autocomplete="current-password">
+            <input type="password" id="loginPassword" required autocomplete="current-password" placeholder="••••••••">
         </div>
         <button type="submit" id="btnSubmit" class="btn-principal">Entrar a la Plataforma</button>
     </form>
@@ -113,20 +123,52 @@
     const alerta = document.getElementById('mensajeAlerta');
     const formLogin = document.getElementById('formLogin');
     const btnSubmit = document.getElementById('btnSubmit');
+    const inputUsuario = document.getElementById('loginUsuario');
+    const inputPassword = document.getElementById('loginPassword');
+
+    // Comprobar si ya existe una sesión abierta para evitar login innecesario
+    async function verificarSesionActiva() {
+        try {
+            const res = await fetch('/api/check_session');
+            if (res.ok) {
+                const data = await res.json();
+                if (data.autenticado) {
+                    const destino = new URLSearchParams(window.location.search).get('redirect') || '/panel.html';
+                    window.location.href = destino;
+                }
+            }
+        } catch (e) {
+            // Si el servidor no responde o está iniciando, se continúa en la vista de login
+        }
+    }
 
     function mostrarError(texto) {
         alerta.textContent = '❌ ' + texto;
         alerta.style.display = 'block';
     }
 
+    function alternarFormulario(bloqueado) {
+        btnSubmit.disabled = bloqueado;
+        inputUsuario.disabled = bloqueado;
+        inputPassword.disabled = bloqueado;
+        btnSubmit.textContent = bloqueado ? 'Verificando...' : 'Entrar a la Plataforma';
+    }
+
+    [inputUsuario, inputPassword].forEach(input => {
+        input.addEventListener('input', () => {
+            if (alerta.style.display === 'block') {
+                alerta.style.display = 'none';
+            }
+        });
+    });
+
     formLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
         alerta.style.display = 'none';
-        btnSubmit.disabled = true;
-        btnSubmit.textContent = 'Verificando...';
+        alternarFormulario(true);
 
-        const usuario = document.getElementById('loginUsuario').value.trim();
-        const password = document.getElementById('loginPassword').value.trim();
+        const usuario = inputUsuario.value.trim();
+        const password = inputPassword.value.trim();
 
         try {
             const respuesta = await fetch('/api/login', {
@@ -138,18 +180,21 @@
             const datos = await respuesta.json();
 
             if (respuesta.ok && datos.exito) {
-                window.location.href = '/panel.html';
+                // Redirige al destino previo solicitado o al panel por defecto
+                const params = new URLSearchParams(window.location.search);
+                const rutaDestino = params.get('redirect') || '/panel.html';
+                window.location.href = rutaDestino;
             } else {
                 mostrarError(datos.mensaje || 'Credenciales no válidas.');
-                btnSubmit.disabled = false;
-                btnSubmit.textContent = 'Entrar a la Plataforma';
+                alternarFormulario(false);
             }
         } catch (error) {
             mostrarError('Error de comunicación con el servidor.');
-            btnSubmit.disabled = false;
-            btnSubmit.textContent = 'Entrar a la Plataforma';
+            alternarFormulario(false);
         }
     });
+
+    document.addEventListener('DOMContentLoaded', verificarSesionActiva);
 </script>
 
 </body>

@@ -3,380 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Examen - Oposiciones</title>
+    <title>Simulador de Tests - Academia Oposiciones</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 25px;
-            background-color: #f8fafc;
-            color: #1e293b;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 20px;
         }
         .contenedor {
             max-width: 900px;
-            margin: auto;
+            margin: 0 auto;
         }
-        .barra-superior {
+        .barra-nav {
+            background: #ffffff;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
         }
         .btn-nav {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 9px 16px;
+            border-radius: 6px;
             font-size: 14px;
+            font-weight: 600;
             text-decoration: none;
             cursor: pointer;
             border: none;
         }
-        .btn-boib { background-color: #0891b2; color: white; }
-        .btn-salir { background-color: #dc2626; color: white; }
-        .encabezado {
-            border-bottom: 3px solid #3b82f6;
-            padding-bottom: 12px;
+        .btn-boib { background-color: #0284c7; color: white; }
+        .btn-logout { background-color: #ef4444; color: white; }
+
+        .tarjeta {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             margin-bottom: 20px;
         }
-        h1 { margin: 0; font-size: 26px; color: #0f172a; }
-        .subtitulo { color: #64748b; font-size: 14px; margin-top: 6px; }
-        
-        .panel-config {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+        h2 { margin-bottom: 15px; color: #1e293b; }
+
+        .selector-fila {
             display: flex;
             gap: 15px;
-            align-items: center;
+            margin-bottom: 20px;
             flex-wrap: wrap;
-            margin-bottom: 25px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
-        .grupo-campo {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+        .campo-sel {
             flex: 1;
-            min-width: 260px;
+            min-width: 200px;
         }
-        label { font-size: 13px; font-weight: bold; color: #475569; }
-        select {
-            padding: 10px 14px;
-            border-radius: 8px;
-            border: 1.5px solid #cbd5e1;
+        .campo-sel label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #475569;
+        }
+        .campo-sel select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
             outline: none;
+            background: white;
             font-size: 14px;
-            background-color: white;
         }
-        select:focus { border-color: #2563eb; }
-        .btn-comenzar {
-            background-color: #16a34a;
+        .btn-iniciar {
+            background-color: #2563eb;
             color: white;
             border: none;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 15px;
-            cursor: pointer;
-            align-self: flex-end;
-            transition: background 0.2s;
-        }
-        .btn-comenzar:hover { background-color: #15803d; }
-
-        .caja-pregunta {
-            background: white;
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            margin-bottom: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        .meta-pregunta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 12px;
-            font-weight: bold;
-            color: #64748b;
-        }
-        .badge-carpeta {
-            background-color: #e0f2fe;
-            color: #0369a1;
-            padding: 4px 10px;
+            padding: 12px 24px;
             border-radius: 6px;
-            font-size: 12px;
             font-weight: 700;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+        }
+        .btn-iniciar:hover { background-color: #1d4ed8; }
+
+        /* PREGUNTAS */
+        .bloque-pregunta {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f8fafc;
         }
         .enunciado {
             font-size: 16px;
             font-weight: 700;
-            color: #0f172a;
-            line-height: 1.5;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
+            color: #1e293b;
         }
-        .lista-opciones {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .btn-opcion {
+        .opcion-btn {
+            display: block;
+            width: 100%;
             text-align: left;
+            background: white;
+            border: 1px solid #cbd5e1;
             padding: 12px 16px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 8px;
-            background: #f8fafc;
-            font-size: 14px;
-            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 8px;
             cursor: pointer;
+            font-size: 14px;
             transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
-        .btn-opcion:hover:not([disabled]) {
-            border-color: #3b82f6;
-            background-color: #eff6ff;
-        }
-        .btn-opcion.correcta {
-            background-color: #dcfce7 !important;
-            border-color: #22c55e !important;
-            color: #15803d !important;
-            font-weight: bold;
-        }
-        .btn-opcion.incorrecta {
-            background-color: #fee2e2 !important;
-            border-color: #ef4444 !important;
-            color: #b91c1c !important;
-            font-weight: bold;
-        }
-        .caja-explicacion {
-            margin-top: 15px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            background-color: #f1f5f9;
-            border-left: 4px solid #3b82f6;
-            font-size: 13px;
-            color: #334155;
+        .opcion-btn:hover { background-color: #e2e8f0; }
+        .opcion-correcta { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534; font-weight: 700; }
+        .opcion-erronea { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b; }
+
+        .justificacion {
             display: none;
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: #eff6ff;
+            border-left: 4px solid #2563eb;
+            font-size: 13px;
+            color: #1e40af;
         }
 
-        .panel-resultado {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            border: 2px solid #3b82f6;
-            text-align: center;
-            margin-top: 30px;
+        .resultado-box {
             display: none;
-        }
-        .nota-final {
-            font-size: 42px;
-            font-weight: 900;
-            color: #2563eb;
-            margin: 10px 0;
-        }
-        .mensaje-vacio {
             text-align: center;
-            padding: 50px 20px;
-            color: #64748b;
-            font-weight: 500;
+            padding: 30px;
+            background-color: #e0f2fe;
+            border-radius: 8px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="contenedor">
-        <div class="barra-superior">
-            <a href="panel.html" class="btn-nav btn-boib">📋 Ir a Buscador BOIB</a>
-            <a href="login.html" class="btn-nav btn-salir" onclick="localStorage.removeItem('usuario_logeado')">🚪 Salir</a>
-        </div>
 
-        <div class="encabezado">
-            <h1>📝 Simulador de Examen de Oposiciones</h1>
-            <div class="subtitulo">Selección directa por carpeta de oficio o por archivo de examen completo.</div>
-        </div>
-
-        <div class="panel-config">
-            <div class="grupo-campo">
-                <label>Seleccionar Carpeta / Archivo</label>
-                <select id="select-tema">
-                    <option value="todos">🌍 Todas las carpetas (Examen General Completo)</option>
-                    <optgroup label="📁 POR CARPETA DE OFICIO" id="optgroup-carpetas"></optgroup>
-                    <optgroup label="📄 POR ARCHIVO INDIVIDUAL" id="optgroup-archivos"></optgroup>
-                </select>
-            </div>
-            <div class="grupo-campo" style="max-width: 180px;">
-                <label>Número de Preguntas</label>
-                <select id="select-limite">
-                    <option value="10">10 Preguntas</option>
-                    <option value="20" selected>20 Preguntas</option>
-                    <option value="30">30 Preguntas</option>
-                    <option value="50">50 Preguntas</option>
-                </select>
-            </div>
-            <button onclick="iniciarTest()" class="btn-comenzar">🚀 Iniciar Test</button>
-        </div>
-
-        <div id="contenedor-preguntas">
-            <div class="mensaje-vacio">Selecciona una carpeta o archivo y pulsa en "Iniciar Test".</div>
-        </div>
-
-        <div id="caja-resultado" class="panel-resultado">
-            <h2>🏁 Examen Finalizado</h2>
-            <div id="valor-nota" class="nota-final">0 / 10</div>
-            <p id="resumen-estadisticas" style="font-size: 16px; color: #475569;"></p>
-            <button onclick="iniciarTest()" class="btn-comenzar" style="margin-top: 15px;">🔄 Repetir Examen</button>
+<div class="contenedor">
+    <div class="barra-nav">
+        <strong>📝 Simulador de Exámenes de Oposición</strong>
+        <div style="display: flex; gap: 10px;">
+            <a href="panel.html" class="btn-nav btn-boib">📋 Ir al Buscador BOIB</a>
+            <a href="/api/logout" class="btn-nav btn-logout">🚪 Salir</a>
         </div>
     </div>
 
-    <script>
-        let bancoActual = [];
-        let respuestasUsuario = {};
+    <!-- CONFIGURADOR DEL TEST -->
+    <div class="tarjeta" id="zonaConfig">
+        <h2>⚙️ Configuración del Test</h2>
+        <div class="selector-fila">
+            <div class="campo-sel">
+                <label>Categoría / Oficio:</label>
+                <select id="selCategoria" onchange="cargarExamenes()">
+                    <option value="">Todas las categorías</option>
+                </select>
+            </div>
+            <div class="campo-sel">
+                <label>Examen / Archivo:</label>
+                <select id="selExamen">
+                    <option value="">Todos los archivos</option>
+                </select>
+            </div>
+            <div class="campo-sel">
+                <label>Volumen de Preguntas:</label>
+                <select id="selCantidad">
+                    <option value="10">10 preguntas</option>
+                    <option value="20">20 preguntas</option>
+                    <option value="completo">Examen completo</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="comenzarTest()" class="btn-iniciar">Empezar Examen</button>
+    </div>
 
-        async function cargarTemas() {
-            const grupoCarpetas = document.getElementById('optgroup-carpetas');
-            const grupoArchivos = document.getElementById('optgroup-archivos');
+    <!-- RESOLUCIÓN DEL TEST -->
+    <div class="tarjeta" id="zonaPreguntas" style="display: none;">
+        <h2 id="tituloTest">Examen en Curso</h2>
+        <div id="contenedorPreguntas"></div>
+        <div class="resultado-box" id="cajaResultado">
+            <h3 id="lblNota" style="font-size: 24px; margin-bottom: 10px;"></h3>
+            <p id="lblDetalle"></p>
+            <button onclick="location.reload()" class="btn-iniciar" style="width: auto; margin-top: 15px;">Hacer Otro Test</button>
+        </div>
+    </div>
+</div>
 
-            try {
-                const res = await fetch('/temas');
-                const datos = await res.json();
+<script>
+    let preguntasCargadas = [];
+    let respuestasUsuario = {};
 
-                // 1. Cargar carpetas reales (Notificador, OficialElectricista, etc.)
-                if (datos.carpetas) {
-                    datos.carpetas.forEach(carpeta => {
-                        const opt = document.createElement('option');
-                        opt.value = carpeta;
-                        opt.textContent = `📁 ${carpeta}`;
-                        grupoCarpetas.appendChild(opt);
-                    });
-                }
-
-                // 2. Cargar archivos individuales
-                if (datos.archivos) {
-                    datos.archivos.forEach(archivo => {
-                        const opt = document.createElement('option');
-                        opt.value = archivo;
-                        opt.textContent = `📄 ${archivo}`;
-                        grupoArchivos.appendChild(opt);
-                    });
-                }
-            } catch (error) {
-                console.error("Error al cargar temas:", error);
+    async function inicializarSelectores() {
+        try {
+            const res = await fetch('/api/quiz/categorias');
+            if (res.status === 401) {
+                window.location.href = '/login.html?redirect=/quiz.html';
+                return;
             }
-        }
-
-        async function iniciarTest() {
-            const tema = document.getElementById('select-tema').value;
-            const limite = document.getElementById('select-limite').value;
-            const contenedor = document.getElementById('contenedor-preguntas');
-            const panelRes = document.getElementById('caja-resultado');
-
-            panelRes.style.display = 'none';
-            contenedor.innerHTML = `<div class="mensaje-vacio">⏳ Cargando preguntas de la base de datos...</div>`;
-            respuestasUsuario = {};
-
-            try {
-                const res = await fetch(`/obtener-preguntas?tema=${encodeURIComponent(tema)}&limite=${limite}`);
-                const datos = await res.json();
-
-                if (!datos.preguntas || datos.preguntas.length === 0) {
-                    contenedor.innerHTML = `<div class="mensaje-vacio">⚠️ No se encontraron preguntas para la carpeta o archivo seleccionado.</div>`;
-                    return;
-                }
-
-                bancoActual = datos.preguntas;
-                let html = "";
-
-                bancoActual.forEach((p, idx) => {
-                    let opcionesHtml = "";
-                    const letras = ['A', 'B', 'C', 'D'];
-                    p.opciones.forEach((opc, opcIdx) => {
-                        opcionesHtml += `
-                            <button class="btn-opcion" id="btn-${idx}-${opcIdx}" onclick="responder(${idx}, ${opcIdx})">
-                                <strong>${letras[opcIdx]})</strong> <span>${opc}</span>
-                            </button>
-                        `;
-                    });
-
-                    html += `
-                        <div class="caja-pregunta" id="caja-${idx}">
-                            <div class="meta-pregunta">
-                                <span>Pregunta ${idx + 1} de ${bancoActual.length}</span>
-                                <span class="badge-carpeta">📁 ${p.carpeta}</span>
-                            </div>
-                            <div class="enunciado">${p.pregunta}</div>
-                            <div class="lista-opciones">${opcionesHtml}</div>
-                            <div class="caja-explicacion" id="exp-${idx}">
-                                💡 <strong>Justificación:</strong> ${p.explicacion}
-                            </div>
-                        </div>
-                    `;
-                });
-
-                contenedor.innerHTML = html;
-
-            } catch (err) {
-                console.error("Error al obtener preguntas:", err);
-                contenedor.innerHTML = `<div class="mensaje-vacio" style="color:#dc2626;">❌ Error al conectar con el servidor backend.</div>`;
-            }
-        }
-
-        function responder(preguntaIdx, opcionSeleccionada) {
-            if (respuestasUsuario[preguntaIdx] !== undefined) return;
-
-            respuestasUsuario[preguntaIdx] = opcionSeleccionada;
-            const pregunta = bancoActual[preguntaIdx];
-            const esCorrecta = (opcionSeleccionada === pregunta.correcta);
-
-            for (let i = 0; i < pregunta.opciones.length; i++) {
-                const btn = document.getElementById(`btn-${preguntaIdx}-${i}`);
-                if (btn) btn.disabled = true;
-            }
-
-            const btnElegido = document.getElementById(`btn-${preguntaIdx}-${opcionSeleccionada}`);
-            const btnCorrecto = document.getElementById(`btn-${preguntaIdx}-${pregunta.correcta}`);
-
-            if (esCorrecta) {
-                if (btnElegido) btnElegido.classList.add('correcta');
-            } else {
-                if (btnElegido) btnElegido.classList.add('incorrecta');
-                if (btnCorrecto) btnCorrecto.classList.add('correcta');
-            }
-
-            const cajaExp = document.getElementById(`exp-${preguntaIdx}`);
-            if (cajaExp) cajaExp.style.display = 'block';
-
-            if (Object.keys(respuestasUsuario).length === bancoActual.length) {
-                calcularResultadoFinal();
-            }
-        }
-
-        function calcularResultadoFinal() {
-            let aciertos = 0;
-            bancoActual.forEach((p, idx) => {
-                if (respuestasUsuario[idx] === p.correcta) {
-                    aciertos++;
-                }
+            const data = await res.json();
+            const selCat = document.getElementById('selCategoria');
+            (data.categorias || []).forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = cat;
+                opt.textContent = cat;
+                selCat.appendChild(opt);
             });
+            cargarExamenes();
+        } catch (e) {
+            console.error(e);
+        }
+    }
 
-            const total = bancoActual.length;
-            const nota = ((aciertos / total) * 10).toFixed(2);
+    async function cargarExamenes() {
+        const cat = document.getElementById('selCategoria').value;
+        const selEx = document.getElementById('selExamen');
+        selEx.innerHTML = '<option value="">Todos los archivos</option>';
+        try {
+            const res = await fetch('/api/quiz/examenes?tema=' + encodeURIComponent(cat));
+            const data = await res.json();
+            (data.examenes || []).forEach(ex => {
+                const opt = document.createElement('option');
+                opt.value = ex;
+                opt.textContent = ex;
+                selEx.appendChild(opt);
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    }
 
-            document.getElementById('valor-nota').textContent = `${nota} / 10`;
-            document.getElementById('resumen-estadisticas').innerHTML = `
-                Has acertado <strong>${aciertos}</strong> de <strong>${total}</strong> preguntas (${((aciertos/total)*100).toFixed(1)}%).
+    async function comenzarTest() {
+        const tema = document.getElementById('selCategoria').value;
+        const examen = document.getElementById('selExamen').value;
+        const cantidad = document.getElementById('selCantidad').value;
+
+        const params = new URLSearchParams({
+            tema: tema,
+            examen: examen,
+            cantidad: cantidad === 'completo' ? 9999 : cantidad
+        });
+
+        try {
+            const res = await fetch('/api/quiz/preguntas?' + params.toString());
+            const data = await res.json();
+            preguntasCargadas = data.preguntas || [];
+
+            if (preguntasCargadas.length === 0) {
+                alert("No hay preguntas disponibles con los filtros elegidos.");
+                return;
+            }
+
+            document.getElementById('zonaConfig').style.display = 'none';
+            document.getElementById('zonaPreguntas').style.display = 'block';
+            document.getElementById('tituloTest').textContent = `Examen: ${tema || 'General'} (${preguntasCargadas.length} preguntas)`;
+
+            renderizarPreguntas();
+        } catch (e) {
+            alert("Error al cargar las preguntas.");
+        }
+    }
+
+    function renderizarPreguntas() {
+        const div = document.getElementById('contenedorPreguntas');
+        div.innerHTML = "";
+
+        preguntasCargadas.forEach((p, idx) => {
+            div.innerHTML += `
+                <div class="bloque-pregunta" id="bloque-${idx}">
+                    <div class="enunciado">${idx + 1}. ${p.enunciado}</div>
+                    <button class="opcion-btn" onclick="responder(${idx}, 'A', this)">A) ${p.opcion_a}</button>
+                    <button class="opcion-btn" onclick="responder(${idx}, 'B', this)">B) ${p.opcion_b}</button>
+                    <button class="opcion-btn" onclick="responder(${idx}, 'C', this)">C) ${p.opcion_c}</button>
+                    <button class="opcion-btn" onclick="responder(${idx}, 'D', this)">D) ${p.opcion_d}</button>
+                    <div class="justificacion" id="just-${idx}">
+                        <strong>⚖️ Justificación Normativa:</strong><br>${p.justificacion}
+                    </div>
+                </div>
             `;
-            const panelRes = document.getElementById('caja-resultado');
-            panelRes.style.display = 'block';
-            panelRes.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    function responder(idxPregunta, opcionElegida, btnElem) {
+        if (respuestasUsuario[idxPregunta] !== undefined) return; // Ya respondida
+
+        respuestasUsuario[idxPregunta] = opcionElegida;
+        const pregunta = preguntasCargadas[idxPregunta];
+        const bloque = document.getElementById(`bloque-${idxPregunta}`);
+        const botones = bloque.querySelectorAll('.opcion-btn');
+        const correcta = pregunta.correcta.trim().toUpperCase();
+
+        botones.forEach(b => {
+            b.disabled = true;
+            if (b.textContent.startsWith(correcta + ")")) {
+                b.classList.add('opcion-correcta');
+            }
+        });
+
+        if (opcionElegida !== correcta) {
+            btnElem.classList.add('opcion-erronea');
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            cargarTemas();
+        // Mostrar justificación normativa
+        const just = document.getElementById(`just-${idxPregunta}`);
+        if (just) just.style.display = 'block';
+
+        // Comprobar si ha terminado todas las preguntas
+        if (Object.keys(respuestasUsuario).length === preguntasCargadas.length) {
+            evaluarFinal();
+        }
+    }
+
+    async function evaluarFinal() {
+        let aciertos = 0;
+        preguntasCargadas.forEach((p, idx) => {
+            if (respuestasUsuario[idx] === p.correcta.trim().toUpperCase()) aciertos++;
         });
-    </script>
+
+        const total = preguntasCargadas.length;
+        const nota = ((aciertos / total) * 10).toFixed(2);
+
+        const caja = document.getElementById('cajaResultado');
+        caja.style.display = 'block';
+        document.getElementById('lblNota').textContent = `Nota Final: ${nota} / 10`;
+        document.getElementById('lblDetalle').textContent = `Has acertado ${aciertos} de ${total} preguntas.`;
+
+        // Guardar resultado en el historial
+        const tema = document.getElementById('selCategoria').value || "General";
+        try {
+            await fetch('/api/quiz/guardar_resultado', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tema, aciertos, total_preguntas: total, nota: parseFloat(nota) })
+            });
+        } catch (e) {
+            console.error("No se pudo guardar en historial", e);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', inicializarSelectores);
+</script>
+
 </body>
 </html>
