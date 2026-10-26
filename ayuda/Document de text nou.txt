@@ -1,0 +1,11 @@
+CARGAR PREGUNTAS
+python importar_preguntas.py
+
+# 1. Añade todos los archivos nuevos y la base de datos modificada
+git add .
+
+# 2. Crea el commit
+git commit -m "Actualizacion de preguntas e importacion a la base de datos"
+
+# 3. Sube los cambios a la rama principal
+git push origin main
