@@ -1,0 +1,283 @@
+/* ARCHIVO 2: 20201031_peon_marratxi_02_especifico.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Tradición y patrimonio",
+    "es_reserva": false,
+    "enunciado": "Pòrtol es:",
+    "opciones": {
+      "A": "Terra de vi.",
+      "B": "Terra de fang",
+      "C": "Terra d'oli.",
+      "D": "Terra de garrovers."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de población de Marratxí se encuentra la calle Cristòfol Llompart, Rector?",
+    "opciones": {
+      "A": "Es Pla de Na Tesa.",
+      "B": "Pont d'Inca.",
+      "C": "Pòrtol.",
+      "D": "Sa Cabaneta."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero",
+    "es_reserva": false,
+    "enunciado": "Las calles Llebeig, Ponent, Gregal i Tramuntana se encuentran en el núcleo de población de:",
+    "opciones": {
+      "A": "Es Figueral.",
+      "B": "Es Garrovers.",
+      "C": "Es Pla de Na Tesa.",
+      "D": "Sa Cabana."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de las siguientes calles se encuentran en Marraxinet?",
+    "opciones": {
+      "A": "Camí de Can Frontera.",
+      "B": "Carrer de Sa Font.",
+      "C": "Carrer de Martí Rubí, secretari.",
+      "D": "Carrer de Can Fàbregas."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Infraestructuras y equipamientos",
+    "es_reserva": false,
+    "enunciado": "¿Cuántos cementerios públicos o privados existen en el término municipal de Marratxí?",
+    "opciones": {
+      "A": "0.",
+      "B": "1.",
+      "C": "3.",
+      "D": "4."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Patrimonio y caminos",
+    "es_reserva": false,
+    "enunciado": "El tramo del Camí de Sa Bomba empedrado y protegido está situado cerca de:",
+    "opciones": {
+      "A": "Camí de n'Olessa de Sa Cabaneta.",
+      "B": "Camí des Morts.",
+      "C": "Entre la vía del tren i el Torrent Gros.",
+      "D": "Entre la vía del tren i el Torrent de Coa Negra."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 7,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Infraestructuras de transporte",
+    "es_reserva": false,
+    "enunciado": "¿Cuántas estaciones o apeaderos de la línea de tren hay en el término municipal de Marratxí?",
+    "opciones": {
+      "A": "3.",
+      "B": "4.",
+      "C": "5.",
+      "D": "7."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 8,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Patrimonio histórico e industrial",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo urbano se encuentra la antigua Olleria de Can Palou?",
+    "opciones": {
+      "A": "Sa Cabaneta.",
+      "B": "Pòrtol.",
+      "C": "Es Pont d'Inca",
+      "D": "Es Pla de Na Tesa."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 9,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Demografía local",
+    "es_reserva": false,
+    "enunciado": "La población censada en Marratxí está entre:",
+    "opciones": {
+      "A": "5.000 y 10.000 habitantes.",
+      "B": "10.000 y 15.000 habitantes.",
+      "C": "15.000 у 30.000 habitantes.",
+      "D": "30.000 y 50.000 habitantes."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Hidrografía y geografía física",
+    "es_reserva": false,
+    "enunciado": "El Torrent de Coa Negra que nace en el Salt des Freu:",
+    "opciones": {
+      "A": "Se junta con el Torrent Gros en Es Pla de Na Tesa.",
+      "B": "Desemboca directamente en la Bahía de Palma",
+      "C": "Se junta con el Torrent Gros en Es Pont d'Inca.",
+      "D": "Ninguna respuesta es correcta."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 11,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Patrimonio e inmuebles municipales",
+    "es_reserva": false,
+    "enunciado": "La antigua fábrica de Sa Garrovera o Sa Refinadora de propiedad municipal está situada en:",
+    "opciones": {
+      "A": "Pòrtol.",
+      "B": "Es Pont d'Inca.",
+      "C": "Sa Cabaneta.",
+      "D": "Es Pla de Na Tesa."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Geografía municipal y límites",
+    "es_reserva": false,
+    "enunciado": "Los términos municipales que lindan con Marratxí son:",
+    "opciones": {
+      "A": "Palma, Santa María y Consell.",
+      "B": "Palma, Santa María y Bunyola.",
+      "C": "Palma, Santa María, Bunyola y Sencelles.",
+      "D": "Palma, Bunyola y Santa Eugènia."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Organización supramunicipal",
+    "es_reserva": false,
+    "enunciado": "¿A qué mancomunidad pertenece el término municipal de Marratxí?",
+    "opciones": {
+      "A": "Es Raiguer.",
+      "B": "Tramuntana.",
+      "C": "Llevant.",
+      "D": "Mitjorn."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 14,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Patrimonio natural y botánico",
+    "es_reserva": false,
+    "enunciado": "¿Quién fue el autor del catálogo de árboles singulares y protegidos de Marratxí?",
+    "opciones": {
+      "A": "Pere A. Llofriu Mora.",
+      "B": "Sebastià Cañellas Rigo.l",
+      "C": "Miguel Artigues Serra.",
+      "D": "Ninguna respuesta es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Cerámica y materias primas",
+    "es_reserva": false,
+    "enunciado": "¿De dónde proviene la tierra roja para la elaboración de la cerámica en el término municipal de Marratxí?",
+    "opciones": {
+      "A": "Son Ferriol.",
+      "B": "Algaida.",
+      "C": "Sóller",
+      "D": "Pòrtol."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Toponimia e infraestructuras históricas",
+    "es_reserva": false,
+    "enunciado": "¿Dónde está situado el Pont des Caulls?",
+    "opciones": {
+      "A": "Pòrtol.",
+      "B": "Sa Cabaneta.",
+      "C": "Marraxinet.",
+      "D": "Es Figueral."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 17,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Urbanizaciones y núcleos",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de las siguientes es una urbanización de Marratxí?",
+    "opciones": {
+      "A": "Can Tarange.",
+      "B": "Cas Pi.",
+      "C": "Cas Mestre Miquel.",
+      "D": "Can Domingo."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 18,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Ordenanzas municipales / Medio Ambiente",
+    "es_reserva": false,
+    "enunciado": "Según la ordenanza de Medio Ambiente de Marratxí, la solicitud para la celebración de actividades al aire libre en el término de Marratxí:",
+    "opciones": {
+      "A": "Se ha de realizar con una antelación de tres meses.",
+      "B": "Se ha de realizar con una antelación de 15 días.",
+      "C": "Está siempre prohibida.",
+      "D": "Está siempre permitida."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 19,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Ordenanzas municipales / Medio Ambiente y Ruidos",
+    "es_reserva": false,
+    "enunciado": "Según la ordenanza de Medio Ambiente de Marratxí, no está permitido el uso de aparatos excesivamente ruidosos, instrumentos musicales o cánticos en las siguientes franjas horarias en el término de Marratxí:",
+    "opciones": {
+      "A": "Entre las 24 h. de la noche hasta las 9 h. de la mañana.",
+      "B": "Entre las 22 h. de la noche hasta las 8:00 h. de la mañana.",
+      "C": "Entre las 20 h. de la noche y las 8 h. de la mañana.",
+      "D": "Estos ruidos siempre están permitidos en Marratxí."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 20,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Ordenanzas municipales / Medio Ambiente y Animales de compañía",
+    "es_reserva": false,
+    "enunciado": "Según la ordenanza de Medio Ambiente de Marratxí, es obligatoria la identificación mediante chip para:",
+    "opciones": {
+      "A": "Los perros.",
+      "B": "Todos los animales de compañía.",
+      "C": "En ningún caso es obligatoria.",
+      "D": "Los perros peligrosos."
+    },
+    "respuesta_correcta": "A"
+  }
+]

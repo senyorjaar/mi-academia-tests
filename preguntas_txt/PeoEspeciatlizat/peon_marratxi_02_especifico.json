@@ -1,0 +1,143 @@
+/* ARCHIVO 2: 20251002_peon_marratxi_02_especifico.json */
+[
+  {
+    "numero_original": 7,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Materiales",
+    "es_reserva": false,
+    "enunciado": "En albañilería las cantoneras pueden ser de los siguientes materiales:",
+    "opciones": {
+      "A": "Madera",
+      "B": "Metal",
+      "C": "Plástico.",
+      "D": "Todas las respuestas son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 8,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Técnicas de obra",
+    "es_reserva": false,
+    "enunciado": "En albañilería ¿que son las rozas?",
+    "opciones": {
+      "A": "Adornos para las esquinas.",
+      "B": "Un tipo de cerámica.",
+      "C": "Son surcos que se realizan en las paredes, techos, etc. para alojar en su interior tubos para instalaciones.",
+      "D": "Un tipo de herramienta."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 9,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Acabados",
+    "es_reserva": false,
+    "enunciado": "En albañilería ¿qué significar revestir?",
+    "opciones": {
+      "A": "Es la operación de forrar muros y tabiques.",
+      "B": "Es la operación que consiste en moldear el hormigón.",
+      "C": "Es la operación que consiste en el acopio de material previo a su uso.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Herramientas de mano",
+    "es_reserva": false,
+    "enunciado": "En albañilería, habitualmente las macetas (herramienta) pueden tener un peso de:",
+    "opciones": {
+      "A": "995 gr.",
+      "B": "1.335 gr.",
+      "C": "1.475 gr.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 11,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Conglomerantes",
+    "es_reserva": false,
+    "enunciado": "En albañilería, ¿cuáles de los siguientes tipos de cemento tiene la propiedad específica de poder fraguar bajo el agua?",
+    "opciones": {
+      "A": "Cemento cola.",
+      "B": "Cemento con látex.",
+      "C": "Cemento hidráulico.",
+      "D": "No existe ningún cemento que pueda fraguar debajo del agua."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Fitosanitarios",
+    "es_reserva": false,
+    "enunciado": "En jardinería, los tratamientos fitosanitarios irán dirigidos a:",
+    "opciones": {
+      "A": "Enfermedades criptogámicas.",
+      "B": "Plagas de insectos.",
+      "C": "Invasión de malas hierbas.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Herramientas",
+    "es_reserva": false,
+    "enunciado": "En jardinería, ¿cuál de las siguientes herramientas NO es una herramienta de poda?",
+    "opciones": {
+      "A": "Sierra de arco.",
+      "B": "Tijeras de podar.",
+      "C": "Rodillo para jardín.",
+      "D": "Navajas de podar."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 14,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Botánica",
+    "es_reserva": false,
+    "enunciado": "En jardinería, ¿cuál NO es una parte básica de las plantas?",
+    "opciones": {
+      "A": "Tallo.",
+      "B": "Corteza.",
+      "C": "Hoja.",
+      "D": "Flor."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Labores de cultivo",
+    "es_reserva": false,
+    "enunciado": "En jardinería, ¿cuál de las siguientes es la definición de sembrar?",
+    "opciones": {
+      "A": "Labrar la tierra para repartir los terrones.",
+      "B": "Es una actividad típica de la agricultura.",
+      "C": "Consiste en abrir y voltear la tierra.",
+      "D": "Es la acción de plantar una semilla."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Herramientas tradicionales",
+    "es_reserva": true,
+    "enunciado": "En jardinería, ¿el mango de guadaña generalmente suele ser?",
+    "opciones": {
+      "A": "De madera.",
+      "B": "De metal.",
+      "C": "De plástico.",
+      "D": "Las respuestas a y b son correctas."
+    },
+    "respuesta_correcta": "D"
+  }
+]

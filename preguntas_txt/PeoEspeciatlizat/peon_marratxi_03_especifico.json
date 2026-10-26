@@ -1,0 +1,423 @@
+/* ARCHIVO 2: 20201031_peon_marratxi_02_especifico.json */
+[
+  {
+    "numero_original": 14,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Tratamientos de humedad",
+    "es_reserva": false,
+    "enunciado": "Los tratamientos hidrófugos tiene por objeto:",
+    "opciones": {
+      "A": "Evitar la propagación de la humedad.",
+      "B": "Dar más consistencia al material.",
+      "C": "Aislar del ruido la obra.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Herramientas de mano",
+    "es_reserva": false,
+    "enunciado": "¿Cuál es la herramienta más adecuada de las siguientes para desencofrar o levantar una tapa de registro en la calle?",
+    "opciones": {
+      "A": "Cizalla.",
+      "B": "Pala.",
+      "C": "Pata de cabra.",
+      "D": "Llana."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Materiales de Construcción / Conglomerantes",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de los siguientes materiales están dentro de los llamados aglomerantes o conglomerantes?",
+    "opciones": {
+      "A": "Yeso, cemento y cal.",
+      "B": "Yeso, cemento, cal y arena.",
+      "C": "Yeso, cemento, cal, arena y grava.",
+      "D": "Yeso, cemento, cal y zahorra."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 17,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Materiales de Construcción / Hormigón",
+    "es_reserva": false,
+    "enunciado": "El hormigón es un material que se compone de la mezcla de:",
+    "opciones": {
+      "A": "Cemento, arena y grava.",
+      "B": "Cemento y agua.",
+      "C": "Cemento, agua, arena y grava.",
+      "D": "Cemento, arena, grava y hierro."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 18,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Materiales de Construcción / Tipología de hormigón",
+    "es_reserva": false,
+    "enunciado": "El hormigón, según su armado, puede clasificarse en:",
+    "opciones": {
+      "A": "Hormigón en masa, armado, pretensado y postensado.",
+      "B": "Hormigón de cimentación y hormigón de relleno.",
+      "C": "Hormigón estructural y hormigón en masa.",
+      "D": "Hormigón ciclópeo y hormigón aligerado."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 19,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad e Iluminación",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de las siguientes afirmaciones es correcta entre un diodo emisor de luz (o LED) y una bombilla de bajo consumo?",
+    "opciones": {
+      "A": "Las LED emiten el mismo calor que las de bajo consumo.",
+      "B": "A igual intensidad lumínica las LED consumen igual que el bajo consumo.",
+      "C": "Los dos tipos de lámparas son tóxicas, no deben reciclarse.",
+      "D": "La duración del LED puede llegar hasta cincuenta años."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 20,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad / Cuadros eléctricos",
+    "es_reserva": false,
+    "enunciado": "El interruptor de control de potencia (ICP) es un mecanismo situado en el cuadro general en la siguiente posición:",
+    "opciones": {
+      "A": "Delante del interruptor general.",
+      "B": "Entre el interruptor general y los automáticos.",
+      "C": "Al final de todos los interruptores automáticos.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 21,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad / Mecanismos",
+    "es_reserva": false,
+    "enunciado": "Los enchufes pueden presentar dos o tres bornes, ¿Qué diferencia hay entre ellos?",
+    "opciones": {
+      "A": "Ninguna.",
+      "B": "La toma de tierra.",
+      "C": "La ampliación de potencia.",
+      "D": "No existen diferencias entre dos o tres bornes."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 22,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad / Puesta a tierra",
+    "es_reserva": false,
+    "enunciado": "\"Poner a tierra\" significa unir a tierra un punto de la instalación a través del dispositivo apropiado. ¿Qué función tiene?",
+    "opciones": {
+      "A": "Proteger de posibles contactos a tensiones elevadas.",
+      "B": "Disipar la sobreintensidad.",
+      "C": "Mantener al potencial de tierra una parte del circuito.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 23,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Fisiología vegetal",
+    "es_reserva": false,
+    "enunciado": "¿Qué es la fotosíntesis?",
+    "opciones": {
+      "A": "Hacer fotos a las plantas.",
+      "B": "Es la función por la cual la planta por la acción de la luz, sea solar o artificial, fabrica hidratos de carbono y oxígeno.",
+      "C": "Remover la tierra.",
+      "D": "Sembrar césped."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 24,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Labores del suelo",
+    "es_reserva": false,
+    "enunciado": "¿En qué consiste \"binar\" la tierra?",
+    "opciones": {
+      "A": "En sembrar.",
+      "B": "En regar.",
+      "C": "En dar una segunda vuelta a la tierra para aflojar el suelo.",
+      "D": "En podar."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 25,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Botánica básica",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles son las partes básicas de la planta?",
+    "opciones": {
+      "A": "Tallo, raíz, hojas y flor.",
+      "B": "Rosas, margaritas y claveles.",
+      "C": "Verduras y hortalizas.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 26,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Preparación del terreno",
+    "es_reserva": false,
+    "enunciado": "Actividades en las que consiste una correcta preparación del terreno:",
+    "opciones": {
+      "A": "Hacer un agujero y sembrar.",
+      "B": "Sembrar y regar.",
+      "C": "Cavar, mullir, desmenuzar, laboreo, roturar y desbrozar.",
+      "D": "Simplemente labrar el terreno."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 27,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Herramientas",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de las siguientes son herramientas específicas de jardinería?",
+    "opciones": {
+      "A": "Azadilla, hoz, rastrillo y tijeras para bordillos.",
+      "B": "Alicates y destornillador.",
+      "C": "Máquina de disco y hormigonera.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 28,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería / Propagación vegetal",
+    "es_reserva": false,
+    "enunciado": "¿Qué es un esqueje?",
+    "opciones": {
+      "A": "El fruto de la planta.",
+      "B": "El tallo, rama o retoño de una planta que se injerta en otra o se introduce en la tierra para reproducir o multiplicar la planta.",
+      "C": "Es la raíz de la planta.",
+      "D": "Es una herramienta."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 29,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Instrumentos de comprobación",
+    "es_reserva": false,
+    "enunciado": "¿Qué es una plomada?",
+    "opciones": {
+      "A": "Es un tipo de madera.",
+      "B": "Es un cordón con lastre que se usa para la comparación de verticales.",
+      "C": "Es una mezcla bituminosa.",
+      "D": "Es un tipo de resina."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 30,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Técnicas de obra",
+    "es_reserva": false,
+    "enunciado": "¿Qué es una roza?",
+    "opciones": {
+      "A": "Un surco que se realiza en las paredes, techos, etc. para alojar en su interior tubos u otros elementos para instalaciones",
+      "B": "Una planta resinosa.",
+      "C": "Una herramienta.",
+      "D": "Un tipo de mortero que utilizamos para reparar elementos hidráulicos."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 31,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Revestimientos continuos",
+    "es_reserva": false,
+    "enunciado": "El recubrimiento de una superficie vertical, en interior o exterior, mediante una capa de mortero se denomina:",
+    "opciones": {
+      "A": "Enfoscado.",
+      "B": "Estucado.",
+      "C": "Guarnecido.",
+      "D": "Encalado."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 32,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Pintura y Acabados",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles son los métodos de aplicación de la pintura a la cal?",
+    "opciones": {
+      "A": "Llana.",
+      "B": "Brocha y rodillo.",
+      "C": "Máquina de proyectar.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 33,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería / Válvulas y llaves",
+    "es_reserva": false,
+    "enunciado": "¿Cuál es la función de las llaves de paso?",
+    "opciones": {
+      "A": "Cortar el caudal del paso de agua.",
+      "B": "Abrir el caudal del paso de agua.",
+      "C": "Regular el caudal del paso de agua.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 34,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Herramientas de mano",
+    "es_reserva": false,
+    "enunciado": "Indica cual de los siguientes es un tipo de alicates:",
+    "opciones": {
+      "A": "de corte.",
+      "B": "de remachar.",
+      "C": "de clavar.",
+      "D": "de atornillar."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 35,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Seguridad y Salud / Manipulación manual de cargas",
+    "es_reserva": false,
+    "enunciado": "¿Cuál es, por regla general, el peso máximo que se recomienda no pasar? (en condiciones ideales de manipulación)",
+    "opciones": {
+      "A": "3 kg.",
+      "B": "25 kg.",
+      "C": "50 kg.",
+      "D": "100 kg."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 36,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería / Materiales y tuberías",
+    "es_reserva": false,
+    "enunciado": "¿Qué es una tubería de PVC?",
+    "opciones": {
+      "A": "Una tubería de fundición.",
+      "B": "Una tubería de policloruro de vinilo.",
+      "C": "Una tubería de plomo.",
+      "D": "Una tubería de acero inoxidable."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 37,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Carpintería / Herramientas de lijado y desbaste",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de estas herramientas se considera de lijado de madera?",
+    "opciones": {
+      "A": "Maceta.",
+      "B": "Serrucho.",
+      "C": "Lima.",
+      "D": "Destornillador."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 38,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Carpintería y Pintura / Herramientas eléctricas de lijado",
+    "es_reserva": false,
+    "enunciado": "¿Cómo se denomina la lijadora con la que puedes llegar más fácilmente a las esquinas y ángulos de acceso complicado?",
+    "opciones": {
+      "A": "Rotorbital.",
+      "B": "Orbital.",
+      "C": "Delta.",
+      "D": "Bital."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 39,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Limpieza y Mantenimiento de Edificios / Mobiliario",
+    "es_reserva": false,
+    "enunciado": "El mobiliario lavable deberá limpiarse con:",
+    "opciones": {
+      "A": "Agua, detergente neutro y bayeta de polvo. A veces es necesario utilizar estropajo.",
+      "B": "Detergente neutro, bayeta de polvo y estropajo.",
+      "C": "Agua, detergente neutro y bayeta que se pueda mojar. A veces es necesario utilizar estropajo.",
+      "D": "Agua, detergente neutro y bayeta que se pueda mojar. Nunca se utilizará estropajo."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 40,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Limpieza y Mantenimiento de Edificios / Tratamiento de pavimentos",
+    "es_reserva": false,
+    "enunciado": "En el mantenimiento de los suelos, el fregado con mopa y detergente neutro o lavicera, ¿en qué suelos será adecuado su utilización?",
+    "opciones": {
+      "A": "En suelos tratados con emulsión y suelos cristalizados.",
+      "B": "En suelos cristalizados, suelos duros homogéneos y plaquetas porosas.",
+      "C": "En plaquetas porosas y suelos de hormigón sin pulir.",
+      "D": "En suelos duros homogéneos y revestimientos plásticos."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 41,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Limpieza y Mantenimiento de Edificios / Productos químicos",
+    "es_reserva": false,
+    "enunciado": "Se utilizarán los detergentes ácidos para:",
+    "opciones": {
+      "A": "Suciedad, grasa y cera.",
+      "B": "Suciedad mineral, sarro, cemento y óxido.",
+      "C": "Suciedad mineral, sarro, cemento y cera.",
+      "D": "Suciedad mineral, cemento, cera y óxido."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 42,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Seguridad y Salud / Trabajos en altura y limpieza de vidrios",
+    "es_reserva": false,
+    "enunciado": "En las operaciones de limpieza de ventanas exteriores en las que usemos correas de seguridad, NO podremos conectar los ganchos de las correas en:",
+    "opciones": {
+      "A": "Un punto que sea lo suficientemente fuerte como para resistir la fuerza necesaria para detener la caída..",
+      "B": "Un punto que no tenga desperfectos antes de conectarse a él.",
+      "C": "Un punto en el que no haya obstáculos debajo, sobre los cuales podría caer.",
+      "D": "El mecanismo de apertura de la misma ventana."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 43,
+    "tipo_temario": "especifico",
+    "materia_estimada": "EPIs / Equipos de protección individual",
+    "es_reserva": false,
+    "enunciado": "El guante de látex:",
+    "opciones": {
+      "A": "Es un guante resistente de alta protección y duración. Se utiliza para protección contra ácidos, disolventes, etc.",
+      "B": "Es un guante resistente de alta protección y duración. Se utiliza en limpieza de cristales exteriores y paramentos verticales.",
+      "C": "Es un guante extra limpio, con un diseño confortable, flexible y elástico que lo convierte en un protector idóneo para trabajos de limpieza.",
+      "D": "Es un guante extra limpio, con un diseño confortable, flexible y elástico que lo convierte en un protector idóneo no apto para trabajos de limpieza."
+    },
+    "respuesta_correcta": "C"
+  }
+]

@@ -1,0 +1,297 @@
+/* ARCHIVO 1: 20220223_oficial_fontanero_marratxi_01_comun.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Historia constitucional",
+    "es_reserva": false,
+    "enunciado": "La Constitución Española se ratificó por el pueblo español mediante referéndum:",
+    "opciones": {
+      "A": "El 31 de octubre de 1978.",
+      "B": "El 6 de diciembre de 1978.",
+      "C": "El 27 de diciembre de 1978.",
+      "D": "El 29 de diciembre de 1978."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Características",
+    "es_reserva": false,
+    "enunciado": "¿Cuál o cuáles de las siguientes características son propias de la Constitución Española de 1978?",
+    "opciones": {
+      "A": "Es una constitución escrita.",
+      "B": "Es una constitución rígida.",
+      "C": "Es una constitución extensa.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Derechos fundamentales (Artículo 16)",
+    "es_reserva": false,
+    "enunciado": "¿En qué casos se puede obligar a un ciudadano a declarar sobre su ideología, religión o creencias?",
+    "opciones": {
+      "A": "En casos de riesgo grave para la seguridad ciudadana.",
+      "B": "En caso de ciudadanos extranjeros o no residentes en España.",
+      "C": "En ningún caso.",
+      "D": "Todo el mundo está obligado a declarar sobre sus creencias."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978 / Forma política del Estado",
+    "es_reserva": false,
+    "enunciado": "¿Cuál es la forma política del Estado español?",
+    "opciones": {
+      "A": "República monárquica.",
+      "B": "Monarquía parlamentaria.",
+      "C": "Monarquía absoluta.",
+      "D": "Estado federal."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Entidades locales básicas",
+    "es_reserva": false,
+    "enunciado": "Según el artículo 3.1 de la Ley Reguladora de las Bases del Régimen Local (LRBRL) son entidades locales territoriales, de carácter básico, las siguientes:",
+    "opciones": {
+      "A": "El municipio, la provincia y la comunidad autónoma.",
+      "B": "El municipio, la provincia y la isla en el archipiélago balear y canario.",
+      "C": "El municipio y la comunidad autónoma.",
+      "D": "Solamente el municipio es una entidad local territorial de carácter básico."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Junta de Gobierno Local",
+    "es_reserva": false,
+    "enunciado": "En el Ayuntamiento de Marratxí, con aproximadamente 39.000 habitantes:",
+    "opciones": {
+      "A": "Existirá obligatoriamente la Junta de Gobierno Local.",
+      "B": "Solo existirá la Junta de Gobierno Local si así lo dispone el Reglamento orgánico del Ayuntamiento.",
+      "C": "Solo existe en los municipios de más de 50.000 habitantes.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 7,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Competencias municipales obligatorias",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de los siguientes servicios según el artículo 26 LRBRL no es de carácter obligatorio en Marratxí (municipio de aproximadamente 39.000 habitantes)?",
+    "opciones": {
+      "A": "Biblioteca pública.",
+      "B": "Prestación de servicios sociales.",
+      "C": "Alcantarillado.",
+      "D": "Transporte colectivo urbano de viajeros."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 8,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL y LOREG) / Elección del Alcalde",
+    "es_reserva": false,
+    "enunciado": "El Alcalde del municipio se elige por mayoría absoluta de los votos de los concejales de entre aquellos que encabezaran las distintas listas electorales, si ningún concejal obtiene dicha mayoría será proclamado Alcalde:",
+    "opciones": {
+      "A": "No se proclamará Alcalde, debiendo repetirse las elecciones.",
+      "B": "El concejal que resulte elegido por sorteo de entre todos los cabezas de lista.",
+      "C": "El concejal que encabeza la lista más votada.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 9,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Clasificación profesional",
+    "es_reserva": false,
+    "enunciado": "En el Ayuntamiento de Marratxí el puesto de trabajo de oficial fontanero requiere para su ingreso el nivel de titulación mínimo de graduado en educación secundaria obligatoria (ESO) o equivalente. En consecuencia, ¿en qué subgrupo funcionarial debería clasificarse?",
+    "opciones": {
+      "A": "Subgrupo A2.",
+      "B": "Subgrupo C1.",
+      "C": "Subgrupo C2.",
+      "D": "Subgrupo AP."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública Local / Escalas y subescalas",
+    "es_reserva": false,
+    "enunciado": "El puesto de trabajo de oficial fontanero del Ayuntamiento de Marratxí pertence a la Escala de Administración Especial. Indique la subescala en la que se clasifica:",
+    "opciones": {
+      "A": "Policia local y sus auxiliares.",
+      "B": "Plazas de cometidos especiales.",
+      "C": "Personal de oficios.",
+      "D": "Técnica de grado superior."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 11,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Retribuciones",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de las siguientes son retribuciones básicas de los funcionarios?",
+    "opciones": {
+      "A": "Sueldo base y trienios.",
+      "B": "Complemento de destino.",
+      "C": "Complemento específico.",
+      "D": "Complemento de productividad."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP / Principios éticos",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de los siguientes son principios éticos de los funcionarios públicos recogidos en el artículo 53 del Texto refundido de la Ley del Estatuto del Empleado Público (EBEP)?",
+    "opciones": {
+      "A": "Ajustar su actuación a los principios de lealtad y buena fe con la Administración en la que presten sus servicios, y con sus superiores, compañeros, subordinados y con los ciudadanos.",
+      "B": "No aceptar ningún trato de favor o situación que implique privilegio o ventaja injustificada, por parte de personas físicas o entidades privadas.",
+      "C": "Respetar la Constitución y el resto de normas que integran el ordenamiento jurídico.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Conceptos básicos (Ley 31/1995)",
+    "es_reserva": false,
+    "enunciado": "¿A los efectos de la Ley 31/1995 de Prevención de Riesgos Laborales se considerarán como \"daños derivados del trabajo\"?",
+    "opciones": {
+      "A": "Cualquier lesión que sufra el trabajador en su vida diaria.",
+      "B": "Las enfermedades, patologías o lesiones y riesgos no laborales.",
+      "C": "Las enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 14,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Formación de trabajadores (Ley 31/1995)",
+    "es_reserva": false,
+    "enunciado": "Según la Ley de Prevención de Riesgos Laborales ¿cuál de las siguientes afirmaciones NO es correcta?",
+    "opciones": {
+      "A": "El empresario deberá garantizar que la formación que reciba cada trabajador esté centrada específicamente en el puesto de trabajo o función del trabajador.",
+      "B": "El empresario deberá garantizar que cada trabajador reciba formación en el momento en que se introduzcan nuevas tecnologías o cambios en los equipos de trabajo.",
+      "C": "El empresario deberá garantizar la formación y que cada trabajador asuma el coste total o parcial de la misma.",
+      "D": "El empresario deberá garantizar que cada trabajador reciba formación cuando se produzcan cambios en las funciones que desempeñe el trabajador."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Incumplimiento de obligaciones",
+    "es_reserva": false,
+    "enunciado": "De acuerdo con las obligaciones de los trabajadores en materia de prevención de riesgos, el incumplimiento de las obligaciones en materia de dicha prevención:",
+    "opciones": {
+      "A": "Tendrá la consideración de incumplimiento laboral, a los efectos previstos en el artículo 58.1 del Estatuto de los Trabajadores o de falta, en su caso, según la normativa sobre régimen disciplinario de los funcionarios públicos o del personal estatutario al servicio de las Administraciones Públicas.",
+      "B": "No lleva aparejada ninguna consecuencia si no ha sido intencionado y no ha entrañado riesgos perjudiciales.",
+      "C": "Dará lugar al despido inmediato de la empresa o a la pérdida de la condición de funcionario/a público/a.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / RD 485/1997 / Señalización",
+    "es_reserva": false,
+    "enunciado": "De acuerdo con el Real Decreto 485/1997, que establece las disposiciones mínimas en materia de señalización de seguridad y salud en el trabajo, se entenderá por \"color de seguridad\":",
+    "opciones": {
+      "A": "Un color al que se atribuye una significación determinada en relación con la seguridad y salud en el trabajo.",
+      "B": "Una señal que obliga a un comportamiento determinado.",
+      "C": "Una señal que, por la combinación de una forma geométrica, de colores y de un símbolo o pictograma, proporciona una determinada información.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 17,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / RD 485/1997 / Colores de seguridad",
+    "es_reserva": false,
+    "enunciado": "Según el Real Decreto 485/1997, que establece las disposiciones mínimas en materia de señalización de seguridad y salud en el trabajo, establece que los colores de seguridad podrán formar parte de una señalización de seguridad o constituirla por sí mismos, por lo que, ¿cuál de las siguientes afirmaciones es correcta?",
+    "opciones": {
+      "A": "El color AZUL significa: señal de advertencia.",
+      "B": "El color AMARILLO AMARILLO ANARANJADO significa: señal de obligación.",
+      "C": "El color VERDE significa: señal de prohibición.",
+      "D": "El color ROJO significa: peligro-alarma."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 18,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / RD 485/1997 / Señales de advertencia",
+    "es_reserva": false,
+    "enunciado": "Conforme con el Real Decreto 485/1997, que establece las disposiciones mínimas en materia de señalización de seguridad y salud en el trabajo, qué significado tiene la siguiente señal de advertencia: [Pictograma triangular con fondo amarillo, borde negro y círculo con llama]",
+    "opciones": {
+      "A": "Materiales explosivos.",
+      "B": "Materiales comburentes.",
+      "C": "Materiales inflamables.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 19,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / RD 485/1997 / Señales gestuales",
+    "es_reserva": false,
+    "enunciado": "Conforme con el Real Decreto 485/1997, que establece las disposiciones mínimas en materia de señalización de seguridad y salud en el trabajo, la señal gestual con los dos brazos extendidos hacia arriba y las palmas de las manos hacia adelante, ¿qué significado tiene?",
+    "opciones": {
+      "A": "Peligro. Alto o parada de emergencia.",
+      "B": "Alto. Interrupción o fin del movimiento.",
+      "C": "Fin de las operaciones.",
+      "D": "Obligatorio: retroceder lentamente."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 39,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales / Manipulación manual de cargas",
+    "es_reserva": false,
+    "enunciado": "A la hora de levantar manualmente un objeto el peso máximo recomendado es de:",
+    "opciones": {
+      "A": "50 kg.",
+      "B": "25 kg.",
+      "C": "40 kg.",
+      "D": "50 kg."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 41,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL) / Competencias del Alcalde",
+    "es_reserva": true,
+    "enunciado": "¿Cuál de las siguientes competencias NO corresponde al Alcalde?",
+    "opciones": {
+      "A": "Representar al Ayuntamiento.",
+      "B": "Aprobar la oferta de empleo público.",
+      "C": "Aprobar el presupuesto anual del Ayuntamiento.",
+      "D": "Ejercer la jefatura de todo el personal al servicio del Ayuntamiento."
+    },
+    "respuesta_correcta": "C"
+  }
+]

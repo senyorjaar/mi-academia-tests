@@ -1,0 +1,367 @@
+/* ARCHIVO 2: preguntas_temario_especifico.json */
+[
+  {
+    "numero_original": 8,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Soldadura / Cerrajería",
+    "es_reserva": false,
+    "enunciado": "¿Cómo se conoce a la soldadura con estaño de un soldador eléctrico?",
+    "opciones": {
+      "A": "Soldadura gris.",
+      "B": "Soldadura blanda.",
+      "C": "Soldadura mixta.",
+      "D": "Soldadura plomo-hierro."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 9,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad",
+    "es_reserva": false,
+    "enunciado": "En una instalación trifásica más neutro y toma tierra, de ¿qué color es el cable neutro?",
+    "opciones": {
+      "A": "Amarillo-verde.",
+      "B": "Negro.",
+      "C": "Blanco.",
+      "D": "Azul."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad",
+    "es_reserva": false,
+    "enunciado": "¿Desde cuantos puntos diferentes se puede encender un punto de luz en una instalación conmutada?",
+    "opciones": {
+      "A": "Dos puntos diferentes.",
+      "B": "Tres puntos diferentes.",
+      "C": "Cuatro puntos diferentes.",
+      "D": "No existen los interruptores conmutados."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 11,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad / Instrumentación",
+    "es_reserva": false,
+    "enunciado": "¿Cuál es el instrumento que sirve para medir la intensidad de una corriente eléctrica?",
+    "opciones": {
+      "A": "Ohmímetro.",
+      "B": "Amperímetro.",
+      "C": "Voltímetro.",
+      "D": "Tensiómetro."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Herramientas",
+    "es_reserva": false,
+    "enunciado": "¿Para qué se utilizan las brocas de mampostería?",
+    "opciones": {
+      "A": "Se usan para perforar materiales diversos como ladrillo, piedra, hormigón y arenisca.",
+      "B": "Se usan para perforar hierro o metales pesados.",
+      "C": "Se usan para perforar madera.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Herramientas",
+    "es_reserva": false,
+    "enunciado": "El mazo de goma sirve básicamente para:",
+    "opciones": {
+      "A": "Embaldosar/alicatar.",
+      "B": "Su uso junto con la escarpara/escoplo.",
+      "C": "No existe el mazo de goma.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 14,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería / Maquinaria y Seguridad",
+    "es_reserva": false,
+    "enunciado": "La hormigonera:",
+    "opciones": {
+      "A": "Funciona regularmente con corriente eléctrica de 220-230 voltios.",
+      "B": "Debe usarse con medidas de seguridad apropiadas.",
+      "C": "Nunca debe meterse la pala en su interior estando en funcionamiento.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Materiales de Construcción",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de los siguientes materiales se utiliza preferentemente en interiores?",
+    "opciones": {
+      "A": "Yeso - escayola.",
+      "B": "Cemento.",
+      "C": "Hormigón.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Carpintería / Herramientas",
+    "es_reserva": false,
+    "enunciado": "La barrena es una herramienta en forma:",
+    "opciones": {
+      "A": "de gancho.",
+      "B": "de formón.",
+      "C": "de T.",
+      "D": "de espátula"
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 17,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Carpintería / Herramientas",
+    "es_reserva": false,
+    "enunciado": "La gubia se usa para:",
+    "opciones": {
+      "A": "Tallar la madera.",
+      "B": "Cortar la madera.",
+      "C": "Pulir hierro.",
+      "D": "Lijar madera."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 18,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería",
+    "es_reserva": false,
+    "enunciado": "Si alguna vez explota una tubería lo más recomendable sería:",
+    "opciones": {
+      "A": "Salir corriendo.",
+      "B": "Cerrar la llave de paso.",
+      "C": "Protestar la factura del suministro de agua potable.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 19,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería / Saneamiento",
+    "es_reserva": false,
+    "enunciado": "¿Qué funciones tienen los sifones de los desagües?",
+    "opciones": {
+      "A": "La evacuación del agua.",
+      "B": "La limpieza de las tuberías.",
+      "C": "Evitar los males olores.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 20,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería / Materiales y Herramientas",
+    "es_reserva": false,
+    "enunciado": "En fontanería, ¿para qué se usa principalmente la tela esmeril?",
+    "opciones": {
+      "A": "Para pulir plástico.",
+      "B": "Para pulir mármol.",
+      "C": "Para pulir metales.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 21,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Pintura / Herramientas",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de las siguientes afirmaciones sobre la pistola de aire caliente es la correcta?",
+    "opciones": {
+      "A": "Se usa para realizar decapados térmicos.",
+      "B": "Funciona a temperatura extremadamente baja.",
+      "C": "Es una herramienta de gran tamaño y difícil transporte.",
+      "D": "Se conoce también como herramienta tirolesa."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 22,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Pintura y Acabados",
+    "es_reserva": false,
+    "enunciado": "¿Cómo se realiza un emplaste?",
+    "opciones": {
+      "A": "Se rellena la grieta y después la lavamos.",
+      "B": "Rellenamos la grieta y antes de que se seque limpiamos la superficie reparada.",
+      "C": "Se procede al lavado de la grieta, después el relleno y una vez seca la lijamos.",
+      "D": "Se ensancha la grieta, después la rellenamos y después la lavamos."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 23,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería",
+    "es_reserva": false,
+    "enunciado": "A qué llamamos sembrar:",
+    "opciones": {
+      "A": "Plantar un árbol.",
+      "B": "Recoger semillas.",
+      "C": "Plantar una semilla.",
+      "D": "Pinzar anuales."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 24,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería",
+    "es_reserva": false,
+    "enunciado": "En jardinería, para qué sirve escardar:",
+    "opciones": {
+      "A": "Para moldear arbustos.",
+      "B": "Para eliminar las malas hierbas.",
+      "C": "Para rejuvenecer árboles.",
+      "D": "Para cavar profundo."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 25,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Jardinería",
+    "es_reserva": false,
+    "enunciado": "En jardinería, son operaciones de preparación del terreno:",
+    "opciones": {
+      "A": "Pasar motocultor, desbrozar y podar.",
+      "B": "Cavar, mullir y podar.",
+      "C": "Cavar, mullir y fumigar.",
+      "D": "Cavar, desmenuzar y desbrozar."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 26,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad e Iluminación",
+    "es_reserva": false,
+    "enunciado": "El cebador de un equipo fluorescente está compuesto de un gas, ¿de qué gas se trata?",
+    "opciones": {
+      "A": "Neón.",
+      "B": "Argón.",
+      "C": "Letal.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 27,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Fontanería / Normativa",
+    "es_reserva": false,
+    "enunciado": "En fontanería, que tipo de tuberías ha sido prohibidas por la normativa europea.",
+    "opciones": {
+      "A": "Las de cobre y las de plomo.",
+      "B": "Las de cobre y las de hierro.",
+      "C": "Las de hierro y las de plomo",
+      "D": "La normativa europea no trata en ningún momento de la composición de las tuberías."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 28,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Maquinaria de Obra / Seguridad vial y laboral",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de las siguientes son características obligatorias de una carretilla mecánica dotada de caja/volqueta basculante o Dumper?",
+    "opciones": {
+      "A": "Su velocidad máxima no debe sobrepasar los 20 kh/h.",
+      "B": "El maquinista de este vehículo deberá poseer el permiso de conducir de clase B2.",
+      "C": "Está prohibido el transporte de personas.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 29,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad",
+    "es_reserva": false,
+    "enunciado": "En una instalación monofásica más toma de tierra, ¿de qué color es la toma de tierra?",
+    "opciones": {
+      "A": "Azul.",
+      "B": "Blanco.",
+      "C": "Amarillo-verde.",
+      "D": "Gris."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 30,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Soldadura",
+    "es_reserva": false,
+    "enunciado": "En una soldadura eléctrica, ¿cuáles de los siguientes son pasos a seguir en la misma?",
+    "opciones": {
+      "A": "Mantener la punta del electrodo a unos cinco milímetros de la pieza a soldar.",
+      "B": "Frotar bruscamente la punta del electrodo sobre el metal para obtener el cebado, una especie de corto-circuito.",
+      "C": "Mover el electrodo en zigzag, lenta y uniformemente para que el material fundido se deposite.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 31,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Albañilería y Estructuras",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de las siguientes características son propias de los tabiques de ladrillo y no de los muros de carga o pilares?",
+    "opciones": {
+      "A": "Son muros de pequeño espesor, habitualmente revestidos de yeso o azulejos.",
+      "B": "Sujetan el techo y el suelo que se pisa.",
+      "C": "Son muros de mayor espesor, generalmente de ladrillo, acero o hormigón.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 32,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad e Iluminación",
+    "es_reserva": false,
+    "enunciado": "Los fluorescentes cuando funcionan apenas se calientan, por éste motivo este tipo de alumbrado se conoce como de:",
+    "opciones": {
+      "A": "Luz ámbar.",
+      "B": "Luz fría.",
+      "C": "Luz ambiental.",
+      "D": "Luz incandescente."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 33,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Electricidad / Instrumentación",
+    "es_reserva": true,
+    "enunciado": "¿Qué es un Megger?",
+    "opciones": {
+      "A": "Un medidor de aislamiento de cables eléctricos.",
+      "B": "Un medidor de corriente alterna.",
+      "C": "Un voltímetro trifásico.",
+      "D": "Un magneto-térmico/diferencial."
+    },
+    "respuesta_correcta": "A"
+  }
+]

@@ -1,0 +1,283 @@
+/* ARCHIVO 2: 20251011_oficial_electricista_02_especifico.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Arqueología y prehistoria",
+    "es_reserva": false,
+    "enunciado": "¿Qué características reúne la cueva de Son Caulelles de la época pretalayótica entre los años 2000 aC y 1000 aC?",
+    "opciones": {
+      "A": "Era una cueva de origen natural destinada a vivienda.",
+      "B": "Era una cueva funeraria de origen natural.",
+      "C": "Era una cueva de origen artificial destinada a vivienda.",
+      "D": "Era una cueva funeraria de origen artificial."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Historia medieval de Mallorca",
+    "es_reserva": false,
+    "enunciado": "Según el \"Llibre del Repartiment\", después de la conquista de Mallorca, las tierras de Marratxí correspondieron:",
+    "opciones": {
+      "A": "Al Cardenal Despuig.",
+      "B": "Al Conde de la Cerdaña, Marçal Desclot.",
+      "C": "Al Vizconde de Bearn y Conde de Ampurias, Nunyo Sanç.",
+      "D": "Al Obispo de Barcelona, Berenguer de Palou."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Posesiones históricas",
+    "es_reserva": false,
+    "enunciado": "En el período comprendido entre la época medieval y la época contemporánea Marratxí era un territorio de \"grandes possessions\", ¿cuál o cuáles de las siguientes \"possessions\" históricas NO pertenecen al municipio de Marratxí?",
+    "opciones": {
+      "A": "Son Alegre.",
+      "B": "Son Cós.",
+      "C": "Son Siurana.",
+      "D": "Son Verí."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Historia y evolución de núcleos",
+    "es_reserva": false,
+    "enunciado": "En el término municipal de Marratxí, ¿Qué núcleo de población surge a partir del siglo XIX alrededor de la iglesia de Sant Llàtzer?",
+    "opciones": {
+      "A": "Sa Cabaneta.",
+      "B": "Pla de Na Tesa.",
+      "C": "Pont d'Inca.",
+      "D": "Pòrtol."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Historia institucional y sedes consistoriales",
+    "es_reserva": false,
+    "enunciado": "La Casa Consistorial del Ayuntamiento de Marratxí actualmente está situada en el núcleo de Sa Cabaneta, pero ¿dónde estuvo situada la Casa Consistorial hasta el año 1864?",
+    "opciones": {
+      "A": "Marratxinet.",
+      "B": "Pla de Na Tesa.",
+      "C": "Pont d'Inca.",
+      "D": "Pòrtol."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Geografía física y orografía",
+    "es_reserva": false,
+    "enunciado": "En el término municipal de Marratxí, ¿cuál es el lugar con la mayor elevación respecto del nivel del mar?",
+    "opciones": {
+      "A": "Turó de Bonança.",
+      "B": "Serralada de Can Parrisco.",
+      "C": "Puig de Son Seguí.",
+      "D": "Puig Blanc."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 7,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Límites municipales",
+    "es_reserva": false,
+    "enunciado": "¿Con qué municipios limita el municipio de Marratxí?",
+    "opciones": {
+      "A": "Palma, Bunyola y Santa Eugènia.",
+      "B": "Palma, Bunyola y Santa Maria del Camí.",
+      "C": "Palma, Bunyola, Algaida y Santa Maria del Camí.",
+      "D": "Palma, Bunyola, Santa Eugènia y Santa Maria del Camí."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 8,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Espacios naturales protegidos (ANEI)",
+    "es_reserva": false,
+    "enunciado": "Mediante la Ley 1/1991, de 30 de enero, de espacios naturales y de régimen urbanístico de las áreas de especial protección de las Illes Balears, en Marratxí se declara como ANEI (Área natural de especial interés):",
+    "opciones": {
+      "A": "Dunes de Son Real.",
+      "B": "Garriga de Son Caulelles.",
+      "C": "Puig Segué.",
+      "D": "Serra de Son Fe."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 9,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Hidrografía",
+    "es_reserva": false,
+    "enunciado": "¿Cómo se denomina el torrente que atraviesa todo el término municipal de Marratxí de forma diagonal y que desemboca en el Torrent Gros a la altura del Pont d'Inca?",
+    "opciones": {
+      "A": "Torrent d'Almadrà.",
+      "B": "Torrent de Can Barbarà.",
+      "C": "Torrent de Coanegra.",
+      "D": "Torrent de Sollerich."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 10,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Mancomunidades",
+    "es_reserva": false,
+    "enunciado": "¿A qué Mancomunidad de la isla de Mallorca pertenece el municipio de Marratxí?",
+    "opciones": {
+      "A": "Mancomunitat des Pla.",
+      "B": "Mancomunitat des Raiguer.",
+      "C": "Mancomunitat Nord.",
+      "D": "Mancomunitat Sud."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 11,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Patrimonio cerámico e industrial",
+    "es_reserva": false,
+    "enunciado": "¿Qué antigua alfarería, actualmente de propiedad municipal, se halla anotada en el Catálogo insular del patrimonio histórico de Mallorca?",
+    "opciones": {
+      "A": "Antigua olleria de Can Monjo Fondo.",
+      "B": "Antigua olleria de Can Palou.",
+      "C": "Antigua olleria de Can Vent.",
+      "D": "Antigua olleria de Sa Bassa."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 12,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Patronazgo y fiestas",
+    "es_reserva": false,
+    "enunciado": "¿Cuál es el patrón o patrona del municipio de Marratxí?",
+    "opciones": {
+      "A": "Sant Alonso.",
+      "B": "Sant Llàtzer.",
+      "C": "Sant Marçal.",
+      "D": "Santa Eugènia."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 13,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Centros educativos",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de Marratxí podemos encontrar las instalaciones del colegio de educación infantil y primaria CEIP Gabriel Janer Manila?",
+    "opciones": {
+      "A": "Pla de na Tesa.",
+      "B": "Pont d'Inca.",
+      "C": "Pòrtol.",
+      "D": "Sa Cabaneta."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 14,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero y patrimonio religioso menor",
+    "es_reserva": false,
+    "enunciado": "¿En qué calle del núcleo de Pòrtol podemos hallar la \"capelleta dels ollers\"?",
+    "opciones": {
+      "A": "Calle Can Palou.",
+      "B": "Calle Can Monjo Fondo.",
+      "C": "Calle Sa Torre.",
+      "D": "Calle Trinitat."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 15,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Dependencias municipales",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de Marratxí podemos encontrar las oficinas del área de Urbanismo del Ayuntamiento de Marratxí?",
+    "opciones": {
+      "A": "Pont d'Inca vell.",
+      "B": "Pòrtol.",
+      "C": "Sa Cabana.",
+      "D": "Sa Cabaneta."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 16,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Red ferroviaria y núcleos",
+    "es_reserva": false,
+    "enunciado": "¿En qué núcleo de Marratxí podemos encontrar la estación ferroviaria denominada \"Marratxí\"?",
+    "opciones": {
+      "A": "Festival Park.",
+      "B": "Es Figueral - Can Farineta.",
+      "C": "Pont d'Inca.",
+      "D": "Son Ramonell nou."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 17,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero y Casa Consistorial",
+    "es_reserva": false,
+    "enunciado": "¿En cuál de las siguientes calles del municipio de Marratxí hallarías la Casa Consistorial del Ayuntamiento de Marratxí?",
+    "opciones": {
+      "A": "Avenida Príncipes de España.",
+      "B": "Calle Major.",
+      "C": "Calle General Weyler.",
+      "D": "Camí de n'Olesa."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 18,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Callejero y bibliotecas",
+    "es_reserva": false,
+    "enunciado": "¿En cuál de las siguientes calles del municipio de Marratxí hallarías la Biblioteca municipal del Pont d'Inca?",
+    "opciones": {
+      "A": "Avenida Antonio Maura.",
+      "B": "Avenida Príncipes de España.",
+      "C": "Calle Cabana.",
+      "D": "Calle Sant Alonso."
+    },
+    "respuesta_correcta": "A"
+  },
+  {
+    "numero_original": 19,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Polígono industrial y callejero",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de las siguientes NO es una calle situada en el Polígono industrial de Marratxí?",
+    "opciones": {
+      "A": "Calle Licorers.",
+      "B": "Calle Celleters.",
+      "C": "Calle Farinera.",
+      "D": "Camí de Muntanya."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 20,
+    "tipo_temario": "especifico",
+    "materia_estimada": "Conocimientos del término / Red viaria y conexiones intermunicipales",
+    "es_reserva": false,
+    "enunciado": "¿Cuál de las siguientes calles es la más cercana al municipio de Palma de Mallorca, conectando directamente con él?",
+    "opciones": {
+      "A": "Avenida Antonio Maura.",
+      "B": "Avenida dels Garrovers.",
+      "C": "Calle Major.",
+      "D": "Calle Jaume I."
+    },
+    "respuesta_correcta": "A"
+  }
+]

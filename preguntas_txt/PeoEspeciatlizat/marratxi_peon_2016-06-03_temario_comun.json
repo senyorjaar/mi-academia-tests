@@ -1,0 +1,101 @@
+/* ARCHIVO 1: preguntas_temario_comun.json */
+[
+  {
+    "numero_original": 1,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978",
+    "es_reserva": false,
+    "enunciado": "El año de entrada en vigor de la Constitución es:",
+    "opciones": {
+      "A": "1975",
+      "B": "1977",
+      "C": "1978",
+      "D": "1980"
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 2,
+    "tipo_temario": "comun",
+    "materia_estimada": "Constitución Española de 1978",
+    "es_reserva": false,
+    "enunciado": "Según la Constitución el Senado es:",
+    "opciones": {
+      "A": "Un órgano sustituto del Parlamento.",
+      "B": "Una cámara de representación territorial.",
+      "C": "Un órgano que no tiene cometido específico.",
+      "D": "Un órgano cuyos miembros se eligen exclusivamente por los parlamentos de las Comunidades Autónomas."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 3,
+    "tipo_temario": "comun",
+    "materia_estimada": "Régimen Local (LRBRL)",
+    "es_reserva": false,
+    "enunciado": "Según la Ley Reguladora de las Bases del Régimen Local la población del municipio de Marratxí está formada por:",
+    "opciones": {
+      "A": "Todas las personas que viven en la isla de Mallorca.",
+      "B": "Todas las personas que viven en el término municipal de Marratxí inscritas en el padró municipal de habitantes del Ayuntamiento de Marratxí.",
+      "C": "Todas las personas que viven en el término municipal de Marratxí independientemente de si figuran inscritas o no en el padrón municipal de habitantes del Ayuntamiento de Marratxí.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "B"
+  },
+  {
+    "numero_original": 4,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP",
+    "es_reserva": false,
+    "enunciado": "El personal al servicio de las Administraciones públicas puede ser:",
+    "opciones": {
+      "A": "Funcionario de carrera.",
+      "B": "Funcionario interino.",
+      "C": "Personal laboral.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 5,
+    "tipo_temario": "comun",
+    "materia_estimada": "Función Pública / TREBEP",
+    "es_reserva": false,
+    "enunciado": "¿Cuáles de los siguientes son derechos del personal laboral al servicio de la Administración?",
+    "opciones": {
+      "A": "Libre sindicación.",
+      "B": "Ocupación efectiva de la plaza o puesto de trabajo.",
+      "C": "Reunión.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "respuesta_correcta": "D"
+  },
+  {
+    "numero_original": 6,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales",
+    "es_reserva": false,
+    "enunciado": "Cuál de los siguientes es un principio general y una obligación de los trabajadores contenida en la normativa de prevención de riesgos laborales:",
+    "opciones": {
+      "A": "Los trabajadores pueden optar en cualquier caso por no utilizar los elementos de autoprotección recogidos en la normativa de aplicación.",
+      "B": "Los trabajadores pueden decidir libremente como y en qué condiciones puede utilizarse la maquinaria que tiene a su disposición.",
+      "C": "Los trabajadores deben velar por su propia seguridad y salud en el trabajo.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "C"
+  },
+  {
+    "numero_original": 7,
+    "tipo_temario": "comun",
+    "materia_estimada": "Prevención de Riesgos Laborales",
+    "es_reserva": false,
+    "enunciado": "Es una obligación del empresario en materia de prevención de riesgos laborales:",
+    "opciones": {
+      "A": "Proporcionar a sus trabajadores equipos de protección individual adecuados al desempeño de sus funciones.",
+      "B": "Proporcionar anualmente a sus trabajadores una cesta como aguinaldo navideño.",
+      "C": "Conceder a sus trabajadores los días de libranza que le soliciten sin límite alguno.",
+      "D": "Ninguna de las respuestas anteriores es correcta."
+    },
+    "respuesta_correcta": "A"
+  }
+]
