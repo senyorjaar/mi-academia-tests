@@ -17,7 +17,7 @@
             padding: 20px;
         }
         .contenedor {
-            max-width: 1200px;
+            max-width: 1250px;
             margin: 0 auto;
         }
         /* BARRA SUPERIOR */
@@ -128,7 +128,7 @@
             margin-bottom: 20px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         .linea-filtro {
             display: flex;
@@ -155,6 +155,7 @@
         }
         .btn-f:hover { border-color: #2563eb; color: #2563eb; }
         .btn-f.activo { background-color: #2563eb; color: #ffffff; border-color: #2563eb; }
+        .btn-f-isla.activo { background-color: #0891b2; color: #ffffff; border-color: #0891b2; }
         .btn-f-escala.activo { background-color: #0f172a; color: #ffffff; border-color: #0f172a; }
 
         /* TABLA */
@@ -184,6 +185,20 @@
         }
         tr:hover td { background-color: #f8fafc; }
         
+        /* INSIGNIAS DE ISLA */
+        .badge-isla {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .isla-mallorca { background-color: #e0f2fe; color: #0369a1; }
+        .isla-menorca { background-color: #fef3c7; color: #92400e; }
+        .isla-eivissa { background-color: #fce7f3; color: #9d174d; }
+        .isla-formentera { background-color: #dcfce7; color: #166534; }
+
         .badge-escala {
             display: inline-block;
             padding: 3px 8px;
@@ -261,15 +276,26 @@
 
         <!-- FILTROS RÁPIDOS -->
         <div class="zona-filtros">
+            <!-- FILTRO POR ISLA -->
             <div class="linea-filtro">
-                <span class="etiqueta-f">Ámbito:</span>
+                <span class="etiqueta-f">🏝️ Isla:</span>
+                <button class="btn-f btn-f-isla activo" onclick="filtrarIsla('todas', this)">Todas las Islas</button>
+                <button class="btn-f btn-f-isla" onclick="filtrarIsla('Mallorca', this)">Mallorca</button>
+                <button class="btn-f btn-f-isla" onclick="filtrarIsla('Menorca', this)">Menorca</button>
+                <button class="btn-f btn-f-isla" onclick="filtrarIsla('Eivissa', this)">Eivissa</button>
+                <button class="btn-f btn-f-isla" onclick="filtrarIsla('Formentera', this)">Formentera</button>
+            </div>
+            <!-- FILTRO POR ÁMBITO -->
+            <div class="linea-filtro">
+                <span class="etiqueta-f">🏛️ Ámbito:</span>
                 <button class="btn-f activo" onclick="filtrarAmbito('todos', this)">Todos</button>
                 <button class="btn-f" onclick="filtrarAmbito('Municipal', this)">Municipales</button>
                 <button class="btn-f" onclick="filtrarAmbito('Insular', this)">Insulares</button>
                 <button class="btn-f" onclick="filtrarAmbito('Autonómica', this)">Autonómicos</button>
             </div>
+            <!-- FILTRO POR ESCALA TREBEP -->
             <div class="linea-filtro">
-                <span class="etiqueta-f">Escala:</span>
+                <span class="etiqueta-f">🎓 Escala:</span>
                 <button class="btn-f btn-f-escala activo" onclick="filtrarEscala('TODAS', this)">Todas</button>
                 <button class="btn-f btn-f-escala" onclick="filtrarEscala('AP', this)">AP (Peones / Servicios)</button>
                 <button class="btn-f btn-f-escala" onclick="filtrarEscala('C2', this)">C2 (Oficiales / Auxiliares)</button>
@@ -286,12 +312,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 42%;">Convocatoria / Puesto</th>
-                        <th style="width: 20%;">Organismo Convocante</th>
-                        <th style="width: 10%;">Ámbito</th>
+                        <th style="width: 38%;">Convocatoria / Puesto</th>
+                        <th style="width: 22%;">Organismo Convocante</th>
+                        <th style="width: 10%;">Isla</th>
                         <th style="width: 10%;">Escala</th>
                         <th style="width: 8%;">Fecha</th>
-                        <th style="width: 10%;">Documentación</th>
+                        <th style="width: 12%;">Documentación</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpoTabla">
@@ -303,6 +329,7 @@
 </div>
 
 <script>
+    let islaActual = 'todas';
     let ambitoActual = 'todos';
     let escalaActual = 'TODAS';
 
@@ -315,6 +342,7 @@
             const q = document.getElementById('txtBuscar').value.trim();
             const params = new URLSearchParams({
                 dias: 365,
+                isla: islaActual,
                 ambito: ambitoActual,
                 escala: escalaActual
             });
@@ -328,10 +356,10 @@
 
             const data = await res.json();
             const lista = data.datos || [];
-            contador.textContent = `${lista.length} ${lista.length === 1 ? 'convocatoria' : 'convocatorias'}`;
+            contador.textContent = `${lista.length} ${lista.length === 1 ? 'proceso nuevo' : 'procesos nuevos'}`;
 
             if (lista.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="mensaje-aviso">ℹ️ No hay convocatorias que coincidan con los filtros aplicados.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="6" class="mensaje-aviso">ℹ️ No hay procesos nuevos con los filtros seleccionados.</td></tr>`;
                 return;
             }
 
@@ -339,11 +367,13 @@
             lista.forEach(item => {
                 const puesto = item.titulo || "Convocatoria pública";
                 const org = item.organismo || "Administración";
-                const amb = item.ambito || "Municipal";
+                const isla = item.isla || "Mallorca";
                 const esc = item.escala || "S/E";
                 const fecha = item.fecha || "-";
                 const urlHtml = item.enlace || "#";
                 const urlPdf = item.enlace_pdf || "";
+
+                const claseIsla = `isla-${isla.toLowerCase()}`;
 
                 let pdfBoton = "";
                 if (urlPdf && urlPdf !== "#") {
@@ -354,7 +384,7 @@
                     <tr>
                         <td><strong>${puesto}</strong></td>
                         <td>${org}</td>
-                        <td>${amb}</td>
+                        <td><span class="badge-isla ${claseIsla}">${isla}</span></td>
                         <td><span class="badge-escala badge-${esc}">${esc}</span></td>
                         <td>${fecha}</td>
                         <td>
@@ -396,8 +426,15 @@
         }
     }
 
+    function filtrarIsla(isla, btn) {
+        document.querySelectorAll('.btn-f-isla').forEach(b => b.classList.remove('activo'));
+        btn.classList.add('activo');
+        islaActual = isla;
+        cargarConvocatorias();
+    }
+
     function filtrarAmbito(ambito, btn) {
-        document.querySelectorAll('.linea-filtro:first-child .btn-f').forEach(b => b.classList.remove('activo'));
+        document.querySelectorAll('.linea-filtro:nth-child(2) .btn-f').forEach(b => b.classList.remove('activo'));
         btn.classList.add('activo');
         ambitoActual = ambito;
         cargarConvocatorias();

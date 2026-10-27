@@ -1,6 +1,6 @@
 # =====================================================================
 # ARCHIVO: server_boib.py
-# FUNCIÓN: Servidor web central, autenticación persistente, API BOIB y motor de tests
+# FUNCIÓN: Servidor web central, autenticación persistente, API BOIB con soporte de Isla
 # TECNOLOGÍAS: Python 3 (http.server nativo), SQLite3, Cookies HTTP
 # =====================================================================
 
@@ -28,7 +28,7 @@ def obtener_db_conexion():
     return con
 
 def inicializar_tabla_sesiones():
-    """Crea la tabla de sesiones persistente en SQLite para evitar caídas de login en Render."""
+    """Crea la tabla de sesiones persistente en SQLite."""
     with obtener_db_conexion() as con:
         cursor = con.cursor()
         cursor.execute("""
@@ -147,15 +147,16 @@ class ServidorAcademiaHandler(SimpleHTTPRequestHandler):
             self.end_headers()
             return
 
-        # API: Buscador de convocatorias BOIB
+        # API: Buscador de convocatorias BOIB con filtro de isla
         elif ruta == "/api/buscar":
             if not self.usuario_autenticado():
                 self.responder_json({"error": "No autorizado"}, codigo=401)
                 return
 
-            dias = int(query.get("dias", ["30"])[0])
+            dias = int(query.get("dias", ["365"])[0])
             ambito = query.get("ambito", ["todos"])[0].strip()
             escala = query.get("escala", ["TODAS"])[0].strip()
+            isla_filtro = query.get("isla", ["todas"])[0].strip()
             texto_q = query.get("q", [""])[0].strip()
 
             condiciones = []
@@ -173,6 +174,10 @@ class ServidorAcademiaHandler(SimpleHTTPRequestHandler):
                 condiciones.append("LOWER(COALESCE(escala, 'S/E')) = LOWER(?)")
                 parametros.append(escala)
 
+            if isla_filtro.lower() != "todas":
+                condiciones.append("LOWER(COALESCE(isla, 'Mallorca')) = LOWER(?)")
+                parametros.append(isla_filtro)
+
             if texto_q:
                 condiciones.append("(titulo LIKE ? OR organismo LIKE ?)")
                 parametros.append(f"%{texto_q}%")
@@ -187,6 +192,7 @@ class ServidorAcademiaHandler(SimpleHTTPRequestHandler):
                        COALESCE(enlace_pdf, '') as enlace_pdf, 
                        COALESCE(escala, 'S/E') as escala, 
                        COALESCE(ambito, 'Municipal') as ambito, 
+                       COALESCE(isla, 'Mallorca') as isla,
                        COALESCE(strftime('%d/%m/%Y', fecha_registro), substr(fecha_registro, 1, 10), 'Reciente') as fecha
                 FROM edictos_boib
                 {clausula_where}
@@ -340,7 +346,7 @@ class ServidorAcademiaHandler(SimpleHTTPRequestHandler):
             if botBuscadorOposiciones and hasattr(botBuscadorOposiciones, "buscar_novedades_reales_boib"):
                 try:
                     total = botBuscadorOposiciones.buscar_novedades_reales_boib()
-                    self.responder_json({"exito": True, "mensaje": f"Sincronización completada. Se procesaron {total} convocatorias."})
+                    self.responder_json({"exito": True, "mensaje": f"Sincronización completada. Se procesaron {total} procesos nuevos."})
                 except Exception as e:
                     self.responder_json({"exito": False, "mensaje": f"Error durante la sincronización: {e}"}, codigo=500)
             else:
